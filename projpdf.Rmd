@@ -1,43 +1,26 @@
 ---
 title: "The Importance of Summary Statistics and Techniques for Creating Them in R"
 shorttitle: "Summary Statistics and Techniques in R"
-author:
-  - name: "Jelin George"
-    corresponding: true
-    email: george.jelin@stud-hs.fresenius.de
-    affiliations:
-      - name: "Hochschule Fresenius - University of Applied Science"
-        department: "International Management, M.A."
-matriculation: "400826617"
-course: "Data Analysis for Decision-Making"
-professor: "Prof. Dr. Stephan Huber"
-date: today
-date-format: long
-author-note:
-  status-changes: 
-    affiliation-change: ~
-    deceased: ~
-  disclosures:
-    study-registration: ~
-    data-sharing: ~
-    related-report: ~
-    conflict-of-interest: ~
-    financial-support: ~
-    gratitude: ~
-    authorship-agreements: ~
-abstract: "This document presents a concise overview of summary statistics and their importance in R. Summary statistics - such as mean, median, standard deviation, and frequency counts - capture the key features of a dataset, enabling quick exploration and interpretation. R provides powerful functions and visualization tools to efficiently compute and present these statistics, making them essential for simplifying data, identifying patterns, and supporting informed analysis and decision-making."
-keywords: [summary statistics, R programming, data analysis, data visualisation, data summarisation]
+author: "Jelin George"
+affiliation: "International Management, M.A., Hochschule Fresenius"
 bibliography: bibliography.bib
 link-citations: true
-csl: "https://www.zotero.org/styles/apa"
-output:
-  html_document:
-    toc: true
-    number_sections: true
-    css: apa.css
+csl: apa.csl
+output: pdf_document
+number-sections: true
+
 ---
 
-<br> <!-- The introduction should not have a level-1 heading such as Introduction. --> Summary statistics are concise numerical measures that capture the essential characteristics of a dataset. They serve as foundational tools in data analysis, providing concise descriptions of large datasets. They help analysts and researchers understand the central tendencies, variability, and overall distribution of data, making complex datasets interpretable and actionable. Without summary statistics, raw data would be overwhelming and difficult to interpret, making it challenging to draw meaningful conclusions or communicate findings effectively.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Abstract
+This document presents a concise overview of summary statistics and their importance in R. Summary statistics - such as mean, median, standard deviation, and frequency counts - capture the key features of a dataset, enabling quick exploration and interpretation. R provides powerful functions and visualization tools to efficiently compute and present these statistics, making them essential for simplifying data, identifying patterns, and supporting informed analysis and decision-making."
+keywords: [summary statistics, R programming, data analysis, data visualisation, data summarisation]
+
+# Introduction
+Summary statistics are concise numerical measures that capture the essential characteristics of a dataset. They serve as foundational tools in data analysis, providing concise descriptions of large datasets. They help analysts and researchers understand the central tendencies, variability, and overall distribution of data, making complex datasets interpretable and actionable. Without summary statistics, raw data would be overwhelming and difficult to interpret, making it challenging to draw meaningful conclusions or communicate findings effectively.
 
 In R, summary statistics are foundational for data analysis, enabling users to efficiently condense complex data into interpretable values like the mean, median, mode, standard deviation, and quantiles. These statistics provide a snapshot of the data, facilitating initial exploration, quality checks, and communication of results.
 
@@ -141,7 +124,7 @@ As shown below, the distribution is centered around 4.
 
 #| label: fig-histogram
 #| fig-cap: "Histogram of the data"
-hist(data, main="Histogram of Data", col = "grey")
+hist(data, main="Figure1Histogram of Data", col = "grey")
 
 
 <br>
@@ -467,3 +450,5 @@ A concise description of the successful use of Git and GitHub, as detailed here:
 The link to the presentation and the handout published on GitHub.
 
 Jelin George, 28May2025, Cologne
+
+
