@@ -1,0 +1,556 @@
+\documentclass[
+  man,
+  floatsintext,
+  longtable,
+  nolmodern,
+  notxfonts,
+  notimes,
+  colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{apa7}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+
+\usepackage[bidi=default]{babel}
+\babelprovide[main,import]{american}
+
+
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+\RequirePackage{longtable}
+\RequirePackage{threeparttablex}
+
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+	{0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+	{-.5em}%
+	{\normalfont\normalsize\bfseries\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{0.5em}%
+	{0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+	{-\z@\relax}%
+	{\normalfont\normalsize\bfseries\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
+
+
+
+\usepackage{longtable, booktabs, multirow, multicol, colortbl, hhline, caption, array, float, xpatch}
+\usepackage{subcaption}
+\renewcommand\thesubfigure{\Alph{subfigure}}
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\floatpagefraction}{0.7}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{listings,theorems, breakable, skins}
+\usepackage{fontawesome5}
+
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{ACACAC}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582EC}
+\definecolor{quarto-callout-important-color-frame}{HTML}{D9534F}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{F0AD4E}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02B875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{FD7E14}
+
+%\newlength\Oldarrayrulewidth
+%\newlength\Oldtabcolsep
+
+
+\usepackage{hyperref}
+
+
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+
+
+
+
+\usepackage{newtx}
+
+\defaultfontfeatures{Scale=MatchLowercase}
+\defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+
+
+
+
+
+\title{The Importance of Summary Statistics and Techniques for Creating
+Them in R}
+
+
+\shorttitle{Summary Statistics and Techniques in R}
+
+
+\usepackage{etoolbox}
+
+
+
+
+
+
+\author{Jelin George}
+
+
+
+\affiliation{
+{Hochschule Fresenius - University of Applied Science}}
+
+
+
+
+\leftheader{George}
+
+
+
+\abstract{This document presents a concise overview of summary
+statistics and their importance in R. Summary statistics - such as mean,
+median, standard deviation, and frequency counts - capture the key
+features of a dataset, enabling quick exploration and interpretation. R
+provides powerful functions and visualization tools to efficiently
+compute and present these statistics, making them essential for
+simplifying data, identifying patterns, and supporting informed analysis
+and decision-making. }
+
+\keywords{summary statistics, R programming, data analysis, data
+visualisation, data summarisation}
+
+\authornote{\par{\addORCIDlink{Jelin George}{0000-0000-0000-0001}} 
+\par{ }
+\par{   The authors have no conflicts of interest to disclose.    }
+\par{Correspondence concerning this article should be addressed to Jelin
+George, Email: \href{mailto:george.jelin@stud-hs.fresenius.de}{george.jelin@stud-hs.fresenius.de}}
+}
+
+\makeatletter
+\let\endoldlt\endlongtable
+\def\endlongtable{
+\hline
+\endoldlt
+}
+\makeatother
+
+\urlstyle{same}
+
+
+
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+% From https://tex.stackexchange.com/a/645996/211326
+%%% apa7 doesn't want to add appendix section titles in the toc
+%%% let's make it do it
+\makeatletter
+\xpatchcmd{\appendix}
+  {\par}
+  {\addcontentsline{toc}{section}{\@currentlabelname}\par}
+  {}{}
+\makeatother
+
+%% Disable longtable counter
+%% https://tex.stackexchange.com/a/248395/211326
+
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\LT@caption}
+  {\bgroup}
+  {\bgroup\global\LTpatch@captiontrue}
+  {}{}
+\patchcmd{\longtable}
+  {\par}
+  {\par\global\LTpatch@captionfalse}
+  {}{}
+\apptocmd{\endlongtable}
+  {\ifLTpatch@caption\else\addtocounter{table}{-1}\fi}
+  {}{}
+\newif\ifLTpatch@caption
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\hypertarget{toc}{}
+\tableofcontents
+\newpage
+\section[Introduction]{The Importance of Summary Statistics and
+Techniques for Creating Them in R}
+
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\setlength\LTleft{0pt}
+
+
+Summary statistics are numerical values that describe the main features
+of a dataset, such as its center and spread. They simplify complex data
+into easily interpretable numbers, offering quick insights into trends
+and variability, and serve as a foundation for further analysis. These
+statistics provide a snapshot of the data, facilitating initial
+exploration, quality checks, and communication of results.
+
+R offers a rich ecosystem of functions and packages - such as summary(),
+dplyr::summarise(), and visualization tools like histograms and boxplots
+- that streamline the computation and presentation of summary statistics
+for both numeric and categorical data. Their importance lies in
+simplifying large datasets, revealing patterns and outliers, and laying
+the groundwork for deeper statistical analyses and informed
+decision-making.
+
+As the first and often most critical step in any analytical workflow,
+summary statistics in R empower analysts and researchers to understand,
+compare, and communicate data-driven insights with clarity and
+precision.
+
+Summary statistics can be typically divided into:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Descriptive statistics}: Summarize the main features of a
+  dataset (e.g., mean, median, mode). \emph{This will be our focus
+  here.}
+\item
+  \textbf{Inferential statistics}: Make predictions or inferences about
+  a population based on a sample (not the focus here).
+\end{enumerate}
+
+I would like to highlight a book, \emph{Making sense of statistics: A
+conceptual overview}, (\citeproc{ref-oh2023making}{Oh \& Pyrczak, 2023})
+which offers a clear and accessible introduction to key statistical
+concepts for beginners. The book focuses on building conceptual
+understanding of both descriptive and inferential statistics, using
+simple explanations, practical examples, and step-by-step guidance. It
+is designed to help students from any discipline gain confidence in
+applying statistics to research and interpreting data effectively.
+
+\newpage
+
+\section{Key Measures in Summary
+Statistics}\label{key-measures-in-summary-statistics}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Measures of Central Tendency}: Central tendency measures
+  indicate where most values in a dataset fall.
+\item
+  \textbf{Measures of Dispersion}: Dispersion measures describe the
+  spread of data.
+\item
+  \textbf{Measures of Shape and Distribution}: Describe the overall
+  pattern and characteristics of how data values are distributed within
+  a dataset.
+\item
+  \textbf{Visualization tools}: Histogram and boxplot are tools to help
+  understand distribution of data better.
+\item
+  \textbf{Frequency table}: It shows how often each value or category
+  appears in a dataset, making it easy to spot common or rare values and
+  summarize the data.
+\item
+  \textbf{Cross-tabulations} (contingency tables): It shows how two or
+  more categorical variables are related by displaying the count of
+  observations for each combination of categories.
+\end{itemize}
+
+Watch this
+\href{https://www.youtube.com/watch?v=yoPGwvUzjgQ}{\textbf{tutorial
+video}} on descriptive statistics in R to get you started.
+
+\vspace{1cm}
+
+\section{Summarizing Data Frames}\label{summarizing-data-frames}
+
+We can summarize entire datasets by calculating statistics like mean,
+median, minimum, maximum, standard deviation, and counts for each
+variable. This provides a clear overview of the data's structure and key
+features.
+
+Practical application: Apply summary statistics functions to the Star
+Wars dataset. Use functions such as summary(), mean(), median(), sd(),
+and others to explore key variables like height, mass, and age. This
+will help you quickly understand the central tendencies, variability,
+and distribution patterns within the Star Wars data frame.
+
+Furthermore, read
+\href{https://modernstatisticswithr.com/index.html}{Modern Statistics
+with R} to understand essential tools and techniques in contemporary
+statistical data analysis, using the R programming language. The book
+features numerous examples and over 200 exercises with worked solutions.
+The online version is freely available and regularly updated, with
+downloadable datasets for hands-on learning
+
+\vspace{1cm}
+
+\section{Limitations}\label{limitations}
+
+The future of summary statistics is shaped by growing data complexity,
+computational advances, and artificial intelligence. As noted in
+(\citeproc{ref-oscgarden2023bootstrapping}{Garden, 2023}), summary
+statistics are increasingly combined with methods like bootstrapping and
+machine learning to handle complex data. AI is automating and
+personalizing summaries (\citeproc{ref-datatas2025future}{Datatas,
+2025}), while enhanced visual tools make data exploration more intuitive
+(\citeproc{ref-potter2010visualizing}{Potter et al., 2010}).
+(\citeproc{ref-fan2014challenges}{Fan et al., 2014}) highlight the need
+for new frameworks to address big data challenges, and
+(\citeproc{ref-gelman2024stat50}{Gelman \& Vehtari, 2024}) emphasize
+ongoing methodological innovation.
+
+In sum, summary statistics are evolving into dynamic, automated tools
+essential for understanding large and complex datasets.
+
+\newpage
+
+\section{Conclusion}\label{conclusion}
+
+Summary statistics are fundamental to any data analysis process, serving
+as the essential first step in understanding and interpreting datasets.
+In R, summary statistics provide a concise overview of data
+distributions, central tendencies, and variability, enabling analysts to
+quickly assess data quality, detect anomalies, and guide subsequent
+analytical decisions. The flexibility and power of R-through core
+functions like summary(), mean(), sd(), and packages such as dplyr, to
+efficiently compute and customize statistical summaries for both
+ungrouped and grouped data.
+
+According to (\citeproc{ref-lane2013descriptive}{Lane, 2013}), using R's
+tools to automate calculations of summary statistics-such as mean,
+median, standard deviation, range, and percentiles-enables users to
+efficiently produce both overall and group-wise summaries. This not only
+streamlines exploratory data analysis but also establishes a strong
+basis for advanced statistical modeling and hypothesis testing. As Lane
+emphasizes, mastering summary statistics in R allows analysts to extract
+meaningful insights, make better decisions, and clearly communicate
+results across various fields of research and business analytics.
+
+\newpage
+
+\section{References}\label{references}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-datatas2025future}
+Datatas. (2025, April 14). \emph{The future of AI-generated data
+summarization for large reports}.
+\url{https://datatas.com/the-future-of-ai-generated-data-summarization-for-large-reports/}
+
+\bibitem[\citeproctext]{ref-fan2014challenges}
+Fan, J., Han, F., \& Liu, H. (2014). Challenges of big data analysis.
+\emph{National Science Review}, \emph{1}(2), 293--314.
+\url{https://doi.org/10.1093/nsr/nwt032}
+
+\bibitem[\citeproctext]{ref-oscgarden2023bootstrapping}
+Garden, O. (2023, November 27). \emph{The 8 most important statistical
+ideas: Bootstrapping and simulation-based inference}.
+\url{https://osc.garden/blog/bootstrapping-and-simulation-based-inference/}
+
+\bibitem[\citeproctext]{ref-gelman2024stat50}
+Gelman, A., \& Vehtari, A. (2024). \emph{What are the most important
+statistical ideas of the past 50 years?}
+\url{https://www.stat.columbia.edu/~gelman/research/unpublished/stat50.pdf}
+
+\bibitem[\citeproctext]{ref-lane2013descriptive}
+Lane, D. M. (2013). Descriptive statistics. In \emph{Introduction to
+statistics}. Rice University.
+\url{https://onlinestatbook.com/2/introduction/descriptive.html}
+
+\bibitem[\citeproctext]{ref-oh2023making}
+Oh, D. M., \& Pyrczak, F. (2023). \emph{Making sense of statistics: A
+conceptual overview}. Routledge.
+
+\bibitem[\citeproctext]{ref-potter2010visualizing}
+Potter, K., Kniss, J., Riesenfeld, R., \& Johnson, C. R. (2010).
+Visualizing summary statistics and uncertainty. \emph{Computer Graphics
+Forum}, \emph{29}(3), 823--832.
+\url{https://www.sci.utah.edu/~kpotter/publications/potter-2010-VSSU.pdf}
+
+\end{CSLReferences}
+
+\newpage
+
+\section{Affadative}\label{affadative}
+
+I hereby affirm that this submitted paper was authored unaided and
+solely by me. Additionally, no other sources than those in the reference
+list were used. Parts of this paper, including tables and figures, that
+have been taken either verbatim or analogously from other works have in
+each case been properly cited with regard to their origin and
+authorship. This paper either in parts or in its entirety, be it in the
+same or similar form, has not been submitted to any other examination
+board and has not been published.
+
+I acknowledge that the university may use plagiarism detection software
+to check my thesis. I agree to cooperate with any investigation of
+suspected plagiarism and to provide any additional information or
+evidence requested by the university.
+
+Checklist:
+
+\begin{itemize}
+\tightlist
+\item[$\square$]
+  The handout contains 3-5 pages of text.
+\item[$\square$]
+  The submission contains the Quarto file of the handout.
+\item[$\square$]
+  The submission contains the Quarto file of the presentation.
+\item[$\square$]
+  The submission contains the HTML file of the handout.
+\item[$\square$]
+  The submission contains the HTML file of the presentation.
+\item[$\square$]
+  The submission contains the PDF file of the handout.
+\item[$\square$]
+  The submission contains the PDF file of the presentation.
+\item[$\boxtimes$]
+  The title page of the presentation and the handout contain personal
+  details (name, email, matriculation number).
+\item[$\square$]
+  The handout contains a abstract.
+\item[$\square$]
+  The presentation and the handout contain a bibliography, created using
+  BibTeX with APA citation style.
+\item[$\square$]
+  Either the handout or the presentation contains R code that proof the
+  expertise in coding.
+\item[$\square$]
+  The handout includes an introduction to guide the reader and a
+  conclusion summarizing the work and discussing potential further
+  investigations and readings, respectively.
+\item[$\square$]
+  All significant resources used in the report and R code development.
+\item[$\square$]
+  The filled out Affidavit.
+\item[$\square$]
+  A concise description of the successful use of Git and GitHub, as
+  detailed here: \url{https://github.com/hubchev/make_a_pull_request}.
+\item[$\square$]
+  The link to the presentation and the handout published on GitHub.
+\end{itemize}
+
+Jelin George, 28May2025, Cologne
+
+
+
+
+
+
+\end{document}

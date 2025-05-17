@@ -36,7 +36,6 @@ format:
     theme: cosmo
     echo: true
     css: styles.css
-  
   apaquarto-typst: default
   apaquarto-pdf:
     geometry: 
@@ -61,9 +60,7 @@ In this document, we will:
 
 -   Demonstrate practical application with code
 
--   Discuss best practices and common pitfalls
-
-------------------------------------------------------------------------
+-   Discuss best practices and common pitfalls.
 
 # What is Summary Statistics?
 
@@ -372,11 +369,13 @@ Let's look at a visual pattern of the height of different characters in Star War
 library(dplyr)
 library(ggplot2)
 
+#| label: fig-histogram
+#| fig-cap: "**Figure 1**  Histogram of height of characters in Star Wars."
+
 starwars %>%
   ggplot(aes(x = height)) +
   geom_histogram(binwidth = 10, fill = "navy", color = "blue") +
   labs(
-    title = "Fig1. Histogram of Height of Characters in Star Wars",
     x = "Height (cm)",
     y = "Count"
   ) +
@@ -386,19 +385,22 @@ starwars %>%
 Now, we filter the species to get visual pattern of the height of different *human* characters in Star Wars.
 
 ```{r}
+
+#| label: fig-hist-human
+#| fig-cap: "**Figure 2**  Histogram of height of human characters in Star Wars."
+ 
 starwars %>%
   filter(species == "Human") %>%
   ggplot(aes(x = height)) +
   geom_histogram(binwidth = 10, fill = "navy", color = "blue") +
   labs(
-    title = "Fig2. Histogram of Height of Human Characters in Star Wars",
     x = "Height (cm)",
     y = "Count"
   ) +
   theme_minimal()
 ```
 
-<br>
+<br> <br>
 
 # Limitations
 
@@ -420,7 +422,7 @@ In summary, while summary statistics are valuable for initial data exploration, 
 
 Sources: [@wienclaw2009misuse] [@wienclaw2017hypothesis]
 
-<br>
+<br> <br>
 
 # Future Direction
 
@@ -442,7 +444,7 @@ In Summary The future of summary statistics lies in their evolution from simple 
 
 Other Sources: [@fan2014challenges] [@wang2016statistical]
 
-<br>
+<br> <br>
 
 # Conclusion
 
@@ -459,9 +461,7 @@ By leveraging these tools, R users can automate the calculation of key metrics s
 ::: {#refs}
 :::
 
-# This Section Is an Appendix {#apx-a}
-
-# Another Appendix {#apx-b}
+<br> <br>
 
 # Affadative
 
