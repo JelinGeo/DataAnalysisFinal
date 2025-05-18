@@ -165,7 +165,7 @@ div.csl-indent {
 </section>
 <section id="firstheader" class="level1 title unnumbered unlisted">
 <h1 class="title unnumbered unlisted">The Importance of Summary Statistics and Techniques for Creating Them in R</h1>
-<p><em>Summary statistics</em> are concise numerical measures that capture the essential characteristics of a dataset. They serve as foundational tools in data analysis, providing concise descriptions of large datasets. They help analysts and researchers understand the central tendencies, variability, and overall distribution of data, making complex datasets interpretable and actionable. Without summary statistics, raw data would be overwhelming and difficult to interpret, making it challenging to draw meaningful conclusions or communicate findings effectively.</p>
+<p>Summary statistics are concise numerical measures that capture the essential characteristics of a dataset. They serve as foundational tools in data analysis, providing concise descriptions of large datasets. They help analysts and researchers understand the central tendencies, variability, and overall distribution of data, making complex datasets interpretable and actionable. Without summary statistics, raw data would be overwhelming and difficult to interpret, making it challenging to draw meaningful conclusions or communicate findings effectively.</p>
 <p>In R, summary statistics are foundational for data analysis, enabling users to efficiently condense complex data into interpretable values like the mean, median, mode, standard deviation, and quantiles. These statistics provide a snapshot of the data, facilitating initial exploration, quality checks, and communication of results.</p>
 <p>In this document, we will:</p>
 <ul>
@@ -187,9 +187,10 @@ div.csl-indent {
 <li><p><strong>Descriptive statistics</strong>: Summarize the main features of a dataset (e.g., mean, median, mode). <em>This will be our focus here.</em></p></li>
 <li><p><strong>Inferential statistics</strong>: Make predictions or inferences about a population based on a sample (not the focus here).</p></li>
 </ol>
-<p><em>Making sense of statistics: A conceptual overview</em>, <span class="citation" data-cites="oh2023making">(<a href="#ref-oh2023making" role="doc-biblioref">Oh &amp; Pyrczak, 2023</a>)</span> offers a clear and accessible introduction to key statistical concepts for beginners. The book focuses on building conceptual understanding of both descriptive and inferential statistics, using simple explanations, practical examples, and step-by-step guidance. It is designed to help students from any discipline gain confidence in applying statistics to research and interpreting data effectively.</p>
+<p>I would like to highlight a book, <em>Making sense of statistics: A conceptual overview</em>, <span class="citation" data-cites="oh2023making">(<a href="#ref-oh2023making" role="doc-biblioref">Oh &amp; Pyrczak, 2023</a>)</span> which offers a clear and accessible introduction to key statistical concepts for beginners. The book focuses on building conceptual understanding of both descriptive and inferential statistics, using simple explanations, practical examples, and step-by-step guidance. It is designed to help students from any discipline gain confidence in applying statistics to research and interpreting data effectively.</p>
 <p>Watch this <a href="https://www.youtube.com/watch?v=yoPGwvUzjgQ"><strong>tutorial video</strong></a> on descriptive statistics in R to get you started.</p>
 <div style="page-break-after: always;"></div>
+<p><br></p>
 </section>
 <section id="key-measures-in-summary-statistics" class="level1">
 <h1>Key Measures in Summary Statistics</h1>
@@ -280,7 +281,6 @@ div.csl-indent {
 <ul>
 <li><strong>Histogram</strong>: It displays how data values are distributed across different intervals in patterns like bell-shaped (normal), J-shaped, or skewed distributions, as well as spot outlines and the overall spread of the data.</li>
 </ul>
-<p>As shown below, the distribution is centered around 4.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This histogram shows the distribution in the example we set previously.</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -295,6 +295,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
+<p>As seen above, the distribution is centered around 4.</p>
 <ul>
 <li><strong>Boxplot</strong>: A graphical tool that visually summarizes the distribution, central tendency, spread, and skewness of numerical data using the five-number summary: minimum, first quartile (Q1), median, third quartile (Q3), and maximum.</li>
 </ul>
@@ -384,6 +385,7 @@ category     F     M
 </div>
 </div>
 <div style="page-break-after: always;"></div>
+<p><br></p>
 </section>
 </section>
 <section id="summarizing-data-frames" class="level1">
@@ -460,7 +462,10 @@ category     F     M
 </div>
 <p><br></p>
 <p>We can use the above dplyr::glimpse(df) for a quick structure overview, or summary(df) for base R summaries, but skimr gives the most detailed tidy summary. You can further explore <a href="https://docs.ropensci.org/skimr/">skimr</a> here.</p>
+<p>Furthermore, read <a href="https://modernstatisticswithr.com/index.html">Modern Statistics with R</a> to understand essential tools and techniques in contemporary statistical data analysis, using the R programming language. The book features numerous examples and over 200 exercises with worked solutions. The online version is freely available and regularly updated, with downloadable datasets for hands-on learning</p>
+<p>The YouTube videos referenced here may assist in understanding the code chunks presented above. <span class="citation" data-cites="walker2023gtsummary">(<a href="#ref-walker2023gtsummary" role="doc-biblioref">Walker, 2023</a>)</span> <span class="citation" data-cites="dre2024gentle">(<a href="#ref-dre2024gentle" role="doc-biblioref">Videos, 2024</a>)</span></p>
 <div style="page-break-after: always;"></div>
+<p><br></p>
 </section>
 <section id="practical-application" class="level1">
 <h1>Practical Application</h1>
@@ -473,13 +478,11 @@ category     F     M
 </div>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
-<p>Now, load the Star Wars dataset available online in the dylyr package. <span class="citation" data-cites="dplyr2023">(<a href="#ref-dplyr2023" role="doc-biblioref">Wickham et al., 2023</a>)</span></p>
+<p>Next, load the Star Wars dataset available online in the dylyr package. <span class="citation" data-cites="dplyr2023">(<a href="#ref-dplyr2023" role="doc-biblioref">Wickham et al., 2023</a>)</span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br><br></p>
 <p>Let’s now streamline the dataset to include only the essential variables before applying the summary functions.</p>
 <div class="cell" data-tbl-cap="Table 1. Star Wars Data" data-tbl-format="tblr" data-colspec="X X X X X X X X X X">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
@@ -490,7 +493,6 @@ category     F     M
 
 </div>
 </div>
-<p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean height</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean_height =</span> <span class="fu">mean</span>(height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -528,7 +530,6 @@ category     F     M
 1         183</code></pre>
 </div>
 </div>
-<p><br></p>
 <p>Now, let’s apply various summary functions.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select relevant variables</span></span>
@@ -776,11 +777,14 @@ category     F     M
 </div>
 </div>
 </div>
+<p>Furthermore, this YouTube video <a href="https://www.youtube.com/watch?v=4vSfbz9YMa0">Return of the Star Wars dataset</a> might be an interesting watch to understanding the dataset better.</p>
 <div style="page-break-after: always;"></div>
+<p><br></p>
 </section>
 <section id="limitations" class="level1">
 <h1>Limitations</h1>
-<p>Summary statistics are essential for providing a quick and accessible overview of a dataset, but they have several important limitations:</p>
+<p>Summary statistics are essential for providing a quick and accessible overview of a dataset, but they have several important limitations. In the book Naked Statistics, the author Charles Wheelan highlights key limitations of statistics, warning that statistical measures can be easily misapplied, misinterpreted, or manipulated to mislead people. He explains that while statistics help summarize complex data, this simplification can lead to information loss and oversights, especially when descriptive statistics are mistaken for complete truth. He emphasizes that statistics are only as reliable as the data and methods behind them, and that issues like bias, poor sampling, or careless analysis can produce misleading or false conclusions. <span class="citation" data-cites="wheelan2013naked">(<a href="#ref-wheelan2013naked" role="doc-biblioref">Wheelan, 2013</a>)</span></p>
+<p>Let’s look at some of the limitations in detail:</p>
 <ul>
 <li><p>No Causality or Explanation: Summary statistics describe what is present in the data but cannot explain why patterns exist or establish causal relationships. For example, knowing the average test score does not reveal the factors that influenced those scores.</p></li>
 <li><p>Limited to the Sample: These statistics only summarize the data actually measured and cannot be generalized to a broader population without further inferential analysis. They do not account for sampling variability or external validity.</p></li>
@@ -790,29 +794,30 @@ category     F     M
 <li><p>No Insight into Relationships: Summary statistics typically focus on individual variables and do not reveal relationships or associations between multiple variables.</p></li>
 </ul>
 <p>In summary, while summary statistics are valuable for initial data exploration, they should be complemented with more detailed analyses and visualizations to avoid oversimplification and misinterpretation of the data.</p>
-<p>Sources: <span class="citation" data-cites="wienclaw2009misuse">(<a href="#ref-wienclaw2009misuse" role="doc-biblioref">Wienclaw, 2009</a>)</span> <span class="citation" data-cites="wienclaw2017hypothesis">(<a href="#ref-wienclaw2017hypothesis" role="doc-biblioref">Wienclaw, 2017</a>)</span></p>
+<p>Other sources: <span class="citation" data-cites="wienclaw2009misuse">(<a href="#ref-wienclaw2009misuse" role="doc-biblioref">Wienclaw, 2009</a>)</span></p>
 <div style="page-break-after: always;"></div>
+<p><br></p>
 </section>
 <section id="future-direction" class="level1">
 <h1>Future Direction</h1>
-<p>The future direction of summary statistics is being shaped by advances in data complexity, computational power, and the integration of artificial intelligence.</p>
-<p>Several key trends and directions can be identified:</p>
+<p>The future direction of summary statistics is being shaped by advances in data complexity, computational power, and the integration of artificial intelligence.Several key trends and directions can be identified:</p>
 <ul>
-<li><p>Integration with Advanced Computational Methods As datasets grow larger and more complex, summary statistics will increasingly be complemented by computationally intensive methods such as bootstrapping, simulation-based inference, and machine learning. These approaches allow for more robust and nuanced summaries, especially in high-dimensional or unstructured data settings. <span class="citation" data-cites="oscgarden2023bootstrapping">(<a href="#ref-oscgarden2023bootstrapping" role="doc-biblioref">Garden, 2023</a>)</span></p></li>
-<li><p>AI-Driven and Automated Summarization Artificial intelligence, including machine learning and natural language processing, is transforming how summary statistics are generated and interpreted. AI-driven summarization tools can quickly distill massive and complex datasets into actionable insights, improving efficiency, accessibility, and consistency. Future developments are expected to include real-time, personalized, and multimodal summarization, making summary statistics more dynamic and tailored to user needs. <span class="citation" data-cites="datatas2025future">(<a href="#ref-datatas2025future" role="doc-biblioref">Datatas, 2025</a>)</span></p></li>
-<li><p>Enhanced Visualization and Exploratory Data Analysis The role of visualization in summary statistics will continue to grow, leveraging advances in computer graphics and interactive tools. This enables more intuitive and exploratory ways to understand data distributions, trends, and anomalies, moving beyond traditional tables and static plots. <span class="citation" data-cites="potter2010visualizing">(<a href="#ref-potter2010visualizing" role="doc-biblioref">Potter et al., 2010</a>)</span></p></li>
-<li><p>Addressing Big Data and Complex Structures Summary statistics will need to adapt to the challenges of big data, including handling massive volumes, varied data types, and complex dependencies (such as networks or time-evolving data). This will require new conceptual frameworks and algorithms capable of summarizing information efficiently at scale.</p></li>
-<li><p>Ongoing Methodological Innovation The field will continue to see progress in robust inference, regularization, causal inference, and adaptive decision analysis, all of which will influence how summary statistics are computed and applied in practice. <span class="citation" data-cites="gelman2024stat50">(<a href="#ref-gelman2024stat50" role="doc-biblioref">Gelman &amp; Vehtari, 2024</a>)</span></p></li>
+<li><p><strong>Integration with Advanced Computational Methods</strong>: As datasets grow larger and more complex, summary statistics will increasingly be complemented by computationally intensive methods such as bootstrapping, simulation-based inference, and machine learning. These approaches allow for more robust and nuanced summaries, especially in high-dimensional or unstructured data settings. <span class="citation" data-cites="oscgarden2023bootstrapping">(<a href="#ref-oscgarden2023bootstrapping" role="doc-biblioref">Garden, 2023</a>)</span></p></li>
+<li><p><strong>AI-Driven and Automated Summarization</strong>: Artificial intelligence, including machine learning and natural language processing, is transforming how summary statistics are generated and interpreted. AI-driven summarization tools can quickly distill massive and complex datasets into actionable insights, improving efficiency, accessibility, and consistency. Future developments are expected to include real-time, personalized, and multimodal summarization, making summary statistics more dynamic and tailored to user needs. <span class="citation" data-cites="datatas2025future">(<a href="#ref-datatas2025future" role="doc-biblioref">Datatas, 2025</a>)</span></p></li>
+<li><p><strong>Enhanced Visualization and Exploratory Data Analysis</strong>: The role of visualization in summary statistics will continue to grow, leveraging advances in computer graphics and interactive tools. This enables more intuitive and exploratory ways to understand data distributions, trends, and anomalies, moving beyond traditional tables and static plots. <span class="citation" data-cites="potter2010visualizing">(<a href="#ref-potter2010visualizing" role="doc-biblioref">Potter et al., 2010</a>)</span></p></li>
+<li><p><strong>Addressing Big Data and Complex Structures</strong>: Summary statistics will need to adapt to the challenges of big data, including handling massive volumes, varied data types, and complex dependencies (such as networks or time-evolving data). This will require new conceptual frameworks and algorithms capable of summarizing information efficiently at scale.<span class="citation" data-cites="fan2014challenges">(<a href="#ref-fan2014challenges" role="doc-biblioref">Fan et al., 2014</a>)</span></p></li>
+<li><p><strong>Ongoing Methodological Innovation</strong>: The field will continue to see progress in robust inference, regularization, causal inference, and adaptive decision analysis, all of which will influence how summary statistics are computed and applied in practice. <span class="citation" data-cites="gelman2024stat50">(<a href="#ref-gelman2024stat50" role="doc-biblioref">Gelman &amp; Vehtari, 2024</a>)</span></p></li>
 </ul>
 <p>In summary, the future of summary statistics lies in their evolution from simple descriptive tools to components of sophisticated, automated, and interactive analytical systems. They will play a foundational role in making sense of big, complex, and heterogeneous data, driven by advances in computation, AI, and interdisciplinary collaboration.</p>
-<p>Other Sources: <span class="citation" data-cites="fan2014challenges">(<a href="#ref-fan2014challenges" role="doc-biblioref">Fan et al., 2014</a>)</span> <span class="citation" data-cites="wang2016statistical">(<a href="#ref-wang2016statistical" role="doc-biblioref">Wang et al., 2016</a>)</span></p>
 <div style="page-break-after: always;"></div>
+<p><br></p>
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
 <p>Summary statistics are fundamental to any data analysis process, serving as the essential first step in understanding and interpreting datasets. In R, summary statistics provide a concise overview of data distributions, central tendencies, and variability, enabling analysts to quickly assess data quality, detect anomalies, and guide subsequent analytical decisions. The flexibility and power of R-through core functions like summary(), mean(), sd(), and packages such as dplyr, to efficiently compute and customize statistical summaries for both ungrouped and grouped data.</p>
-<p>By leveraging these tools, R users can automate the calculation of key metrics such as mean, median, standard deviation, range, and percentiles, as well as generate detailed group-wise summaries. This capability not only streamlines exploratory data analysis but also lays a robust foundation for more complex statistical modeling and hypothesis testing. Ultimately, mastering summary statistics in R empowers analysts to derive meaningful insights from data, make informed decisions, and communicate results effectively in any field of research or business analytics. <span class="citation" data-cites="lane2013descriptive">(<a href="#ref-lane2013descriptive" role="doc-biblioref">Lane, 2013</a>)</span></p>
+<p>According to <span class="citation" data-cites="lane2013descriptive">(<a href="#ref-lane2013descriptive" role="doc-biblioref">Lane, 2013</a>)</span>, using R’s tools to automate calculations of summary statistics-such as mean, median, standard deviation, range, and percentiles-enables users to efficiently produce both overall and group-wise summaries. This not only streamlines exploratory data analysis but also establishes a strong basis for advanced statistical modeling and hypothesis testing. As Lane emphasizes, mastering summary statistics in R allows analysts to extract meaningful insights, make better decisions, and clearly communicate results across various fields of research and business analytics.</p>
 <div style="page-break-after: always;"></div>
+<p><br></p>
 </section>
 <section id="references" class="level1">
 <h1>References</h1>
@@ -839,8 +844,14 @@ Oh, D. M., &amp; Pyrczak, F. (2023). <em>Making sense of statistics: A conceptua
 <div id="ref-potter2010visualizing" class="csl-entry" role="listitem">
 Potter, K., Kniss, J., Riesenfeld, R., &amp; Johnson, C. R. (2010). Visualizing summary statistics and uncertainty. <em>Computer Graphics Forum</em>, <em>29</em>(3), 823–832. <a href="https://www.sci.utah.edu/~kpotter/publications/potter-2010-VSSU.pdf">https://www.sci.utah.edu/~kpotter/publications/potter-2010-VSSU.pdf</a>
 </div>
-<div id="ref-wang2016statistical" class="csl-entry" role="listitem">
-Wang, C., Chen, M.-H., Schifano, E., Wu, J., &amp; Yan, J. (2016). Statistical methods and computing for big data. <em>Statistics and Its Interface</em>, <em>9</em>(4), 399–414. <a href="https://doi.org/10.4310/SII.2016.v9.n4.a1">https://doi.org/10.4310/SII.2016.v9.n4.a1</a>
+<div id="ref-dre2024gentle" class="csl-entry" role="listitem">
+Videos, D. E. R. (2024). <em>Gentle r #4: Basic summary statistics in r with r studio [video]</em>. YouTube. <a href="https://www.youtube.com/watch?v=8XFmPP93w_Y">https://www.youtube.com/watch?v=8XFmPP93w_Y</a>
+</div>
+<div id="ref-walker2023gtsummary" class="csl-entry" role="listitem">
+Walker, L. (2023). <em>Easy summary tables in r with gtsummary [video]</em>. YouTube. <a href="https://www.youtube.com/watch?v=gohF7pp2XCg">https://www.youtube.com/watch?v=gohF7pp2XCg</a>
+</div>
+<div id="ref-wheelan2013naked" class="csl-entry" role="listitem">
+Wheelan, C. (2013). <em>Naked statistics: Stripping the dread from the data</em>. W. W. Norton &amp; Company.
 </div>
 <div id="ref-dplyr2023" class="csl-entry" role="listitem">
 Wickham, H., François, R., Henry, L., Müller, K., &amp; Vaughan, D. (2023). <em>Dplyr: A grammar of data manipulation</em>. <a href="https://dplyr.tidyverse.org/articles/dplyr.html">https://dplyr.tidyverse.org/articles/dplyr.html</a>
@@ -848,11 +859,9 @@ Wickham, H., François, R., Henry, L., Müller, K., &amp; Vaughan, D. (2023). <e
 <div id="ref-wienclaw2009misuse" class="csl-entry" role="listitem">
 Wienclaw, R. A. (2009). The misuse of statistics. <em>The Research Starters Sociology</em>, 1–5.
 </div>
-<div id="ref-wienclaw2017hypothesis" class="csl-entry" role="listitem">
-Wienclaw, R. A. (2017). <em>Hypothesis construction</em>. Cedarville, OH: Salem Press Encyclopedia.
-</div>
 </div>
 <div style="page-break-after: always;"></div>
+<p><br></p>
 </section>
 <section id="affadative" class="level1">
 <h1>Affadative</h1>

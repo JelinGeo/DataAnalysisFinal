@@ -61,8 +61,6 @@ link-citations: true
 # Masks references that appear in the masked-citations list
 mask: false
 masked-citations:
-  - schneider2012cattell
-  - schneider2015intelligence
 # If true, adds today's date below author affiliations. If text, can be any value.
 # This is not standard APA format, but it is convenient.
 # Works with docx, html, and typst. 
@@ -131,7 +129,7 @@ I would like to highlight a book, *Making sense of statistics: A conceptual over
 -   **Frequency table**: It shows how often each value or category appears in a dataset, making it easy to spot common or rare values and summarize the data.
 -   **Cross-tabulations** (contingency tables): It shows how two or more categorical variables are related by displaying the count of observations for each combination of categories.
 
-Watch this [**tutorial video**](https://www.youtube.com/watch?v=yoPGwvUzjgQ) on descriptive statistics in R to get you started.
+Watch this [**tutorial video**](https://www.youtube.com/watch?v=yoPGwvUzjgQ) on descriptive statistics in R to get you started. Additionally, the YouTube videos listed here may be helpful for understanding the code chunks [@walker2023gtsummary] [@dre2024gentle].
 
 \vspace{1cm}
 <br>
@@ -140,9 +138,9 @@ Watch this [**tutorial video**](https://www.youtube.com/watch?v=yoPGwvUzjgQ) on 
 
 We can summarize entire datasets by calculating statistics like mean, median, minimum, maximum, standard deviation, and counts for each variable. This provides a clear overview of the data’s structure and key features.
 
-Practical application: Apply summary statistics functions to the Star Wars dataset. Use functions such as summary(), mean(), median(), sd(), and others to explore key variables like height, mass, and age. This will help you quickly understand the central tendencies, variability, and distribution patterns within the Star Wars data frame.
+Practical application: Apply summary statistics functions to the Star Wars dataset. Use functions such as summary(), mean(), median(), sd(), and others to explore key variables like height, mass, and age. This will help you quickly understand the central tendencies, variability, and distribution patterns within the Star Wars data frame. Watch this YouTube video [Return of the Star Wars dataset](https://www.youtube.com/watch?v=4vSfbz9YMa0) to understand the details of the dataset.
 
-Furthermore, read [Modern Statistics with R](https://modernstatisticswithr.com/index.html) to understand essential tools and techniques in contemporary statistical data analysis, using the R programming language. The book features numerous examples and over 200 exercises with worked solutions. The online version is freely available and regularly updated, with downloadable datasets for hands-on learning
+Furthermore, read [Modern Statistics with R](https://modernstatisticswithr.com/index.html) to understand essential tools and techniques in contemporary statistical data analysis, using the R programming language. The book features numerous examples and over 200 exercises with worked solutions. The online version is freely available and regularly updated, with downloadable datasets for hands-on learning.
 
 \vspace{1cm}
 <br>

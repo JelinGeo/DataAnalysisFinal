@@ -61,8 +61,6 @@ link-citations: true
 # Masks references that appear in the masked-citations list
 mask: false
 masked-citations:
-  - schneider2012cattell
-  - schneider2015intelligence
 # If true, adds today's date below author affiliations. If text, can be any value.
 # This is not standard APA format, but it is convenient.
 # Works with docx, html, and typst. 
@@ -100,7 +98,7 @@ format:
 echo: true
 ---
 
-*Summary statistics* are concise numerical measures that capture the essential characteristics of a dataset. They serve as foundational tools in data analysis, providing concise descriptions of large datasets. They help analysts and researchers understand the central tendencies, variability, and overall distribution of data, making complex datasets interpretable and actionable. Without summary statistics, raw data would be overwhelming and difficult to interpret, making it challenging to draw meaningful conclusions or communicate findings effectively.
+Summary statistics are concise numerical measures that capture the essential characteristics of a dataset. They serve as foundational tools in data analysis, providing concise descriptions of large datasets. They help analysts and researchers understand the central tendencies, variability, and overall distribution of data, making complex datasets interpretable and actionable. Without summary statistics, raw data would be overwhelming and difficult to interpret, making it challenging to draw meaningful conclusions or communicate findings effectively.
 
 In R, summary statistics are foundational for data analysis, enabling users to efficiently condense complex data into interpretable values like the mean, median, mode, standard deviation, and quantiles. These statistics provide a snapshot of the data, facilitating initial exploration, quality checks, and communication of results.
 
@@ -132,11 +130,13 @@ Summary statistics can be typically divided into:
 
 2.  **Inferential statistics**: Make predictions or inferences about a population based on a sample (not the focus here).
 
-*Making sense of statistics: A conceptual overview*, [@oh2023making] offers a clear and accessible introduction to key statistical concepts for beginners. The book focuses on building conceptual understanding of both descriptive and inferential statistics, using simple explanations, practical examples, and step-by-step guidance. It is designed to help students from any discipline gain confidence in applying statistics to research and interpreting data effectively.
+I would like to highlight a book, *Making sense of statistics: A conceptual overview*, [@oh2023making] which offers a clear and accessible introduction to key statistical concepts for beginners. The book focuses on building conceptual understanding of both descriptive and inferential statistics, using simple explanations, practical examples, and step-by-step guidance. It is designed to help students from any discipline gain confidence in applying statistics to research and interpreting data effectively.
 
 Watch this [**tutorial video**](https://www.youtube.com/watch?v=yoPGwvUzjgQ) on descriptive statistics in R to get you started.
 
 \newpage
+
+<br>
 
 # Key Measures in Summary Statistics
 
@@ -206,8 +206,6 @@ kurtosis(data)
 
 -   **Histogram**: It displays how data values are distributed across different intervals in patterns like bell-shaped (normal), J-shaped, or skewed distributions, as well as spot outlines and the overall spread of the data.
 
-As shown below, the distribution is centered around 4.
-
 ```{r}
 # This histogram shows the distribution in the example we set previously.
 
@@ -216,6 +214,8 @@ As shown below, the distribution is centered around 4.
 hist(data, main="Figure1.Histogram of Data", col = "grey")
 
 ```
+
+As seen above, the distribution is centered around 4.
 
 -   **Boxplot**: A graphical tool that visually summarizes the distribution, central tendency, spread, and skewness of numerical data using the five-number summary: minimum, first quartile (Q1), median, third quartile (Q3), and maximum.
 
@@ -284,6 +284,8 @@ round(digits = 3)
 
 \newpage
 
+<br>
+
 # Summarizing Data Frames
 
 We can create comprehensive summaries for entire datasets by summarizing data frames. This involves generating clear overviews of each variable and its values, typically by calculating summary statistics such as the mean, median, minimum, maximum, standard deviation, and counts. These summaries help reveal the structure, trends, and important features of the data.
@@ -314,7 +316,13 @@ knitr::kable(summary(df), format = "pipe")  # Forces table formatting
 
 We can use the above dplyr::glimpse(df) for a quick structure overview, or summary(df) for base R summaries, but skimr gives the most detailed tidy summary. You can further explore [skimr](https://docs.ropensci.org/skimr/) here.
 
+Furthermore, read [Modern Statistics with R](https://modernstatisticswithr.com/index.html) to understand essential tools and techniques in contemporary statistical data analysis, using the R programming language. The book features numerous examples and over 200 exercises with worked solutions. The online version is freely available and regularly updated, with downloadable datasets for hands-on learning
+
+The YouTube videos referenced here may assist in understanding the code chunks presented above. [@walker2023gtsummary] [@dre2024gentle]
+
 \newpage
+
+<br>
 
 # Practical Application
 
@@ -345,16 +353,12 @@ conflicts_prefer(flextable::separate_header, .quiet = TRUE)
 
 ```
 
-<br>
-
-Now, load the Star Wars dataset available online in the dylyr package. [@dplyr2023]
+Next, load the Star Wars dataset available online in the dylyr package. [@dplyr2023]
 
 ```{r}
 library(dplyr)
 data(starwars)
 ```
-
-<br><br>
 
 Let's now streamline the dataset to include only the essential variables before applying the summary functions.
 
@@ -370,8 +374,6 @@ kable(head(starwars, 10), format = "latex", booktabs = TRUE) %>%
   kable_styling(latex_options = "striped", full_width = FALSE)
 
 ```
-
-<br>
 
 ```{r}
 # Mean height
@@ -395,8 +397,6 @@ get_mode <- function(x) {
 starwars %>% summarise(mode_height = get_mode(height[!is.na(height)]))
 
 ```
-
-<br>
 
 Now, let's apply various summary functions.
 
@@ -451,12 +451,17 @@ starwars %>%
   theme_minimal()
 ```
 
+Furthermore, this YouTube video [Return of the Star Wars dataset](https://www.youtube.com/watch?v=4vSfbz9YMa0) might be an interesting watch to understanding the dataset better.
 
 \newpage
 
+<br>
+
 # Limitations
 
-Summary statistics are essential for providing a quick and accessible overview of a dataset, but they have several important limitations:
+Summary statistics are essential for providing a quick and accessible overview of a dataset, but they have several important limitations. In the book Naked Statistics, the author Charles Wheelan highlights key limitations of statistics, warning that statistical measures can be easily misapplied, misinterpreted, or manipulated to mislead people. He explains that while statistics help summarize complex data, this simplification can lead to information loss and oversights, especially when descriptive statistics are mistaken for complete truth. He emphasizes that statistics are only as reliable as the data and methods behind them, and that issues like bias, poor sampling, or careless analysis can produce misleading or false conclusions. [@wheelan2013naked]
+
+Let's look at some of the limitations in detail:
 
 -   No Causality or Explanation: Summary statistics describe what is present in the data but cannot explain why patterns exist or establish causal relationships. For example, knowing the average test score does not reveal the factors that influenced those scores.
 
@@ -472,39 +477,41 @@ Summary statistics are essential for providing a quick and accessible overview o
 
 In summary, while summary statistics are valuable for initial data exploration, they should be complemented with more detailed analyses and visualizations to avoid oversimplification and misinterpretation of the data.
 
-Sources: [@wienclaw2009misuse] [@wienclaw2017hypothesis]
+Other sources: [@wienclaw2009misuse]
 
 \newpage
+
+<br>
 
 # Future Direction
 
-The future direction of summary statistics is being shaped by advances in data complexity, computational power, and the integration of artificial intelligence.
+The future direction of summary statistics is being shaped by advances in data complexity, computational power, and the integration of artificial intelligence.Several key trends and directions can be identified:
 
-Several key trends and directions can be identified:
+-   **Integration with Advanced Computational Methods**: As datasets grow larger and more complex, summary statistics will increasingly be complemented by computationally intensive methods such as bootstrapping, simulation-based inference, and machine learning. These approaches allow for more robust and nuanced summaries, especially in high-dimensional or unstructured data settings. [@oscgarden2023bootstrapping]
 
--   Integration with Advanced Computational Methods As datasets grow larger and more complex, summary statistics will increasingly be complemented by computationally intensive methods such as bootstrapping, simulation-based inference, and machine learning. These approaches allow for more robust and nuanced summaries, especially in high-dimensional or unstructured data settings. [@oscgarden2023bootstrapping]
+-   **AI-Driven and Automated Summarization**: Artificial intelligence, including machine learning and natural language processing, is transforming how summary statistics are generated and interpreted. AI-driven summarization tools can quickly distill massive and complex datasets into actionable insights, improving efficiency, accessibility, and consistency. Future developments are expected to include real-time, personalized, and multimodal summarization, making summary statistics more dynamic and tailored to user needs. [@datatas2025future]
 
--   AI-Driven and Automated Summarization Artificial intelligence, including machine learning and natural language processing, is transforming how summary statistics are generated and interpreted. AI-driven summarization tools can quickly distill massive and complex datasets into actionable insights, improving efficiency, accessibility, and consistency. Future developments are expected to include real-time, personalized, and multimodal summarization, making summary statistics more dynamic and tailored to user needs. [@datatas2025future]
+-   **Enhanced Visualization and Exploratory Data Analysis**: The role of visualization in summary statistics will continue to grow, leveraging advances in computer graphics and interactive tools. This enables more intuitive and exploratory ways to understand data distributions, trends, and anomalies, moving beyond traditional tables and static plots. [@potter2010visualizing]
 
--   Enhanced Visualization and Exploratory Data Analysis The role of visualization in summary statistics will continue to grow, leveraging advances in computer graphics and interactive tools. This enables more intuitive and exploratory ways to understand data distributions, trends, and anomalies, moving beyond traditional tables and static plots. [@potter2010visualizing]
+-   **Addressing Big Data and Complex Structures**: Summary statistics will need to adapt to the challenges of big data, including handling massive volumes, varied data types, and complex dependencies (such as networks or time-evolving data). This will require new conceptual frameworks and algorithms capable of summarizing information efficiently at scale.[@fan2014challenges]
 
--  Addressing Big Data and Complex Structures Summary statistics will need to adapt to the challenges of big data, including handling massive volumes, varied data types, and complex dependencies (such as networks or time-evolving data). This will require new conceptual frameworks and algorithms capable of summarizing information efficiently at scale.
-
--   Ongoing Methodological Innovation The field will continue to see progress in robust inference, regularization, causal inference, and adaptive decision analysis, all of which will influence how summary statistics are computed and applied in practice. [@gelman2024stat50]
+-   **Ongoing Methodological Innovation**: The field will continue to see progress in robust inference, regularization, causal inference, and adaptive decision analysis, all of which will influence how summary statistics are computed and applied in practice. [@gelman2024stat50]
 
 In summary, the future of summary statistics lies in their evolution from simple descriptive tools to components of sophisticated, automated, and interactive analytical systems. They will play a foundational role in making sense of big, complex, and heterogeneous data, driven by advances in computation, AI, and interdisciplinary collaboration.
 
-Other Sources: [@fan2014challenges] [@wang2016statistical]
-
 \newpage
+
+<br>
 
 # Conclusion
 
 Summary statistics are fundamental to any data analysis process, serving as the essential first step in understanding and interpreting datasets. In R, summary statistics provide a concise overview of data distributions, central tendencies, and variability, enabling analysts to quickly assess data quality, detect anomalies, and guide subsequent analytical decisions. The flexibility and power of R-through core functions like summary(), mean(), sd(), and packages such as dplyr, to efficiently compute and customize statistical summaries for both ungrouped and grouped data.
 
-By leveraging these tools, R users can automate the calculation of key metrics such as mean, median, standard deviation, range, and percentiles, as well as generate detailed group-wise summaries. This capability not only streamlines exploratory data analysis but also lays a robust foundation for more complex statistical modeling and hypothesis testing. Ultimately, mastering summary statistics in R empowers analysts to derive meaningful insights from data, make informed decisions, and communicate results effectively in any field of research or business analytics. [@lane2013descriptive]
+According to [@lane2013descriptive], using R’s tools to automate calculations of summary statistics-such as mean, median, standard deviation, range, and percentiles-enables users to efficiently produce both overall and group-wise summaries. This not only streamlines exploratory data analysis but also establishes a strong basis for advanced statistical modeling and hypothesis testing. As Lane emphasizes, mastering summary statistics in R allows analysts to extract meaningful insights, make better decisions, and clearly communicate results across various fields of research and business analytics.
 
 \newpage
+
+<br>
 
 # References
 
@@ -513,8 +520,9 @@ By leveraging these tools, R users can automate the calculation of key metrics s
 ::: {#refs}
 :::
 
-
 \newpage
+
+<br>
 
 # Affadative
 

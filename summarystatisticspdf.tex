@@ -352,15 +352,14 @@ Techniques for Creating Them in R}
 \setlength\LTleft{0pt}
 
 
-\emph{Summary statistics} are concise numerical measures that capture
-the essential characteristics of a dataset. They serve as foundational
-tools in data analysis, providing concise descriptions of large
-datasets. They help analysts and researchers understand the central
-tendencies, variability, and overall distribution of data, making
-complex datasets interpretable and actionable. Without summary
-statistics, raw data would be overwhelming and difficult to interpret,
-making it challenging to draw meaningful conclusions or communicate
-findings effectively.
+Summary statistics are concise numerical measures that capture the
+essential characteristics of a dataset. They serve as foundational tools
+in data analysis, providing concise descriptions of large datasets. They
+help analysts and researchers understand the central tendencies,
+variability, and overall distribution of data, making complex datasets
+interpretable and actionable. Without summary statistics, raw data would
+be overwhelming and difficult to interpret, making it challenging to
+draw meaningful conclusions or communicate findings effectively.
 
 In R, summary statistics are foundational for data analysis, enabling
 users to efficiently condense complex data into interpretable values
@@ -418,12 +417,18 @@ Summary statistics can be typically divided into:
   a population based on a sample (not the focus here).
 \end{enumerate}
 
-Sources: (\citeproc{ref-lane2013descriptive}{Lane, 2013})
-(\citeproc{ref-oh2023making}{Oh \& Pyrczak, 2023})
+I would like to highlight a book, \emph{Making sense of statistics: A
+conceptual overview}, (\citeproc{ref-oh2023making}{Oh \& Pyrczak, 2023})
+which offers a clear and accessible introduction to key statistical
+concepts for beginners. The book focuses on building conceptual
+understanding of both descriptive and inferential statistics, using
+simple explanations, practical examples, and step-by-step guidance. It
+is designed to help students from any discipline gain confidence in
+applying statistics to research and interpreting data effectively.
 
 Watch this
 \href{https://www.youtube.com/watch?v=yoPGwvUzjgQ}{\textbf{tutorial
-video}} on Summary Statistics to get you started.
+video}} on descriptive statistics in R to get you started.
 
 \newpage
 
@@ -602,8 +607,6 @@ better.}
   spread of the data.
 \end{itemize}
 
-As shown below, the distribution is centered around 4.
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# This histogram shows the distribution in the example we set previously.}
@@ -615,6 +618,8 @@ As shown below, the distribution is centered around 4.
 \end{Shaded}
 
 \pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-4-1.pdf}}
+
+As seen above, the distribution is centered around 4.
 
 \begin{itemize}
 \tightlist
@@ -808,6 +813,18 @@ or summary(df) for base R summaries, but skimr gives the most detailed
 tidy summary. You can further explore
 \href{https://docs.ropensci.org/skimr/}{skimr} here.
 
+Furthermore, read
+\href{https://modernstatisticswithr.com/index.html}{Modern Statistics
+with R} to understand essential tools and techniques in contemporary
+statistical data analysis, using the R programming language. The book
+features numerous examples and over 200 exercises with worked solutions.
+The online version is freely available and regularly updated, with
+downloadable datasets for hands-on learning
+
+The YouTube videos referenced here may assist in understanding the code
+chunks presented above. (\citeproc{ref-walker2023gtsummary}{Walker,
+2023}) (\citeproc{ref-dre2024gentle}{Videos, 2024})
+
 \newpage
 
 \section{Practical Application}\label{practical-application}
@@ -834,7 +851,7 @@ Loading required package: pacman
 \end{Highlighting}
 \end{Shaded}
 
-Now, load the Star Wars dataset available online in the dylyr package.
+Next, load the Star Wars dataset available online in the dylyr package.
 (\citeproc{ref-dplyr2023}{Wickham et al., 2023})
 
 \begin{Shaded}
@@ -1141,12 +1158,29 @@ Warning: Removed 5 rows containing non-finite outside the scale range
 
 \pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-20-1.pdf}}
 
+Furthermore, this YouTube video
+\href{https://www.youtube.com/watch?v=4vSfbz9YMa0}{Return of the Star
+Wars dataset} might be an interesting watch to understanding the dataset
+better.
+
 \newpage
 
 \section{Limitations}\label{limitations}
 
 Summary statistics are essential for providing a quick and accessible
-overview of a dataset, but they have several important limitations:
+overview of a dataset, but they have several important limitations. In
+the book Naked Statistics, the author Charles Wheelan highlights key
+limitations of statistics, warning that statistical measures can be
+easily misapplied, misinterpreted, or manipulated to mislead people. He
+explains that while statistics help summarize complex data, this
+simplification can lead to information loss and oversights, especially
+when descriptive statistics are mistaken for complete truth. He
+emphasizes that statistics are only as reliable as the data and methods
+behind them, and that issues like bias, poor sampling, or careless
+analysis can produce misleading or false conclusions.
+(\citeproc{ref-wheelan2013naked}{Wheelan, 2013})
+
+Let's look at some of the limitations in detail:
 
 \begin{itemize}
 \item
@@ -1184,8 +1218,7 @@ exploration, they should be complemented with more detailed analyses and
 visualizations to avoid oversimplification and misinterpretation of the
 data.
 
-Sources: (\citeproc{ref-wienclaw2009misuse}{Wienclaw, 2009})
-(\citeproc{ref-wienclaw2017hypothesis}{Wienclaw, 2017})
+Other sources: (\citeproc{ref-wienclaw2009misuse}{Wienclaw, 2009})
 
 \newpage
 
@@ -1193,69 +1226,57 @@ Sources: (\citeproc{ref-wienclaw2009misuse}{Wienclaw, 2009})
 
 The future direction of summary statistics is being shaped by advances
 in data complexity, computational power, and the integration of
-artificial intelligence.
-
-Several key trends and directions can be identified:
+artificial intelligence.Several key trends and directions can be
+identified:
 
 \begin{itemize}
 \item
-  Integration with Advanced Computational Methods As datasets grow
-  larger and more complex, summary statistics will increasingly be
+  \textbf{Integration with Advanced Computational Methods}: As datasets
+  grow larger and more complex, summary statistics will increasingly be
   complemented by computationally intensive methods such as
   bootstrapping, simulation-based inference, and machine learning. These
   approaches allow for more robust and nuanced summaries, especially in
   high-dimensional or unstructured data settings.
   (\citeproc{ref-oscgarden2023bootstrapping}{Garden, 2023})
 \item
-  AI-Driven and Automated Summarization Artificial intelligence,
-  including machine learning and natural language processing, is
-  transforming how summary statistics are generated and interpreted.
-  AI-driven summarization tools can quickly distill massive and complex
-  datasets into actionable insights, improving efficiency,
+  \textbf{AI-Driven and Automated Summarization}: Artificial
+  intelligence, including machine learning and natural language
+  processing, is transforming how summary statistics are generated and
+  interpreted. AI-driven summarization tools can quickly distill massive
+  and complex datasets into actionable insights, improving efficiency,
   accessibility, and consistency. Future developments are expected to
   include real-time, personalized, and multimodal summarization, making
   summary statistics more dynamic and tailored to user needs.
   (\citeproc{ref-datatas2025future}{Datatas, 2025})
 \item
-  Enhanced Visualization and Exploratory Data Analysis The role of
-  visualization in summary statistics will continue to grow, leveraging
-  advances in computer graphics and interactive tools. This enables more
-  intuitive and exploratory ways to understand data distributions,
-  trends, and anomalies, moving beyond traditional tables and static
-  plots. (\citeproc{ref-potter2010visualizing}{Potter et al., 2010})
-\end{itemize}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{3}
-\tightlist
+  \textbf{Enhanced Visualization and Exploratory Data Analysis}: The
+  role of visualization in summary statistics will continue to grow,
+  leveraging advances in computer graphics and interactive tools. This
+  enables more intuitive and exploratory ways to understand data
+  distributions, trends, and anomalies, moving beyond traditional tables
+  and static plots. (\citeproc{ref-potter2010visualizing}{Potter et al.,
+  2010})
 \item
-  Addressing Big Data and Complex Structures Summary statistics will
-  need to adapt to the challenges of big data, including handling
-  massive volumes, varied data types, and complex dependencies (such as
-  networks or time-evolving data). This will require new conceptual
-  frameworks and algorithms capable of summarizing information
-  efficiently at scale.
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
+  \textbf{Addressing Big Data and Complex Structures}: Summary
+  statistics will need to adapt to the challenges of big data, including
+  handling massive volumes, varied data types, and complex dependencies
+  (such as networks or time-evolving data). This will require new
+  conceptual frameworks and algorithms capable of summarizing
+  information efficiently at scale.(\citeproc{ref-fan2014challenges}{Fan
+  et al., 2014})
 \item
-  Ongoing Methodological Innovation The field will continue to see
-  progress in robust inference, regularization, causal inference, and
-  adaptive decision analysis, all of which will influence how summary
-  statistics are computed and applied in practice.
+  \textbf{Ongoing Methodological Innovation}: The field will continue to
+  see progress in robust inference, regularization, causal inference,
+  and adaptive decision analysis, all of which will influence how
+  summary statistics are computed and applied in practice.
   (\citeproc{ref-gelman2024stat50}{Gelman \& Vehtari, 2024})
 \end{itemize}
 
-In Summary The future of summary statistics lies in their evolution from
-simple descriptive tools to components of sophisticated, automated, and
-interactive analytical systems. They will play a foundational role in
-making sense of big, complex, and heterogeneous data, driven by advances
-in computation, AI, and interdisciplinary collaboration.
-
-Other Sources: (\citeproc{ref-fan2014challenges}{Fan et al., 2014})
-(\citeproc{ref-wang2016statistical}{Wang et al., 2016})
+In summary, the future of summary statistics lies in their evolution
+from simple descriptive tools to components of sophisticated, automated,
+and interactive analytical systems. They will play a foundational role
+in making sense of big, complex, and heterogeneous data, driven by
+advances in computation, AI, and interdisciplinary collaboration.
 
 \newpage
 
@@ -1271,15 +1292,15 @@ functions like summary(), mean(), sd(), and packages such as dplyr, to
 efficiently compute and customize statistical summaries for both
 ungrouped and grouped data.
 
-By leveraging these tools, R users can automate the calculation of key
-metrics such as mean, median, standard deviation, range, and
-percentiles, as well as generate detailed group-wise summaries. This
-capability not only streamlines exploratory data analysis but also lays
-a robust foundation for more complex statistical modeling and hypothesis
-testing. Ultimately, mastering summary statistics in R empowers analysts
-to derive meaningful insights from data, make informed decisions, and
-communicate results effectively in any field of research or business
-analytics. (\citeproc{ref-lane2013descriptive}{Lane, 2013})
+According to (\citeproc{ref-lane2013descriptive}{Lane, 2013}), using R's
+tools to automate calculations of summary statistics-such as mean,
+median, standard deviation, range, and percentiles-enables users to
+efficiently produce both overall and group-wise summaries. This not only
+streamlines exploratory data analysis but also establishes a strong
+basis for advanced statistical modeling and hypothesis testing. As Lane
+emphasizes, mastering summary statistics in R allows analysts to extract
+meaningful insights, make better decisions, and clearly communicate
+results across various fields of research and business analytics.
 
 \newpage
 
@@ -1322,11 +1343,18 @@ Visualizing summary statistics and uncertainty. \emph{Computer Graphics
 Forum}, \emph{29}(3), 823--832.
 \url{https://www.sci.utah.edu/~kpotter/publications/potter-2010-VSSU.pdf}
 
-\bibitem[\citeproctext]{ref-wang2016statistical}
-Wang, C., Chen, M.-H., Schifano, E., Wu, J., \& Yan, J. (2016).
-Statistical methods and computing for big data. \emph{Statistics and Its
-Interface}, \emph{9}(4), 399--414.
-\url{https://doi.org/10.4310/SII.2016.v9.n4.a1}
+\bibitem[\citeproctext]{ref-dre2024gentle}
+Videos, D. E. R. (2024). \emph{Gentle r \#4: Basic summary statistics in
+r with r studio {[}video{]}}. YouTube.
+\url{https://www.youtube.com/watch?v=8XFmPP93w_Y}
+
+\bibitem[\citeproctext]{ref-walker2023gtsummary}
+Walker, L. (2023). \emph{Easy summary tables in r with gtsummary
+{[}video{]}}. YouTube. \url{https://www.youtube.com/watch?v=gohF7pp2XCg}
+
+\bibitem[\citeproctext]{ref-wheelan2013naked}
+Wheelan, C. (2013). \emph{Naked statistics: Stripping the dread from the
+data}. W. W. Norton \& Company.
 
 \bibitem[\citeproctext]{ref-dplyr2023}
 Wickham, H., François, R., Henry, L., Müller, K., \& Vaughan, D. (2023).
@@ -1336,10 +1364,6 @@ Wickham, H., François, R., Henry, L., Müller, K., \& Vaughan, D. (2023).
 \bibitem[\citeproctext]{ref-wienclaw2009misuse}
 Wienclaw, R. A. (2009). The misuse of statistics. \emph{The Research
 Starters Sociology}, 1--5.
-
-\bibitem[\citeproctext]{ref-wienclaw2017hypothesis}
-Wienclaw, R. A. (2017). \emph{Hypothesis construction}. Cedarville, OH:
-Salem Press Encyclopedia.
 
 \end{CSLReferences}
 
