@@ -5,15 +5,15 @@ shorttitle: "Summary Statistics and Techniques in R"
 # It is nice to specify everyone's orcid, if possible.
 # There can be only one corresponding author, but declaring one is optional.
 author:
-  - name: Jelin George
+  - name: "Jelin George (Matriculation: 400826617)"
     corresponding: true
-    orcid: 0000-0000-0000-0001
+    
     email: george.jelin@stud-hs.fresenius.de
     url: 
     affiliations:
       - id: "400826617"
         name: "Hochschule Fresenius - University of Applied Science"
-        group: International Management, M.A.
+        group: "International Management, M.A."
         department: 
         address: 
         city: 
@@ -170,6 +170,8 @@ Mode(data)   # Mode
 
 Dispersion measures describe the spread of data.
 
+![Distributions With Different Dispersion](Dispersionimage.png){#fig-dispersion apa-note="Comparison of two distributions with different dispersion. The taller, narrower curve has less dispersion (lower variance), while the shorter, wider curve has more dispersion (higher variance)." width="60%"}
+
 -   **Range**: Difference between max and min values.
 
 -   **Variance**: Average squared deviation from the mean.
@@ -204,7 +206,7 @@ kurtosis(data)
 
 **Visualization tools to help understand distribution of data better.**
 
--   **Histogram**: It displays how data values are distributed across different intervals in patterns like bell-shaped (normal), J-shaped, or skewed distributions, as well as spot outlines and the overall spread of the data.
+-   **Histogram**: It displays how data values are distributed across different intervals in patterns like bell-shaped (normal), J-shaped, or skewed distributions, as well as spot outliers and the overall spread of the data.
 
 ```{r}
 # This histogram shows the distribution in the example we set previously.
