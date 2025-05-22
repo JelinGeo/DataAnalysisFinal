@@ -74,6 +74,46 @@
 
 
 
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -166,7 +206,7 @@ Them in R}
 
 
 
-\author{Jelin George}
+\author{Jelin George (Matriculation: 400826617)}
 
 
 
@@ -176,7 +216,7 @@ Them in R}
 
 
 
-\leftheader{George}
+\leftheader{400826617)}
 
 
 
@@ -187,16 +227,20 @@ features of a dataset, enabling quick exploration and interpretation. R
 provides powerful functions and visualization tools to efficiently
 compute and present these statistics, making them essential for
 simplifying data, identifying patterns, and supporting informed analysis
-and decision-making. }
+and decision-making. Practical examples and code are provided to
+demonstrate these concepts in action. The document also discusses the
+limitations of summary statistics and considers future directions in
+their application. }
 
-\keywords{summary statistics, R programming, data analysis, data
-visualisation, data summarisation}
+\keywords{summary statistics, R programming, data analysis, descriptive
+statistics, data visualization, exploratory data analysis, limitations}
 
-\authornote{\par{\addORCIDlink{Jelin George}{0000-0000-0000-0001}} 
+\authornote{ 
 \par{ }
 \par{   The authors have no conflicts of interest to disclose.    }
 \par{Correspondence concerning this article should be addressed to Jelin
-George, Email: \href{mailto:george.jelin@stud-hs.fresenius.de}{george.jelin@stud-hs.fresenius.de}}
+George (Matriculation:
+400826617), Email: \href{mailto:george.jelin@stud-hs.fresenius.de}{george.jelin@stud-hs.fresenius.de}}
 }
 
 \makeatletter
@@ -211,6 +255,20 @@ George, Email: \href{mailto:george.jelin@stud-hs.fresenius.de}{george.jelin@stud
 
 
 
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -298,14 +356,19 @@ Techniques for Creating Them in R}
 \setlength\LTleft{0pt}
 
 
-Summary statistics are numerical values that describe the main features
-of a dataset, such as its center and spread. They simplify complex data
-into easily interpretable numbers, offering quick insights into trends
-and variability, and serve as a foundation for further analysis. These
-statistics provide a snapshot of the data, facilitating initial
-exploration, quality checks, and communication of results.
+Summary statistics are concise numerical measures that capture the
+essential characteristics of a dataset. They serve as foundational tools
+in data analysis, providing concise descriptions of large datasets. They
+help analysts and researchers understand the central tendencies,
+variability, and overall distribution of data, making complex datasets
+interpretable and actionable. Without summary statistics, raw data would
+be overwhelming and difficult to interpret, making it challenging to
+draw meaningful conclusions or communicate findings effectively.
 
-R offers a rich ecosystem of functions and packages - such as summary(),
+In R, summary statistics are foundational for data analysis, enabling
+users to efficiently condense complex data into interpretable values
+like the mean, median, mode, standard deviation, and quantiles. R offers
+a rich ecosystem of functions and packages - such as summary(),
 dplyr::summarise(), and visualization tools like histograms and boxplots
 - that streamline the computation and presentation of summary statistics
 for both numeric and categorical data. Their importance lies in
@@ -337,10 +400,14 @@ which offers a clear and accessible introduction to key statistical
 concepts for beginners. The book focuses on building conceptual
 understanding of both descriptive and inferential statistics, using
 simple explanations, practical examples, and step-by-step guidance. It
-is designed to help students from any discipline gain confidence in
-applying statistics to research and interpreting data effectively.
+is designed to help in applying statistics to research and interpreting
+data effectively.
 
-\newpage
+Additonally, watch this
+\href{https://www.youtube.com/watch?v=yoPGwvUzjgQ}{\textbf{tutorial
+video}} on descriptive statistics in R to get you started.
+
+\vspace{1cm}
 
 \section{Key Measures in Summary
 Statistics}\label{key-measures-in-summary-statistics}
@@ -370,81 +437,404 @@ Statistics}\label{key-measures-in-summary-statistics}
   observations for each combination of categories.
 \end{itemize}
 
-Watch this
-\href{https://www.youtube.com/watch?v=yoPGwvUzjgQ}{\textbf{tutorial
-video}} on descriptive statistics in R to get you started. Additionally,
-the YouTube videos listed here may be helpful for understanding the code
-chunks (\citeproc{ref-walker2023gtsummary}{Walker, 2023})
-(\citeproc{ref-dre2024gentle}{Videos, 2024}).
-
-\vspace{1cm}
-
-\section{Summarizing Data Frames}\label{summarizing-data-frames}
-
-We can summarize entire datasets by calculating statistics like mean,
-median, minimum, maximum, standard deviation, and counts for each
-variable. This provides a clear overview of the data's structure and key
-features.
-
-Practical application: Apply summary statistics functions to the Star
-Wars dataset. Use functions such as summary(), mean(), median(), sd(),
-and others to explore key variables like height, mass, and age. This
-will help you quickly understand the central tendencies, variability,
-and distribution patterns within the Star Wars data frame. Watch this
-YouTube video \href{https://www.youtube.com/watch?v=4vSfbz9YMa0}{Return
-of the Star Wars dataset} to understand the details of the dataset.
-
 Furthermore, read
 \href{https://modernstatisticswithr.com/index.html}{Modern Statistics
 with R} to understand essential tools and techniques in contemporary
 statistical data analysis, using the R programming language. The book
 features numerous examples and over 200 exercises with worked solutions.
 The online version is freely available and regularly updated, with
-downloadable datasets for hands-on learning.
+downloadable datasets for hands-on learning
+
+The YouTube videos referenced here may assist in further understanding
+the code chunks presented above
+(\citeproc{ref-walker2023gtsummary}{Walker, 2023})
+(\citeproc{ref-dre2024gentle}{Videos, 2024})
+(\citeproc{ref-Schork2021}{Schork, 2021})
+
+\vspace{1cm}
+
+\section{Practical Application}\label{practical-application}
+
+Try this exercise to understand how to read data and apply summary
+statistics functions using the \textbf{Star Wars} dataset.
+
+Before we get started, we must install essential packages that might be
+needed later.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(pacman)) }\FunctionTok{install.packages}\NormalTok{(}\StringTok{"pacman"}\NormalTok{)}
+\NormalTok{pacman}\SpecialCharTok{::}\FunctionTok{p\_load}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+Next, load the Star Wars dataset available in the dylyr package. Read
+more on dylyr package here (\citeproc{ref-dplyr2023}{Wickham et al.,
+2023})
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{data}\NormalTok{(starwars)}
+\end{Highlighting}
+\end{Shaded}
+
+To begin our analysis, we will display the first 10 rows of the starwars
+dataset. This provides a quick overview of the data structure and its
+key variables before we proceed with summary statistics.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{starwars\_tbl }\OtherTok{\textless{}{-}}\NormalTok{ starwars }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{slice\_head}\NormalTok{(}\AttributeTok{n =} \DecValTok{10}\NormalTok{)}
+
+\FunctionTok{kable}\NormalTok{(starwars\_tbl, }\AttributeTok{format =} \StringTok{"latex"}\NormalTok{, }\AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{caption =} \StringTok{"Table 1. Star Wars Data"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{latex\_options =} \StringTok{"striped"}\NormalTok{, }\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\centering
+\caption{\label{tab:unnamed-chunk-5}Table 1. Star Wars Data}
+\centering
+\begin{tabular}[t]{lrrlllrlllllll}
+\toprule
+name & height & mass & hair\_color & skin\_color & eye\_color & birth\_year & sex & gender & homeworld & species & films & vehicles & starships\\
+\midrule
+\cellcolor{gray!10}{Luke Skywalker} & \cellcolor{gray!10}{172} & \cellcolor{gray!10}{77} & \cellcolor{gray!10}{blond} & \cellcolor{gray!10}{fair} & \cellcolor{gray!10}{blue} & \cellcolor{gray!10}{19.0} & \cellcolor{gray!10}{male} & \cellcolor{gray!10}{masculine} & \cellcolor{gray!10}{Tatooine} & \cellcolor{gray!10}{Human} & \cellcolor{gray!10}{A New Hope             , The Empire Strikes Back, Return of the Jedi     , Revenge of the Sith    , The Force Awakens} & \cellcolor{gray!10}{Snowspeeder          , Imperial Speeder Bike} & \cellcolor{gray!10}{X-wing          , Imperial shuttle}\\
+C-3PO & 167 & 75 & NA & gold & yellow & 112.0 & none & masculine & Tatooine & Droid & A New Hope             , The Empire Strikes Back, Return of the Jedi     , The Phantom Menace     , Attack of the Clones   , Revenge of the Sith &  & \\
+\cellcolor{gray!10}{R2-D2} & \cellcolor{gray!10}{96} & \cellcolor{gray!10}{32} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{white, blue} & \cellcolor{gray!10}{red} & \cellcolor{gray!10}{33.0} & \cellcolor{gray!10}{none} & \cellcolor{gray!10}{masculine} & \cellcolor{gray!10}{Naboo} & \cellcolor{gray!10}{Droid} & \cellcolor{gray!10}{A New Hope             , The Empire Strikes Back, Return of the Jedi     , The Phantom Menace     , Attack of the Clones   , Revenge of the Sith    , The Force Awakens} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{}\\
+Darth Vader & 202 & 136 & none & white & yellow & 41.9 & male & masculine & Tatooine & Human & A New Hope             , The Empire Strikes Back, Return of the Jedi     , Revenge of the Sith &  & TIE Advanced x1\\
+\cellcolor{gray!10}{Leia Organa} & \cellcolor{gray!10}{150} & \cellcolor{gray!10}{49} & \cellcolor{gray!10}{brown} & \cellcolor{gray!10}{light} & \cellcolor{gray!10}{brown} & \cellcolor{gray!10}{19.0} & \cellcolor{gray!10}{female} & \cellcolor{gray!10}{feminine} & \cellcolor{gray!10}{Alderaan} & \cellcolor{gray!10}{Human} & \cellcolor{gray!10}{A New Hope             , The Empire Strikes Back, Return of the Jedi     , Revenge of the Sith    , The Force Awakens} & \cellcolor{gray!10}{Imperial Speeder Bike} & \cellcolor{gray!10}{}\\
+\addlinespace
+Owen Lars & 178 & 120 & brown, grey & light & blue & 52.0 & male & masculine & Tatooine & Human & A New Hope          , Attack of the Clones, Revenge of the Sith &  & \\
+\cellcolor{gray!10}{Beru Whitesun Lars} & \cellcolor{gray!10}{165} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{brown} & \cellcolor{gray!10}{light} & \cellcolor{gray!10}{blue} & \cellcolor{gray!10}{47.0} & \cellcolor{gray!10}{female} & \cellcolor{gray!10}{feminine} & \cellcolor{gray!10}{Tatooine} & \cellcolor{gray!10}{Human} & \cellcolor{gray!10}{A New Hope          , Attack of the Clones, Revenge of the Sith} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{}\\
+R5-D4 & 97 & 32 & NA & white, red & red & NA & none & masculine & Tatooine & Droid & A New Hope &  & \\
+\cellcolor{gray!10}{Biggs Darklighter} & \cellcolor{gray!10}{183} & \cellcolor{gray!10}{84} & \cellcolor{gray!10}{black} & \cellcolor{gray!10}{light} & \cellcolor{gray!10}{brown} & \cellcolor{gray!10}{24.0} & \cellcolor{gray!10}{male} & \cellcolor{gray!10}{masculine} & \cellcolor{gray!10}{Tatooine} & \cellcolor{gray!10}{Human} & \cellcolor{gray!10}{A New Hope} & \cellcolor{gray!10}{} & \cellcolor{gray!10}{X-wing}\\
+Obi-Wan Kenobi & 182 & 77 & auburn, white & fair & blue-gray & 57.0 & male & masculine & Stewjon & Human & A New Hope             , The Empire Strikes Back, Return of the Jedi     , The Phantom Menace     , Attack of the Clones   , Revenge of the Sith & Tribubble bongo & Jedi starfighter        , Trade Federation cruiser, Naboo star skiff        , Jedi Interceptor        , Belbullab-22 starfighter\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Mean height}
+\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_height =} \FunctionTok{mean}\NormalTok{(height, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 1 x 1
+  mean_height
+        <dbl>
+1        175.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Median height}
+\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{median\_height =} \FunctionTok{median}\NormalTok{(height, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 1 x 1
+  median_height
+          <int>
+1           180
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Mode height}
+
+\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(height)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(height, }\AttributeTok{sort =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{slice\_max}\NormalTok{(}\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{order\_by =}\NormalTok{ n) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\AttributeTok{mode\_height =}\NormalTok{ height)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 1 x 1
+  mode_height
+        <int>
+1         183
+\end{verbatim}
+
+Now, let's apply other summary functions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Select relevant variables}
+\NormalTok{starwars\_selected }\OtherTok{\textless{}{-}}\NormalTok{ starwars }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(height, mass, gender, birth\_year, species)}
+
+\CommentTok{\# Tidy summary for numeric variables}
+\NormalTok{starwars\_selected }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{mean\_height =} \FunctionTok{mean}\NormalTok{(height, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{sd\_height =} \FunctionTok{sd}\NormalTok{(height, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{mean\_mass =} \FunctionTok{mean}\NormalTok{(mass, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{sd\_mass =} \FunctionTok{sd}\NormalTok{(mass, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 1 x 4
+  mean_height sd_height mean_mass sd_mass
+        <dbl>     <dbl>     <dbl>   <dbl>
+1        175.      34.8      97.3    169.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Frequency table for gender (tidyverse style)}
+\NormalTok{starwars\_selected }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(gender, }\AttributeTok{name =} \StringTok{"frequency"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 3 x 2
+  gender    frequency
+  <chr>         <int>
+1 feminine         17
+2 masculine        66
+3 <NA>              4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Proportion table for gender (tidyverse style)}
+\NormalTok{starwars\_selected }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(gender, }\AttributeTok{name =} \StringTok{"frequency"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{proportion =}\NormalTok{ frequency }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(frequency))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+# A tibble: 3 x 3
+  gender    frequency proportion
+  <chr>         <int>      <dbl>
+1 feminine         17     0.195 
+2 masculine        66     0.759 
+3 <NA>              4     0.0460
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Comprehensive tidy summary using skimr}
+\FunctionTok{skim}\NormalTok{(starwars\_selected)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{Data summary}\tabularnewline
+\toprule\noalign{}
+\endfirsthead
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Name & starwars\_selected \\
+Number of rows & 87 \\
+Number of columns & 5 \\
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ & \\
+Column type frequency: & \\
+character & 2 \\
+numeric & 3 \\
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ & \\
+Group variables & None \\
+\end{longtable}
+
+\textbf{Variable type: character}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1944}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1389}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1944}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0556}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0556}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0833}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1528}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+skim\_variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_missing
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+complete\_rate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+min
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+max
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+empty
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_unique
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+whitespace
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+gender & 4 & 0.95 & 8 & 9 & 0 & 2 & 0 \\
+species & 4 & 0.95 & 3 & 14 & 0 & 37 & 0 \\
+\end{longtable}
+
+\textbf{Variable type: numeric}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.1707}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.1220}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.1707}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0854}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0854}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0366}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0732}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0488}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0732}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0610}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0732}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+skim\_variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_missing
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+complete\_rate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+mean
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+sd
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p0
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p25
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p50
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p75
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p100
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+hist
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+height & 6 & 0.93 & 174.60 & 34.77 & 66 & 167.0 & 180 & 191.0 & 264 &
+▂▁▇▅▁ \\
+mass & 28 & 0.68 & 97.31 & 169.46 & 15 & 55.6 & 79 & 84.5 & 1358 &
+▇▁▁▁▁ \\
+birth\_year & 44 & 0.49 & 87.57 & 154.69 & 8 & 35.0 & 52 & 72.0 & 896 &
+▇▁▁▁▁ \\
+\end{longtable}
+
+Let's look at a visual pattern of the height of different characters in
+Star Wars.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ height)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{binwidth =} \DecValTok{8}\NormalTok{, }\AttributeTok{fill =} \StringTok{"navy"}\NormalTok{, }\AttributeTok{color =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Figure 4. Histogram of Height of Characters in Star Wars"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Height (cm)"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Count"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Warning: Removed 6 rows containing non-finite outside the scale range
+(`stat_bin()`).
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{handouttry_files/figure-pdf/unnamed-chunk-10-1.pdf}}
+
+Now, we filter the species to get visual pattern of the height of
+different \emph{human} characters in Star Wars.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(species }\SpecialCharTok{==} \StringTok{"Human"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ height)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{binwidth =} \DecValTok{8}\NormalTok{, }\AttributeTok{fill =} \StringTok{"navy"}\NormalTok{, }\AttributeTok{color =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Figure 5. Histogram of Height of Human Characters in Star Wars"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Height (cm)"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Count"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Warning: Removed 5 rows containing non-finite outside the scale range
+(`stat_bin()`).
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{handouttry_files/figure-pdf/unnamed-chunk-11-1.pdf}}
+
+Furthermore, this YouTube video
+\href{https://www.youtube.com/watch?v=4vSfbz9YMa0}{Return of the Star
+Wars dataset} may be an interesting resource to help you better
+understand the dataset.
 
 \vspace{1cm}
 
 \section{Limitations}\label{limitations}
 
-The future of summary statistics is shaped by growing data complexity,
-computational advances, and artificial intelligence. As noted in
-(\citeproc{ref-oscgarden2023bootstrapping}{Garden, 2023}), summary
-statistics are increasingly combined with methods like bootstrapping and
-machine learning to handle complex data. AI is automating and
-personalizing summaries (\citeproc{ref-datatas2025future}{Datatas,
-2025}), while enhanced visual tools make data exploration more intuitive
-(\citeproc{ref-potter2010visualizing}{Potter et al., 2010}).
-(\citeproc{ref-fan2014challenges}{Fan et al., 2014}) highlight the need
-for new frameworks to address big data challenges, and
-(\citeproc{ref-gelman2024stat50}{Gelman \& Vehtari, 2024}) emphasize
-ongoing methodological innovation.
+Summary statistics are essential for providing a quick and accessible
+overview of a dataset, but they have several important limitations. In
+the book \emph{Naked Statistics}
+(\citeproc{ref-wheelan2013naked}{Wheelan, 2013}), the author highlights
+key limitations of statistics, warning that statistical measures can be
+easily misapplied, misinterpreted, or manipulated to mislead people. He
+explains that while statistics help summarize complex data, this
+simplification can lead to information loss and oversights, especially
+when descriptive statistics are mistaken for complete truth. He
+emphasizes that statistics are only as reliable as the data and methods
+behind them, and that issues like bias, poor sampling, or careless
+analysis can produce misleading or false conclusions.
 
-In sum, summary statistics are evolving into dynamic, automated tools
-essential for understanding large and complex datasets.
-
-\newpage
+Looking ahead, summary statistics are evolving to address larger and
+more complex datasets. Advances in computational methods, artificial
+intelligence, and visualization are making summaries more interactive
+and adaptive to big data challenges
+(\citeproc{ref-datatas2025future}{Datatas, 2025};
+\citeproc{ref-fan2014challenges}{Fan et al., 2014};
+\citeproc{ref-oscgarden2023bootstrapping}{Garden, 2023}). As data
+science progresses, summary statistics will remain foundational but must
+be used alongside advanced analytics to ensure accurate and meaningful
+insights.
 
 \section{Conclusion}\label{conclusion}
 
-Summary statistics are fundamental to any data analysis process, serving
-as the essential first step in understanding and interpreting datasets.
-In R, summary statistics provide a concise overview of data
-distributions, central tendencies, and variability, enabling analysts to
-quickly assess data quality, detect anomalies, and guide subsequent
-analytical decisions. The flexibility and power of R-through core
-functions like summary(), mean(), sd(), and packages such as dplyr, to
-efficiently compute and customize statistical summaries for both
-ungrouped and grouped data.
+Summary statistics are a key starting point for any data analysis,
+helping us quickly understand and interpret data. In R, these
+statistics---like the mean, median, and standard deviation---give a
+clear overview of the data and help spot problems or unusual values. R
+makes it easy to calculate these numbers for all the data or for
+different groups, using built-in functions and packages like dplyr.
 
-According to (\citeproc{ref-lane2013descriptive}{Lane, 2013}), using R's
-tools to automate calculations of summary statistics-such as mean,
-median, standard deviation, range, and percentiles-enables users to
-efficiently produce both overall and group-wise summaries. This not only
-streamlines exploratory data analysis but also establishes a strong
-basis for advanced statistical modeling and hypothesis testing. As Lane
-emphasizes, mastering summary statistics in R allows analysts to extract
-meaningful insights, make better decisions, and clearly communicate
-results across various fields of research and business analytics.
+As (\citeproc{ref-lane2013descriptive}{Lane, 2013}) explains, using R to
+automate summary statistics saves time and helps organize your analysis.
+This basic step is important before moving on to more advanced methods.
+By mastering summary statistics in R, you can find useful patterns, make
+better decisions, and clearly share your results in research or
+business.
 
 \newpage
 
@@ -467,11 +857,6 @@ Garden, O. (2023, November 27). \emph{The 8 most important statistical
 ideas: Bootstrapping and simulation-based inference}.
 \url{https://osc.garden/blog/bootstrapping-and-simulation-based-inference/}
 
-\bibitem[\citeproctext]{ref-gelman2024stat50}
-Gelman, A., \& Vehtari, A. (2024). \emph{What are the most important
-statistical ideas of the past 50 years?}
-\url{https://www.stat.columbia.edu/~gelman/research/unpublished/stat50.pdf}
-
 \bibitem[\citeproctext]{ref-lane2013descriptive}
 Lane, D. M. (2013). Descriptive statistics. In \emph{Introduction to
 statistics}. Rice University.
@@ -481,11 +866,10 @@ statistics}. Rice University.
 Oh, D. M., \& Pyrczak, F. (2023). \emph{Making sense of statistics: A
 conceptual overview}. Routledge.
 
-\bibitem[\citeproctext]{ref-potter2010visualizing}
-Potter, K., Kniss, J., Riesenfeld, R., \& Johnson, C. R. (2010).
-Visualizing summary statistics and uncertainty. \emph{Computer Graphics
-Forum}, \emph{29}(3), 823--832.
-\url{https://www.sci.utah.edu/~kpotter/publications/potter-2010-VSSU.pdf}
+\bibitem[\citeproctext]{ref-Schork2021}
+Schork, J. (2021). \emph{How to calculate summary statistics for the
+columns of a data frame in r (example code)}. YouTube; Statistics Globe.
+\url{https://www.youtube.com/watch?v=FMRkUqy1Sjw}
 
 \bibitem[\citeproctext]{ref-dre2024gentle}
 Videos, D. E. R. (2024). \emph{Gentle r \#4: Basic summary statistics in
@@ -495,6 +879,15 @@ r with r studio {[}video{]}}. YouTube.
 \bibitem[\citeproctext]{ref-walker2023gtsummary}
 Walker, L. (2023). \emph{Easy summary tables in r with gtsummary
 {[}video{]}}. YouTube. \url{https://www.youtube.com/watch?v=gohF7pp2XCg}
+
+\bibitem[\citeproctext]{ref-wheelan2013naked}
+Wheelan, C. (2013). \emph{Naked statistics: Stripping the dread from the
+data}. W. W. Norton \& Company.
+
+\bibitem[\citeproctext]{ref-dplyr2023}
+Wickham, H., François, R., Henry, L., Müller, K., \& Vaughan, D. (2023).
+\emph{Dplyr: A grammar of data manipulation}.
+\url{https://dplyr.tidyverse.org/articles/dplyr.html}
 
 \end{CSLReferences}
 
@@ -520,43 +913,43 @@ Checklist:
 
 \begin{itemize}
 \tightlist
-\item[$\square$]
+\item[$\boxtimes$]
   The handout contains 3-5 pages of text.
-\item[$\square$]
+\item[$\boxtimes$]
   The submission contains the Quarto file of the handout.
-\item[$\square$]
+\item[$\boxtimes$]
   The submission contains the Quarto file of the presentation.
-\item[$\square$]
+\item[$\boxtimes$]
   The submission contains the HTML file of the handout.
-\item[$\square$]
+\item[$\boxtimes$]
   The submission contains the HTML file of the presentation.
-\item[$\square$]
+\item[$\boxtimes$]
   The submission contains the PDF file of the handout.
-\item[$\square$]
+\item[$\boxtimes$]
   The submission contains the PDF file of the presentation.
 \item[$\boxtimes$]
   The title page of the presentation and the handout contain personal
   details (name, email, matriculation number).
-\item[$\square$]
+\item[$\boxtimes$]
   The handout contains a abstract.
-\item[$\square$]
+\item[$\boxtimes$]
   The presentation and the handout contain a bibliography, created using
   BibTeX with APA citation style.
-\item[$\square$]
+\item[$\boxtimes$]
   Either the handout or the presentation contains R code that proof the
   expertise in coding.
-\item[$\square$]
+\item[$\boxtimes$]
   The handout includes an introduction to guide the reader and a
   conclusion summarizing the work and discussing potential further
   investigations and readings, respectively.
-\item[$\square$]
+\item[$\boxtimes$]
   All significant resources used in the report and R code development.
-\item[$\square$]
+\item[$\boxtimes$]
   The filled out Affidavit.
-\item[$\square$]
+\item[$\boxtimes$]
   A concise description of the successful use of Git and GitHub, as
   detailed here: \url{https://github.com/hubchev/make_a_pull_request}.
-\item[$\square$]
+\item[$\boxtimes$]
   The link to the presentation and the handout published on GitHub.
 \end{itemize}
 

@@ -6,8 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jelin George">
-<meta name="keywords" content="summary statistics, R programming, data analysis, data visualisation, data summarisation">
+<meta name="author" content="Jelin George (Matriculation: 400826617)">
+<meta name="keywords" content="summary statistics, R programming, data analysis, descriptive statistics, data visualization, exploratory data analysis, limitations">
 <meta name="description" content="SUMMARY STATISTICS AND TECHNIQUES IN R">
 
 <title>The Importance of Summary Statistics and Techniques for Creating Them in R</title>
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -71,7 +106,7 @@ div.csl-indent {
    
   <ul>
   <li><a href="#key-measures-in-summary-statistics" id="toc-key-measures-in-summary-statistics" class="nav-link active" data-scroll-target="#key-measures-in-summary-statistics">Key Measures in Summary Statistics</a></li>
-  <li><a href="#summarizing-data-frames" id="toc-summarizing-data-frames" class="nav-link" data-scroll-target="#summarizing-data-frames">Summarizing Data Frames</a></li>
+  <li><a href="#practical-application" id="toc-practical-application" class="nav-link" data-scroll-target="#practical-application">Practical Application</a></li>
   <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
@@ -95,7 +130,7 @@ div.csl-indent {
 <div class="Author">
 <br>
 
-<p>Jelin George</p>
+<p>Jelin George (Matriculation: 400826617)</p>
 <p>International Management, M.A., Hochschule Fresenius - University of Applied Science</p>
 </div>
 <br>
@@ -105,31 +140,32 @@ div.csl-indent {
 </section>
 <section id="author-note" class="level1 unnumbered unlisted AuthorNote">
 <h1 class="unnumbered unlisted AuthorNote">Author Note</h1>
-<p>Jelin George <img src="_extensions/wjschne/apaquarto/ORCID-iD_icon-vector.svg" id="orchid" class="img-fluid" style="width:4.23mm" alt="Orcid ID Logo: A green circle with white letters ID"> <a href="https://orcid.org/0000-0000-0000-0001">https://orcid.org/0000-0000-0000-0001</a></p>
 <p>The authors have no conflicts of interest to disclose.</p>
-<p>Correspondence concerning this article should be addressed to Jelin George, International Management, M.A., Hochschule Fresenius - University of Applied Science, Email: <a href="mailto:george.jelin@stud-hs.fresenius.de">george.jelin@stud-hs.fresenius.de</a></p>
+<p>Correspondence concerning this article should be addressed to Jelin George (Matriculation: 400826617), International Management, M.A., Hochschule Fresenius - University of Applied Science, Email: <a href="mailto:george.jelin@stud-hs.fresenius.de">george.jelin@stud-hs.fresenius.de</a></p>
 <br>
 </section>
 <section id="abstract" class="level1 unnumbered unlisted AuthorNote">
 <h1 class="unnumbered unlisted AuthorNote">Abstract</h1>
 <div class="AbstractFirstParagraph">
-<p>This document presents a concise overview of summary statistics and their importance in R. Summary statistics - such as mean, median, standard deviation, and frequency counts - capture the key features of a dataset, enabling quick exploration and interpretation. R provides powerful functions and visualization tools to efficiently compute and present these statistics, making them essential for simplifying data, identifying patterns, and supporting informed analysis and decision-making.</p>
+<p>This document presents a concise overview of summary statistics and their importance in R. Summary statistics - such as mean, median, standard deviation, and frequency counts - capture the key features of a dataset, enabling quick exploration and interpretation. R provides powerful functions and visualization tools to efficiently compute and present these statistics, making them essential for simplifying data, identifying patterns, and supporting informed analysis and decision-making. Practical examples and code are provided to demonstrate these concepts in action. The document also discusses the limitations of summary statistics and considers future directions in their application.</p>
 </div>
-<p><em>Keywords</em>: summary statistics, R programming, data analysis, data visualisation, data summarisation</p>
+<p><em>Keywords</em>: summary statistics, R programming, data analysis, descriptive statistics, data visualization, exploratory data analysis, limitations</p>
 <br>
 </section>
 <section id="firstheader" class="level1 title unnumbered unlisted">
 <h1 class="title unnumbered unlisted">The Importance of Summary Statistics and Techniques for Creating Them in R</h1>
 <p><br></p>
-<p>Summary statistics are numerical values that describe the main features of a dataset, such as its center and spread. They simplify complex data into easily interpretable numbers, offering quick insights into trends and variability, and serve as a foundation for further analysis. These statistics provide a snapshot of the data, facilitating initial exploration, quality checks, and communication of results.</p>
-<p>R offers a rich ecosystem of functions and packages - such as summary(), dplyr::summarise(), and visualization tools like histograms and boxplots - that streamline the computation and presentation of summary statistics for both numeric and categorical data. Their importance lies in simplifying large datasets, revealing patterns and outliers, and laying the groundwork for deeper statistical analyses and informed decision-making.</p>
+<p>Summary statistics are concise numerical measures that capture the essential characteristics of a dataset. They serve as foundational tools in data analysis, providing concise descriptions of large datasets. They help analysts and researchers understand the central tendencies, variability, and overall distribution of data, making complex datasets interpretable and actionable. Without summary statistics, raw data would be overwhelming and difficult to interpret, making it challenging to draw meaningful conclusions or communicate findings effectively.</p>
+<p>In R, summary statistics are foundational for data analysis, enabling users to efficiently condense complex data into interpretable values like the mean, median, mode, standard deviation, and quantiles. R offers a rich ecosystem of functions and packages - such as summary(), dplyr::summarise(), and visualization tools like histograms and boxplots - that streamline the computation and presentation of summary statistics for both numeric and categorical data. Their importance lies in simplifying large datasets, revealing patterns and outliers, and laying the groundwork for deeper statistical analyses and informed decision-making.</p>
 <p>As the first and often most critical step in any analytical workflow, summary statistics in R empower analysts and researchers to understand, compare, and communicate data-driven insights with clarity and precision.</p>
 <p>Summary statistics can be typically divided into:</p>
 <ol type="1">
 <li><p><strong>Descriptive statistics</strong>: Summarize the main features of a dataset (e.g., mean, median, mode). <em>This will be our focus here.</em></p></li>
 <li><p><strong>Inferential statistics</strong>: Make predictions or inferences about a population based on a sample (not the focus here).</p></li>
 </ol>
-<p>I would like to highlight a book, <em>Making sense of statistics: A conceptual overview</em>, <span class="citation" data-cites="oh2023making">(<a href="#ref-oh2023making" role="doc-biblioref">Oh &amp; Pyrczak, 2023</a>)</span> which offers a clear and accessible introduction to key statistical concepts for beginners. The book focuses on building conceptual understanding of both descriptive and inferential statistics, using simple explanations, practical examples, and step-by-step guidance. It is designed to help students from any discipline gain confidence in applying statistics to research and interpreting data effectively.</p>
+<p>I would like to highlight a book, <em>Making sense of statistics: A conceptual overview</em>, <span class="citation" data-cites="oh2023making">(<a href="#ref-oh2023making" role="doc-biblioref">Oh &amp; Pyrczak, 2023</a>)</span> which offers a clear and accessible introduction to key statistical concepts for beginners. The book focuses on building conceptual understanding of both descriptive and inferential statistics, using simple explanations, practical examples, and step-by-step guidance. It is designed to help in applying statistics to research and interpreting data effectively.</p>
+<p>Additonally, watch this <a href="https://www.youtube.com/watch?v=yoPGwvUzjgQ"><strong>tutorial video</strong></a> on descriptive statistics in R to get you started.</p>
+<div style="page-break-after: always;"></div>
 <p><br></p>
 </section>
 <section id="key-measures-in-summary-statistics" class="level1">
@@ -142,26 +178,342 @@ div.csl-indent {
 <li><strong>Frequency table</strong>: It shows how often each value or category appears in a dataset, making it easy to spot common or rare values and summarize the data.</li>
 <li><strong>Cross-tabulations</strong> (contingency tables): It shows how two or more categorical variables are related by displaying the count of observations for each combination of categories.</li>
 </ul>
-<p>Watch this <a href="https://www.youtube.com/watch?v=yoPGwvUzjgQ"><strong>tutorial video</strong></a> on descriptive statistics in R to get you started. Additionally, the YouTube videos listed here may be helpful for understanding the code chunks <span class="citation" data-cites="walker2023gtsummary">(<a href="#ref-walker2023gtsummary" role="doc-biblioref">Walker, 2023</a>)</span> <span class="citation" data-cites="dre2024gentle">(<a href="#ref-dre2024gentle" role="doc-biblioref">Videos, 2024</a>)</span>.</p>
+<p>Furthermore, read <a href="https://modernstatisticswithr.com/index.html">Modern Statistics with R</a> to understand essential tools and techniques in contemporary statistical data analysis, using the R programming language. The book features numerous examples and over 200 exercises with worked solutions. The online version is freely available and regularly updated, with downloadable datasets for hands-on learning</p>
+<p>The YouTube videos referenced here may assist in further understanding the code chunks presented above <span class="citation" data-cites="walker2023gtsummary">(<a href="#ref-walker2023gtsummary" role="doc-biblioref">Walker, 2023</a>)</span> <span class="citation" data-cites="dre2024gentle">(<a href="#ref-dre2024gentle" role="doc-biblioref">Videos, 2024</a>)</span> <span class="citation" data-cites="Schork2021">(<a href="#ref-Schork2021" role="doc-biblioref">Schork, 2021</a>)</span></p>
 <p><br></p>
 </section>
-<section id="summarizing-data-frames" class="level1">
-<h1>Summarizing Data Frames</h1>
-<p>We can summarize entire datasets by calculating statistics like mean, median, minimum, maximum, standard deviation, and counts for each variable. This provides a clear overview of the data’s structure and key features.</p>
-<p>Practical application: Apply summary statistics functions to the Star Wars dataset. Use functions such as summary(), mean(), median(), sd(), and others to explore key variables like height, mass, and age. This will help you quickly understand the central tendencies, variability, and distribution patterns within the Star Wars data frame. Watch this YouTube video <a href="https://www.youtube.com/watch?v=4vSfbz9YMa0">Return of the Star Wars dataset</a> to understand the details of the dataset.</p>
-<p>Furthermore, read <a href="https://modernstatisticswithr.com/index.html">Modern Statistics with R</a> to understand essential tools and techniques in contemporary statistical data analysis, using the R programming language. The book features numerous examples and over 200 exercises with worked solutions. The online version is freely available and regularly updated, with downloadable datasets for hands-on learning.</p>
+<section id="practical-application" class="level1">
+<h1>Practical Application</h1>
+<p>Try this exercise to understand how to read data and apply summary statistics functions using the <strong>Star Wars</strong> dataset.</p>
+<p>Before we get started, we must install essential packages that might be needed later.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, load the Star Wars dataset available in the dylyr package. Read more on dylyr package here <span class="citation" data-cites="dplyr2023">(<a href="#ref-dplyr2023" role="doc-biblioref">Wickham et al., 2023</a>)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To begin our analysis, we will display the first 10 rows of the starwars dataset. This provides a quick overview of the data structure and its key variables before we proceed with summary statistics.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>starwars_tbl <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(starwars_tbl, <span class="at">format =</span> <span class="st">"latex"</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">caption =</span> <span class="st">"Table 1. Star Wars Data"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="st">"striped"</span>, <span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean height</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_height =</span> <span class="fu">mean</span>(height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  mean_height
+        &lt;dbl&gt;
+1        175.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Median height</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">median_height =</span> <span class="fu">median</span>(height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  median_height
+          &lt;int&gt;
+1           180</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mode height</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(height)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(height, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(<span class="at">n =</span> <span class="dv">1</span>, <span class="at">order_by =</span> n) <span class="sc">%&gt;%</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">mode_height =</span> height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  mode_height
+        &lt;int&gt;
+1         183</code></pre>
+</div>
+</div>
+<p>Now, let’s apply other summary functions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select relevant variables</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>starwars_selected <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(height, mass, gender, birth_year, species)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidy summary for numeric variables</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>starwars_selected <span class="sc">%&gt;%</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_height =</span> <span class="fu">mean</span>(height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_height =</span> <span class="fu">sd</span>(height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_mass =</span> <span class="fu">mean</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_mass =</span> <span class="fu">sd</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  mean_height sd_height mean_mass sd_mass
+        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+1        175.      34.8      97.3    169.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequency table for gender (tidyverse style)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>starwars_selected <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(gender, <span class="at">name =</span> <span class="st">"frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  gender    frequency
+  &lt;chr&gt;         &lt;int&gt;
+1 feminine         17
+2 masculine        66
+3 &lt;NA&gt;              4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion table for gender (tidyverse style)</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>starwars_selected <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(gender, <span class="at">name =</span> <span class="st">"frequency"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">proportion =</span> frequency <span class="sc">/</span> <span class="fu">sum</span>(frequency))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  gender    frequency proportion
+  &lt;chr&gt;         &lt;int&gt;      &lt;dbl&gt;
+1 feminine         17     0.195 
+2 masculine        66     0.759 
+3 &lt;NA&gt;              4     0.0460</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comprehensive tidy summary using skimr</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(starwars_selected)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">starwars_selected</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">87</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">gender</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">species</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 3%">
+<col style="width: 7%">
+<col style="width: 4%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">height</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.93</td>
+<td style="text-align: right;">174.60</td>
+<td style="text-align: right;">34.77</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">167.0</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">191.0</td>
+<td style="text-align: right;">264</td>
+<td style="text-align: left;">▂▁▇▅▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mass</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.68</td>
+<td style="text-align: right;">97.31</td>
+<td style="text-align: right;">169.46</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">55.6</td>
+<td style="text-align: right;">79</td>
+<td style="text-align: right;">84.5</td>
+<td style="text-align: right;">1358</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">birth_year</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">0.49</td>
+<td style="text-align: right;">87.57</td>
+<td style="text-align: right;">154.69</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">35.0</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">72.0</td>
+<td style="text-align: right;">896</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br></p>
+<p>Let’s look at a visual pattern of the height of different characters in Star Wars.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> height)) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">8</span>, <span class="at">fill =</span> <span class="st">"navy"</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Figure 4. Histogram of Height of Characters in Star Wars"</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Height (cm)"</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Count"</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 6 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="handouttry_files/figure-html/unnamed-chunk-10-1.svg" class="img-fluid figure-img" width="624"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now, we filter the species to get visual pattern of the height of different <em>human</em> characters in Star Wars.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Human"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> height)) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">8</span>, <span class="at">fill =</span> <span class="st">"navy"</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Figure 5. Histogram of Height of Human Characters in Star Wars"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Height (cm)"</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Count"</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 5 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="handouttry_files/figure-html/unnamed-chunk-11-1.svg" class="img-fluid figure-img" width="624"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Furthermore, this YouTube video <a href="https://www.youtube.com/watch?v=4vSfbz9YMa0">Return of the Star Wars dataset</a> may be an interesting resource to help you better understand the dataset.</p>
 <p><br></p>
 </section>
 <section id="limitations" class="level1">
 <h1>Limitations</h1>
-<p>The future of summary statistics is shaped by growing data complexity, computational advances, and artificial intelligence. As noted in <span class="citation" data-cites="oscgarden2023bootstrapping">(<a href="#ref-oscgarden2023bootstrapping" role="doc-biblioref">Garden, 2023</a>)</span>, summary statistics are increasingly combined with methods like bootstrapping and machine learning to handle complex data. AI is automating and personalizing summaries <span class="citation" data-cites="datatas2025future">(<a href="#ref-datatas2025future" role="doc-biblioref">Datatas, 2025</a>)</span>, while enhanced visual tools make data exploration more intuitive <span class="citation" data-cites="potter2010visualizing">(<a href="#ref-potter2010visualizing" role="doc-biblioref">Potter et al., 2010</a>)</span>. <span class="citation" data-cites="fan2014challenges">(<a href="#ref-fan2014challenges" role="doc-biblioref">Fan et al., 2014</a>)</span> highlight the need for new frameworks to address big data challenges, and <span class="citation" data-cites="gelman2024stat50">(<a href="#ref-gelman2024stat50" role="doc-biblioref">Gelman &amp; Vehtari, 2024</a>)</span> emphasize ongoing methodological innovation.</p>
-<p>In sum, summary statistics are evolving into dynamic, automated tools essential for understanding large and complex datasets.</p>
+<p>Summary statistics are essential for providing a quick and accessible overview of a dataset, but they have several important limitations. In the book <em>Naked Statistics</em> <span class="citation" data-cites="wheelan2013naked">(<a href="#ref-wheelan2013naked" role="doc-biblioref">Wheelan, 2013</a>)</span>, the author highlights key limitations of statistics, warning that statistical measures can be easily misapplied, misinterpreted, or manipulated to mislead people. He explains that while statistics help summarize complex data, this simplification can lead to information loss and oversights, especially when descriptive statistics are mistaken for complete truth. He emphasizes that statistics are only as reliable as the data and methods behind them, and that issues like bias, poor sampling, or careless analysis can produce misleading or false conclusions.</p>
+<p>Looking ahead, summary statistics are evolving to address larger and more complex datasets. Advances in computational methods, artificial intelligence, and visualization are making summaries more interactive and adaptive to big data challenges <span class="citation" data-cites="oscgarden2023bootstrapping datatas2025future fan2014challenges">(<a href="#ref-datatas2025future" role="doc-biblioref">Datatas, 2025</a>; <a href="#ref-fan2014challenges" role="doc-biblioref">Fan et al., 2014</a>; <a href="#ref-oscgarden2023bootstrapping" role="doc-biblioref">Garden, 2023</a>)</span>. As data science progresses, summary statistics will remain foundational but must be used alongside advanced analytics to ensure accurate and meaningful insights.</p>
+<div style="page-break-after: always;"></div>
 <p><br></p>
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
-<p>Summary statistics are fundamental to any data analysis process, serving as the essential first step in understanding and interpreting datasets. In R, summary statistics provide a concise overview of data distributions, central tendencies, and variability, enabling analysts to quickly assess data quality, detect anomalies, and guide subsequent analytical decisions. The flexibility and power of R-through core functions like summary(), mean(), sd(), and packages such as dplyr, to efficiently compute and customize statistical summaries for both ungrouped and grouped data.</p>
-<p>According to <span class="citation" data-cites="lane2013descriptive">(<a href="#ref-lane2013descriptive" role="doc-biblioref">Lane, 2013</a>)</span>, using R’s tools to automate calculations of summary statistics-such as mean, median, standard deviation, range, and percentiles-enables users to efficiently produce both overall and group-wise summaries. This not only streamlines exploratory data analysis but also establishes a strong basis for advanced statistical modeling and hypothesis testing. As Lane emphasizes, mastering summary statistics in R allows analysts to extract meaningful insights, make better decisions, and clearly communicate results across various fields of research and business analytics.</p>
+<p>Summary statistics are a key starting point for any data analysis, helping us quickly understand and interpret data. In R, these statistics—like the mean, median, and standard deviation—give a clear overview of the data and help spot problems or unusual values. R makes it easy to calculate these numbers for all the data or for different groups, using built-in functions and packages like dplyr.</p>
+<p>As <span class="citation" data-cites="lane2013descriptive">(<a href="#ref-lane2013descriptive" role="doc-biblioref">Lane, 2013</a>)</span> explains, using R to automate summary statistics saves time and helps organize your analysis. This basic step is important before moving on to more advanced methods. By mastering summary statistics in R, you can find useful patterns, make better decisions, and clearly share your results in research or business.</p>
+<div style="page-break-after: always;"></div>
 <p><br></p>
 </section>
 <section id="references" class="level1">
@@ -177,17 +529,14 @@ Fan, J., Han, F., &amp; Liu, H. (2014). Challenges of big data analysis. <em>Nat
 <div id="ref-oscgarden2023bootstrapping" class="csl-entry" role="listitem">
 Garden, O. (2023, November 27). <em>The 8 most important statistical ideas: Bootstrapping and simulation-based inference</em>. <a href="https://osc.garden/blog/bootstrapping-and-simulation-based-inference/">https://osc.garden/blog/bootstrapping-and-simulation-based-inference/</a>
 </div>
-<div id="ref-gelman2024stat50" class="csl-entry" role="listitem">
-Gelman, A., &amp; Vehtari, A. (2024). <em>What are the most important statistical ideas of the past 50 years?</em> <a href="https://www.stat.columbia.edu/~gelman/research/unpublished/stat50.pdf">https://www.stat.columbia.edu/~gelman/research/unpublished/stat50.pdf</a>
-</div>
 <div id="ref-lane2013descriptive" class="csl-entry" role="listitem">
 Lane, D. M. (2013). Descriptive statistics. In <em>Introduction to statistics</em>. Rice University. <a href="https://onlinestatbook.com/2/introduction/descriptive.html">https://onlinestatbook.com/2/introduction/descriptive.html</a>
 </div>
 <div id="ref-oh2023making" class="csl-entry" role="listitem">
 Oh, D. M., &amp; Pyrczak, F. (2023). <em>Making sense of statistics: A conceptual overview</em>. Routledge.
 </div>
-<div id="ref-potter2010visualizing" class="csl-entry" role="listitem">
-Potter, K., Kniss, J., Riesenfeld, R., &amp; Johnson, C. R. (2010). Visualizing summary statistics and uncertainty. <em>Computer Graphics Forum</em>, <em>29</em>(3), 823–832. <a href="https://www.sci.utah.edu/~kpotter/publications/potter-2010-VSSU.pdf">https://www.sci.utah.edu/~kpotter/publications/potter-2010-VSSU.pdf</a>
+<div id="ref-Schork2021" class="csl-entry" role="listitem">
+Schork, J. (2021). <em>How to calculate summary statistics for the columns of a data frame in r (example code)</em>. YouTube; Statistics Globe. <a href="https://www.youtube.com/watch?v=FMRkUqy1Sjw">https://www.youtube.com/watch?v=FMRkUqy1Sjw</a>
 </div>
 <div id="ref-dre2024gentle" class="csl-entry" role="listitem">
 Videos, D. E. R. (2024). <em>Gentle r #4: Basic summary statistics in r with r studio [video]</em>. YouTube. <a href="https://www.youtube.com/watch?v=8XFmPP93w_Y">https://www.youtube.com/watch?v=8XFmPP93w_Y</a>
@@ -195,7 +544,14 @@ Videos, D. E. R. (2024). <em>Gentle r #4: Basic summary statistics in r with r s
 <div id="ref-walker2023gtsummary" class="csl-entry" role="listitem">
 Walker, L. (2023). <em>Easy summary tables in r with gtsummary [video]</em>. YouTube. <a href="https://www.youtube.com/watch?v=gohF7pp2XCg">https://www.youtube.com/watch?v=gohF7pp2XCg</a>
 </div>
+<div id="ref-wheelan2013naked" class="csl-entry" role="listitem">
+Wheelan, C. (2013). <em>Naked statistics: Stripping the dread from the data</em>. W. W. Norton &amp; Company.
 </div>
+<div id="ref-dplyr2023" class="csl-entry" role="listitem">
+Wickham, H., François, R., Henry, L., Müller, K., &amp; Vaughan, D. (2023). <em>Dplyr: A grammar of data manipulation</em>. <a href="https://dplyr.tidyverse.org/articles/dplyr.html">https://dplyr.tidyverse.org/articles/dplyr.html</a>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
 <p><br></p>
 </section>
 <section id="affadative" class="level1">
@@ -204,22 +560,22 @@ Walker, L. (2023). <em>Easy summary tables in r with gtsummary [video]</em>. You
 <p>I acknowledge that the university may use plagiarism detection software to check my thesis. I agree to cooperate with any investigation of suspected plagiarism and to provide any additional information or evidence requested by the university.</p>
 <p>Checklist:</p>
 <ul class="task-list">
-<li><label><input type="checkbox">The handout contains 3-5 pages of text.</label></li>
-<li><label><input type="checkbox">The submission contains the Quarto file of the handout.</label></li>
-<li><label><input type="checkbox">The submission contains the Quarto file of the presentation.</label></li>
-<li><label><input type="checkbox">The submission contains the HTML file of the handout.</label></li>
-<li><label><input type="checkbox">The submission contains the HTML file of the presentation.</label></li>
-<li><label><input type="checkbox">The submission contains the PDF file of the handout.</label></li>
-<li><label><input type="checkbox">The submission contains the PDF file of the presentation.</label></li>
+<li><label><input type="checkbox" checked="">The handout contains 3-5 pages of text.</label></li>
+<li><label><input type="checkbox" checked="">The submission contains the Quarto file of the handout.</label></li>
+<li><label><input type="checkbox" checked="">The submission contains the Quarto file of the presentation.</label></li>
+<li><label><input type="checkbox" checked="">The submission contains the HTML file of the handout.</label></li>
+<li><label><input type="checkbox" checked="">The submission contains the HTML file of the presentation.</label></li>
+<li><label><input type="checkbox" checked="">The submission contains the PDF file of the handout.</label></li>
+<li><label><input type="checkbox" checked="">The submission contains the PDF file of the presentation.</label></li>
 <li><label><input type="checkbox" checked="">The title page of the presentation and the handout contain personal details (name, email, matriculation number).</label></li>
-<li><label><input type="checkbox">The handout contains a abstract.</label></li>
-<li><label><input type="checkbox">The presentation and the handout contain a bibliography, created using BibTeX with APA citation style.</label></li>
-<li><label><input type="checkbox">Either the handout or the presentation contains R code that proof the expertise in coding.</label></li>
-<li><label><input type="checkbox">The handout includes an introduction to guide the reader and a conclusion summarizing the work and discussing potential further investigations and readings, respectively.</label></li>
-<li><label><input type="checkbox">All significant resources used in the report and R code development.</label></li>
-<li><label><input type="checkbox">The filled out Affidavit.</label></li>
-<li><label><input type="checkbox">A concise description of the successful use of Git and GitHub, as detailed here: <a href="https://github.com/hubchev/make_a_pull_request" class="uri">https://github.com/hubchev/make_a_pull_request</a>.</label></li>
-<li><label><input type="checkbox">The link to the presentation and the handout published on GitHub.</label></li>
+<li><label><input type="checkbox" checked="">The handout contains a abstract.</label></li>
+<li><label><input type="checkbox" checked="">The presentation and the handout contain a bibliography, created using BibTeX with APA citation style.</label></li>
+<li><label><input type="checkbox" checked="">Either the handout or the presentation contains R code that proof the expertise in coding.</label></li>
+<li><label><input type="checkbox" checked="">The handout includes an introduction to guide the reader and a conclusion summarizing the work and discussing potential further investigations and readings, respectively.</label></li>
+<li><label><input type="checkbox" checked="">All significant resources used in the report and R code development.</label></li>
+<li><label><input type="checkbox" checked="">The filled out Affidavit.</label></li>
+<li><label><input type="checkbox" checked="">A concise description of the successful use of Git and GitHub, as detailed here: <a href="https://github.com/hubchev/make_a_pull_request" class="uri">https://github.com/hubchev/make_a_pull_request</a>.</label></li>
+<li><label><input type="checkbox" checked="">The link to the presentation and the handout published on GitHub.</label></li>
 </ul>
 <p>Jelin George, 28May2025, Cologne</p>
 </section>

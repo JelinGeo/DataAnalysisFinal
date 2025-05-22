@@ -206,7 +206,7 @@ Them in R}
 
 
 
-\author{Jelin George}
+\author{Jelin George (Matriculation: 400826617)}
 
 
 
@@ -216,7 +216,7 @@ Them in R}
 
 
 
-\leftheader{George}
+\leftheader{400826617)}
 
 
 
@@ -227,16 +227,20 @@ features of a dataset, enabling quick exploration and interpretation. R
 provides powerful functions and visualization tools to efficiently
 compute and present these statistics, making them essential for
 simplifying data, identifying patterns, and supporting informed analysis
-and decision-making. }
+and decision-making. Practical examples and code are provided to
+demonstrate these concepts in action. The document also discusses the
+limitations of summary statistics and considers future directions in
+their application. }
 
-\keywords{summary statistics, R programming, data analysis, data
-visualisation, data summarisation}
+\keywords{summary statistics, R programming, data analysis, descriptive
+statistics, data visualization, exploratory data analysis, limitations}
 
-\authornote{\par{\addORCIDlink{Jelin George}{0000-0000-0000-0001}} 
+\authornote{ 
 \par{ }
 \par{   The authors have no conflicts of interest to disclose.    }
 \par{Correspondence concerning this article should be addressed to Jelin
-George, Email: \href{mailto:george.jelin@stud-hs.fresenius.de}{george.jelin@stud-hs.fresenius.de}}
+George (Matriculation:
+400826617), Email: \href{mailto:george.jelin@stud-hs.fresenius.de}{george.jelin@stud-hs.fresenius.de}}
 }
 
 \makeatletter
@@ -352,20 +356,14 @@ Techniques for Creating Them in R}
 \setlength\LTleft{0pt}
 
 
-Summary statistics are concise numerical measures that capture the
-essential characteristics of a dataset. They serve as foundational tools
-in data analysis, providing concise descriptions of large datasets. They
-help analysts and researchers understand the central tendencies,
-variability, and overall distribution of data, making complex datasets
-interpretable and actionable. Without summary statistics, raw data would
-be overwhelming and difficult to interpret, making it challenging to
-draw meaningful conclusions or communicate findings effectively.
-
-In R, summary statistics are foundational for data analysis, enabling
-users to efficiently condense complex data into interpretable values
-like the mean, median, mode, standard deviation, and quantiles. These
+Summary statistics are numerical values that describe the main features
+of a dataset, such as its center and spread. They simplify complex data
+into easily interpretable numbers, offering quick insights into trends
+and variability, and serve as a foundation for further analysis. These
 statistics provide a snapshot of the data, facilitating initial
-exploration, quality checks, and communication of results.
+exploration, quality checks, and communication of results. In R, these
+statistics not only reveal patterns and outliers but also lay the
+groundwork for informed decision-making.
 
 In this document, we will:
 
@@ -377,21 +375,26 @@ In this document, we will:
 \item
   Demonstrate practical application with code
 \item
-  Discuss best practices and common pitfalls
+  Analyze limitations and consider furture directions
 \end{itemize}
 
 \newpage
 
 \section{What is Summary Statistics?}\label{what-is-summary-statistics}
 
-Summary statistics are numerical values that describe the main features
-of a dataset, such as its center and spread. They simplify complex data
-into easily interpretable numbers, offering quick insights into trends
-and variability, and serve as a foundation for further analysis. These
-statistics provide a snapshot of the data, facilitating initial
-exploration, quality checks, and communication of results.
+Summary statistics are concise numerical measures that capture the
+essential characteristics of a dataset. They serve as foundational tools
+in data analysis, providing concise descriptions of large datasets. They
+help analysts and researchers understand the central tendencies,
+variability, and overall distribution of data, making complex datasets
+interpretable and actionable. Without summary statistics, raw data would
+be overwhelming and difficult to interpret, making it challenging to
+draw meaningful conclusions or communicate findings effectively.
 
-R offers a rich ecosystem of functions and packages - such as summary(),
+In R, summary statistics are foundational for data analysis, enabling
+users to efficiently condense complex data into interpretable values
+like the mean, median, mode, standard deviation, and quantiles. R offers
+a rich ecosystem of functions and packages - such as summary(),
 dplyr::summarise(), and visualization tools like histograms and boxplots
 - that streamline the computation and presentation of summary statistics
 for both numeric and categorical data. Their importance lies in
@@ -414,7 +417,7 @@ Summary statistics can be typically divided into:
   here.}
 \item
   \textbf{Inferential statistics}: Make predictions or inferences about
-  a population based on a sample (not the focus here).
+  a population based on a sample.
 \end{enumerate}
 
 I would like to highlight a book, \emph{Making sense of statistics: A
@@ -423,10 +426,10 @@ which offers a clear and accessible introduction to key statistical
 concepts for beginners. The book focuses on building conceptual
 understanding of both descriptive and inferential statistics, using
 simple explanations, practical examples, and step-by-step guidance. It
-is designed to help students from any discipline gain confidence in
-applying statistics to research and interpreting data effectively.
+is designed to help in applying statistics to research and interpreting
+data effectively.
 
-Watch this
+Additonally, watch this
 \href{https://www.youtube.com/watch?v=yoPGwvUzjgQ}{\textbf{tutorial
 video}} on descriptive statistics in R to get you started.
 
@@ -435,6 +438,11 @@ video}} on descriptive statistics in R to get you started.
 \section{Key Measures in Summary
 Statistics}\label{key-measures-in-summary-statistics}
 
+Summary statistics condense complex datasets into a few meaningful
+numbers, making it easier to understand and communicate data
+characteristics. The key measures in summary statistics fall into
+several categories:
+
 \subsection{Measures of Central
 Tendency}\label{measures-of-central-tendency}
 
@@ -442,8 +450,9 @@ Central tendency measures indicate where most values in a dataset fall.
 
 \begin{itemize}
 \item
-  \textbf{Mean}: The arithmetic average. Add up all the values, then
-  divide by how many there are to get the average of all the numbers.
+  \textbf{Mean}: The arithmetic average of all data points. Add up all
+  the values, then divide by how many there are to get the average of
+  all the numbers.
 \item
   \textbf{Median}: The middle value when data is ordered. If there's an
   even number, it's the average of the two middle numbers.
@@ -457,42 +466,46 @@ Central tendency measures indicate where most values in a dataset fall.
 
 \CommentTok{\#| echo: true}
 \CommentTok{\#| label: mean{-}median{-}mode}
-\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{9}\NormalTok{)}
-\FunctionTok{mean}\NormalTok{(data)   }\CommentTok{\# Arithmetic mean}
+\NormalTok{data\_tbl }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}\AttributeTok{value =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{9}\NormalTok{))}
+
+\NormalTok{data\_tbl }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(value),}
+    \AttributeTok{median =} \FunctionTok{median}\NormalTok{(value),}
+    \AttributeTok{mode =}\NormalTok{ value }\SpecialCharTok{\%\textgreater{}\%} 
+      \FunctionTok{table}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+      \FunctionTok{which.max}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+      \FunctionTok{names}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+      \FunctionTok{as.numeric}\NormalTok{()}
+\NormalTok{  )}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-[1] 5
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{median}\NormalTok{(data) }\CommentTok{\# Median}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 4
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{Mode }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) \{}
-\NormalTok{  ux }\OtherTok{\textless{}{-}} \FunctionTok{unique}\NormalTok{(x)}
-\NormalTok{  ux[}\FunctionTok{which.max}\NormalTok{(}\FunctionTok{tabulate}\NormalTok{(}\FunctionTok{match}\NormalTok{(x, ux)))]}
-\NormalTok{\}}
-\FunctionTok{Mode}\NormalTok{(data)   }\CommentTok{\# Mode}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 4
+# A tibble: 1 x 3
+   mean median  mode
+  <dbl>  <dbl> <dbl>
+1     5      4     4
 \end{verbatim}
 
 \subsection{Measures of Dispersion}\label{measures-of-dispersion}
 
 Dispersion measures describe the spread of data.
+
+\begin{figure}[!htbp]
+
+{\caption{{Distributions With Different
+Dispersion}{\label{fig-dispersion}}}}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Dispersionimage.png}}
+
+{\noindent \emph{Note.} Example of samples from two populations with the
+same mean but different dispersion. The blue population is much more
+dispersed than the red population.}
+
+\end{figure}
+
+\emph{Source: https://en.wikipedia.org/wiki/Statistical\_dispersion}
 
 \begin{itemize}
 \item
@@ -511,52 +524,26 @@ Dispersion measures describe the spread of data.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{range}\NormalTok{(data)}
+\NormalTok{data\_tbl }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}\AttributeTok{value =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{9}\NormalTok{))}
+
+\NormalTok{data\_tbl }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{min =} \FunctionTok{min}\NormalTok{(value),}
+    \AttributeTok{max =} \FunctionTok{max}\NormalTok{(value),}
+    \AttributeTok{range =} \FunctionTok{max}\NormalTok{(value) }\SpecialCharTok{{-}} \FunctionTok{min}\NormalTok{(value),}
+    \AttributeTok{variance =} \FunctionTok{var}\NormalTok{(value),}
+    \AttributeTok{sd =} \FunctionTok{sd}\NormalTok{(value),}
+    \AttributeTok{IQR =} \FunctionTok{IQR}\NormalTok{(value),}
+    \AttributeTok{coefficient\_of\_variation =} \FunctionTok{sd}\NormalTok{(value) }\SpecialCharTok{/} \FunctionTok{mean}\NormalTok{(value)}
+\NormalTok{  )}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-[1] 2 9
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{var}\NormalTok{(data)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 5.333333
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{sd}\NormalTok{(data)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 2.309401
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{IQR}\NormalTok{(data)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 2
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{sd}\NormalTok{(data)}\SpecialCharTok{/}\FunctionTok{mean}\NormalTok{(data) }\CommentTok{\# Coefficient of Variation}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 0.4618802
+# A tibble: 1 x 7
+    min   max range variance    sd   IQR coefficient_of_variation
+  <dbl> <dbl> <dbl>    <dbl> <dbl> <dbl>                    <dbl>
+1     2     9     7     5.33  2.31     2                    0.462
 \end{verbatim}
 
 \subsection{Measures of Shape and
@@ -576,23 +563,27 @@ distributed within a dataset.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(e1071)}
-\FunctionTok{skewness}\NormalTok{(data)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+
+\NormalTok{data\_tbl }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}\AttributeTok{value =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{9}\NormalTok{))}
+
+\NormalTok{data\_tbl }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{n =} \FunctionTok{n}\NormalTok{(),}
+    \AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(value),}
+    \AttributeTok{sd =} \FunctionTok{sd}\NormalTok{(value),}
+    \AttributeTok{skewness =} \FunctionTok{sum}\NormalTok{((value }\SpecialCharTok{{-}}\NormalTok{ mean) }\SpecialCharTok{\^{}} \DecValTok{3}\NormalTok{) }\SpecialCharTok{/}\NormalTok{ n }\SpecialCharTok{/}\NormalTok{ (sd }\SpecialCharTok{\^{}} \DecValTok{3}\NormalTok{),}
+    \AttributeTok{kurtosis =} \FunctionTok{sum}\NormalTok{((value }\SpecialCharTok{{-}}\NormalTok{ mean) }\SpecialCharTok{\^{}} \DecValTok{4}\NormalTok{) }\SpecialCharTok{/}\NormalTok{ n }\SpecialCharTok{/}\NormalTok{ (sd }\SpecialCharTok{\^{}} \DecValTok{4}\NormalTok{)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{mean, }\SpecialCharTok{{-}}\NormalTok{sd, }\SpecialCharTok{{-}}\NormalTok{n) }\CommentTok{\# remove intermediate columns if you only want skewness and kurtosis}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-[1] 0.4871393
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{kurtosis}\NormalTok{(data) }
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] -1.212054
+# A tibble: 1 x 2
+  skewness kurtosis
+     <dbl>    <dbl>
+1    0.487     1.79
 \end{verbatim}
 
 \textbf{Visualization tools to help understand distribution of data
@@ -603,7 +594,7 @@ better.}
 \item
   \textbf{Histogram}: It displays how data values are distributed across
   different intervals in patterns like bell-shaped (normal), J-shaped,
-  or skewed distributions, as well as spot outlines and the overall
+  or skewed distributions, as well as spot outliers and the overall
   spread of the data.
 \end{itemize}
 
@@ -611,13 +602,25 @@ better.}
 \begin{Highlighting}[]
 \CommentTok{\# This histogram shows the distribution in the example we set previously.}
 
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(tibble)}
+
 \CommentTok{\#| label: fig{-}histogram}
 \CommentTok{\#| fig{-}cap: "Histogram of the data"}
-\FunctionTok{hist}\NormalTok{(data, }\AttributeTok{main=}\StringTok{"Figure1.Histogram of Data"}\NormalTok{, }\AttributeTok{col =} \StringTok{"grey"}\NormalTok{)}
+
+\NormalTok{data\_tbl }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}\AttributeTok{value =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{9}\NormalTok{))}
+
+\FunctionTok{ggplot}\NormalTok{(data\_tbl, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ value)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{binwidth =} \DecValTok{1}\NormalTok{, }\AttributeTok{fill =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Figure 2. Histogram of Data"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Value"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Frequency"}
+\NormalTok{  )}
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-4-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-6-1.pdf}}
 
 As seen above, the distribution is centered around 4.
 
@@ -632,11 +635,24 @@ As seen above, the distribution is centered around 4.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{boxplot}\NormalTok{(data, }\AttributeTok{main=}\StringTok{"Figure2.Boxplot of Data"}\NormalTok{, }\AttributeTok{col=}\StringTok{"grey"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(tibble)}
+
+\NormalTok{data\_tbl }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}\AttributeTok{value =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{9}\NormalTok{))}
+
+\FunctionTok{ggplot}\NormalTok{(data\_tbl, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{factor}\NormalTok{(}\DecValTok{1}\NormalTok{), }\AttributeTok{y =}\NormalTok{ value)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{fill =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Figure 3. Boxplot of Data"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{""}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Value"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_blank}\NormalTok{(),}
+        \AttributeTok{axis.ticks.x =} \FunctionTok{element\_blank}\NormalTok{())}
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-5-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-7-1.pdf}}
 
 \subsection{Handling Missing Data}\label{handling-missing-data}
 
@@ -650,13 +666,18 @@ advanced imputation.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{data\_with\_na }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\ConstantTok{NA}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\ConstantTok{NA}\NormalTok{, }\DecValTok{9}\NormalTok{)}
-\FunctionTok{mean}\NormalTok{(data\_with\_na, }\AttributeTok{na.rm=}\ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# Ignore NAs}
+\NormalTok{data\_tbl }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}\AttributeTok{value =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\ConstantTok{NA}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\ConstantTok{NA}\NormalTok{, }\DecValTok{9}\NormalTok{))}
+
+\NormalTok{data\_tbl }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(value, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)) }\CommentTok{\# Ignore NAs}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-[1] 4.8
+# A tibble: 1 x 1
+   mean
+  <dbl>
+1   4.8
 \end{verbatim}
 
 \subsection{Frequency and Cross-Tabulation
@@ -679,44 +700,68 @@ identify patterns.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# To create a frequency table }
-\NormalTok{category }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}A\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}B\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}A\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}C\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}B\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}A\textquotesingle{}}\NormalTok{)}
-\FunctionTok{table}\NormalTok{(category)}
+\CommentTok{\# Example data}
+\NormalTok{age }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Young\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Old\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Young\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Old\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Young\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Old\textquotesingle{}}\NormalTok{)}
+\NormalTok{gender }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Male\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Female\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Female\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Male\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Male\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Female\textquotesingle{}}\NormalTok{)}
+\NormalTok{data\_tbl }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}\AttributeTok{age =}\NormalTok{ age, }\AttributeTok{gender =}\NormalTok{ gender)}
+
+\CommentTok{\# Frequency table for combinations of age and gender}
+\NormalTok{data\_tbl }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(age, gender, }\AttributeTok{name =} \StringTok{"frequency"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-category
-A B C 
-3 2 1 
+# A tibble: 4 x 3
+  age   gender frequency
+  <chr> <chr>      <int>
+1 Old   Female         2
+2 Old   Male           1
+3 Young Female         1
+4 Young Male           2
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# To calculate the proportion of each unique value in the vector category}
-\FunctionTok{prop.table}\NormalTok{(}\FunctionTok{table}\NormalTok{(category)) }\SpecialCharTok{|\textgreater{}}
-\FunctionTok{round}\NormalTok{(}\AttributeTok{digits =} \DecValTok{2}\NormalTok{)}
+\CommentTok{\# Proportion table for combinations of age and gender}
+\NormalTok{data\_tbl }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(age, gender, }\AttributeTok{name =} \StringTok{"frequency"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{proportion =}\NormalTok{ frequency }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(frequency))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-category
-   A    B    C 
-0.50 0.33 0.17 
+# A tibble: 4 x 4
+  age   gender frequency proportion
+  <chr> <chr>      <int>      <dbl>
+1 Old   Female         2      0.333
+2 Old   Male           1      0.167
+3 Young Female         1      0.167
+4 Young Male           2      0.333
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# To calculate the total of frequencies}
-\NormalTok{category }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}A\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}B\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}A\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}C\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}B\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}A\textquotesingle{}}\NormalTok{)}
-\NormalTok{cumulative\_freq }\OtherTok{\textless{}{-}} \FunctionTok{cumsum}\NormalTok{(}\FunctionTok{table}\NormalTok{(category))}
-\NormalTok{cumulative\_freq}
+\NormalTok{age }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Young\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Old\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Young\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Old\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Young\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Old\textquotesingle{}}\NormalTok{)}
+\NormalTok{gender }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Male\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Female\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Female\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Male\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Male\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Female\textquotesingle{}}\NormalTok{)}
+\NormalTok{data\_tbl }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}\AttributeTok{age =}\NormalTok{ age, }\AttributeTok{gender =}\NormalTok{ gender)}
+
+\NormalTok{data\_tbl }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(age, gender, }\AttributeTok{name =} \StringTok{"frequency"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(age, gender) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{cumulative\_frequency =} \FunctionTok{cumsum}\NormalTok{(frequency))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-A B C 
-3 5 6 
+# A tibble: 4 x 4
+  age   gender frequency cumulative_frequency
+  <chr> <chr>      <int>                <int>
+1 Old   Female         2                    2
+2 Old   Male           1                    3
+3 Young Female         1                    4
+4 Young Male           2                    6
 \end{verbatim}
 
 \textbf{Cross-tabulations} (contingency tables): Used in statistics to
@@ -728,40 +773,23 @@ corresponding combination of categories.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{gender }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}M\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}F\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}F\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}M\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}F\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}M\textquotesingle{}}\NormalTok{)}
-\FunctionTok{table}\NormalTok{(category, gender)}
+\NormalTok{data\_tbl }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(age, gender, }\AttributeTok{name =} \StringTok{"frequency"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_wider}\NormalTok{(}\AttributeTok{names\_from =}\NormalTok{ gender, }\AttributeTok{values\_from =}\NormalTok{ frequency, }\AttributeTok{values\_fill =} \DecValTok{0}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-        gender
-category F M
-       A 1 2
-       B 2 0
-       C 0 1
-\end{verbatim}
-
-Row/column proportions: Use prop.table() with margin argument.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{gender }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}M\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}F\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}F\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}M\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}F\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}M\textquotesingle{}}\NormalTok{)}
-\FunctionTok{prop.table}\NormalTok{(}\FunctionTok{table}\NormalTok{(category, gender)) }\SpecialCharTok{|\textgreater{}}
-\FunctionTok{round}\NormalTok{(}\AttributeTok{digits =} \DecValTok{3}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-        gender
-category     F     M
-       A 0.167 0.333
-       B 0.333 0.000
-       C 0.000 0.167
+# A tibble: 2 x 3
+  age   Female  Male
+  <chr>  <int> <int>
+1 Old        2     1
+2 Young      1     2
 \end{verbatim}
 
 \newpage
 
-\section{Summarizing Data Frames}\label{summarizing-data-frames}
+\subsection{Summarizing Data Frames}\label{summarizing-data-frames}
 
 We can create comprehensive summaries for entire datasets by summarizing
 data frames. This involves generating clear overviews of each variable
@@ -777,41 +805,134 @@ Let's explore a basic example using the summary() function.
 \CommentTok{\# Install skimr if not already installed}
 \CommentTok{\# install.packages("skimr")}
 
-\CommentTok{\#| echo: true}
-\CommentTok{\#| tbl{-}cap: "Data Structure with glimpse"}
-\CommentTok{\#| tbl{-}format: tblr}
-\CommentTok{\#| layout: autofill}
-
-\FunctionTok{library}\NormalTok{(skimr)}
-\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}
   \AttributeTok{Age =} \FunctionTok{c}\NormalTok{(}\DecValTok{21}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{25}\NormalTok{),}
   \AttributeTok{Gender =} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}F\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}M\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}M\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}F\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}F\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}M\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}M\textquotesingle{}}\NormalTok{),}
   \AttributeTok{Score =} \FunctionTok{c}\NormalTok{(}\DecValTok{85}\NormalTok{, }\DecValTok{90}\NormalTok{, }\DecValTok{88}\NormalTok{, }\DecValTok{95}\NormalTok{, }\DecValTok{85}\NormalTok{, }\DecValTok{88}\NormalTok{, }\DecValTok{80}\NormalTok{)}
 \NormalTok{)}
 
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(}\FunctionTok{summary}\NormalTok{(df), }\AttributeTok{format =} \StringTok{"pipe"}\NormalTok{)  }\CommentTok{\# Forces table formatting}
+\CommentTok{\# Use glimpse for a tidyverse{-}style structure overview}
+\FunctionTok{glimpse}\NormalTok{(df)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{longtable}[]{@{}llll@{}}
+\begin{verbatim}
+Rows: 7
+Columns: 3
+$ Age    <dbl> 21, 22, 22, 23, 24, 25, 25
+$ Gender <chr> "F", "M", "M", "F", "F", "M", "M"
+$ Score  <dbl> 85, 90, 88, 95, 85, 88, 80
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Or use skim for a detailed summary}
+\FunctionTok{skim}\NormalTok{(df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{Data summary}\tabularnewline
 \toprule\noalign{}
-& Age & Gender & Score \\
+\endfirsthead
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Name & df \\
+Number of rows & 7 \\
+Number of columns & 3 \\
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ & \\
+Column type frequency: & \\
+character & 1 \\
+numeric & 2 \\
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ & \\
+Group variables & None \\
+\end{longtable}
+
+\textbf{Variable type: character}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1944}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1389}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1944}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0556}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0556}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.0833}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1528}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+skim\_variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_missing
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+complete\_rate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+min
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+max
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+empty
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_unique
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+whitespace
+\end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-& Min. :21.00 & Length:7 & Min. :80.00 \\
-& 1st Qu.:22.00 & Class :character & 1st Qu.:85.00 \\
-& Median :23.00 & Mode :character & Median :88.00 \\
-& Mean :23.14 & NA & Mean :87.29 \\
-& 3rd Qu.:24.50 & NA & 3rd Qu.:89.00 \\
-& Max. :25.00 & NA & Max. :95.00 \\
+Gender & 0 & 1 & 1 & 1 & 0 & 2 & 0 \\
 \end{longtable}
 
-We can use the above dplyr::glimpse(df) for a quick structure overview,
-or summary(df) for base R summaries, but skimr gives the most detailed
-tidy summary. You can further explore
-\href{https://docs.ropensci.org/skimr/}{skimr} here.
+\textbf{Variable type: numeric}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.1842}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.1316}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.1842}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0789}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0658}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0395}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0526}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0526}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0658}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0658}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 20\tabcolsep) * \real{0.0789}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+skim\_variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_missing
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+complete\_rate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+mean
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+sd
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p0
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p25
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p50
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p75
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p100
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+hist
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Age & 0 & 1 & 23.14 & 1.57 & 21 & 22 & 23 & 24.5 & 25 & ▃▇▃▃▇ \\
+Score & 0 & 1 & 87.29 & 4.68 & 80 & 85 & 88 & 89.0 & 95 & ▃▇▇▃▃ \\
+\end{longtable}
+
+You can further explore \href{https://docs.ropensci.org/skimr/}{skimr}
+here.
 
 Furthermore, read
 \href{https://modernstatisticswithr.com/index.html}{Modern Statistics
@@ -821,9 +942,11 @@ features numerous examples and over 200 exercises with worked solutions.
 The online version is freely available and regularly updated, with
 downloadable datasets for hands-on learning
 
-The YouTube videos referenced here may assist in understanding the code
-chunks presented above. (\citeproc{ref-walker2023gtsummary}{Walker,
-2023}) (\citeproc{ref-dre2024gentle}{Videos, 2024})
+The YouTube videos referenced here may assist in further understanding
+the code chunks presented above
+(\citeproc{ref-walker2023gtsummary}{Walker, 2023})
+(\citeproc{ref-dre2024gentle}{Videos, 2024})
+(\citeproc{ref-Schork2021}{Schork, 2021})
 
 \newpage
 
@@ -838,21 +961,13 @@ needed later.
 \begin{Shaded}
 \begin{Highlighting}[]
 \ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(pacman)) }\FunctionTok{install.packages}\NormalTok{(}\StringTok{"pacman"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-Loading required package: pacman
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{pacman}\SpecialCharTok{::}\FunctionTok{p\_load}\NormalTok{(tidyverse)}
 \end{Highlighting}
 \end{Shaded}
 
-Next, load the Star Wars dataset available online in the dylyr package.
-(\citeproc{ref-dplyr2023}{Wickham et al., 2023})
+Next, load the Star Wars dataset available in the dylyr package. Read
+more on dylyr package here (\citeproc{ref-dplyr2023}{Wickham et al.,
+2023})
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -861,23 +976,25 @@ Next, load the Star Wars dataset available online in the dylyr package.
 \end{Highlighting}
 \end{Shaded}
 
-Let's now streamline the dataset to include only the essential variables
-before applying the summary functions.
+To begin our analysis, we will display the first 10 rows of the starwars
+dataset. This provides a quick overview of the data structure and its
+key variables before we proceed with summary statistics.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(knitr)}
-\FunctionTok{library}\NormalTok{(kableExtra)}
-\FunctionTok{kable}\NormalTok{(}\FunctionTok{head}\NormalTok{(starwars, }\DecValTok{10}\NormalTok{), }\AttributeTok{format =} \StringTok{"latex"}\NormalTok{, }\AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{starwars\_tbl }\OtherTok{\textless{}{-}}\NormalTok{ starwars }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{slice\_head}\NormalTok{(}\AttributeTok{n =} \DecValTok{10}\NormalTok{)}
+
+\FunctionTok{kable}\NormalTok{(starwars\_tbl, }\AttributeTok{format =} \StringTok{"latex"}\NormalTok{, }\AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{caption =} \StringTok{"Table 1. Star Wars Data"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{latex\_options =} \StringTok{"striped"}\NormalTok{, }\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{table}
-\caption{Table 1. Star Wars Data}\tabularnewline
-
 \centering
-\begin{tabular}{lrrlllrlllllll}
+\caption{\label{tab:unnamed-chunk-15}Table 1. Star Wars Data}
+\centering
+\begin{tabular}[t]{lrrlllrlllllll}
 \toprule
 name & height & mass & hair\_color & skin\_color & eye\_color & birth\_year & sex & gender & homeworld & species & films & vehicles & starships\\
 \midrule
@@ -899,7 +1016,8 @@ Obi-Wan Kenobi & 182 & 77 & auburn, white & fair & blue-gray & 57.0 & male & mas
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Mean height}
-\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_height =} \FunctionTok{mean}\NormalTok{(height, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_height =} \FunctionTok{mean}\NormalTok{(height, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -913,7 +1031,8 @@ Obi-Wan Kenobi & 182 & 77 & auburn, white & fair & blue-gray & 57.0 & male & mas
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Median height}
-\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{median\_height =} \FunctionTok{median}\NormalTok{(height, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
+\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{median\_height =} \FunctionTok{median}\NormalTok{(height, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -927,14 +1046,12 @@ Obi-Wan Kenobi & 182 & 77 & auburn, white & fair & blue-gray & 57.0 & male & mas
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Mode height}
-\NormalTok{get\_mode }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) \{}
-  \CommentTok{\# Get unique values in x}
-\NormalTok{  ux }\OtherTok{\textless{}{-}} \FunctionTok{unique}\NormalTok{(x)                              }
-  \CommentTok{\# Find the value with the highest frequency}
-\NormalTok{  ux[}\FunctionTok{which.max}\NormalTok{(}\FunctionTok{tabulate}\NormalTok{(}\FunctionTok{match}\NormalTok{(x, ux)))]        }
-\NormalTok{\}}
 
-\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mode\_height =} \FunctionTok{get\_mode}\NormalTok{(height[}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(height)]))}
+\NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(height)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(height, }\AttributeTok{sort =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{slice\_max}\NormalTok{(}\AttributeTok{n =} \DecValTok{1}\NormalTok{, }\AttributeTok{order\_by =}\NormalTok{ n) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\AttributeTok{mode\_height =}\NormalTok{ height)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -950,53 +1067,65 @@ Now, let's apply various summary functions.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Select relevant variables}
-\NormalTok{starwars\_selected }\OtherTok{\textless{}{-}}\NormalTok{ starwars }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(height, mass, gender, birth\_year, species)}
+\NormalTok{starwars\_selected }\OtherTok{\textless{}{-}}\NormalTok{ starwars }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(height, mass, gender, birth\_year, species)}
 
-\CommentTok{\# Base R summary for numeric variables}
-\FunctionTok{summary}\NormalTok{(starwars\_selected }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(height, mass))}
+\CommentTok{\# Tidy summary for numeric variables}
+\NormalTok{starwars\_selected }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{mean\_height =} \FunctionTok{mean}\NormalTok{(height, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{sd\_height =} \FunctionTok{sd}\NormalTok{(height, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{mean\_mass =} \FunctionTok{mean}\NormalTok{(mass, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{sd\_mass =} \FunctionTok{sd}\NormalTok{(mass, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  )}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-     height           mass        
- Min.   : 66.0   Min.   :  15.00  
- 1st Qu.:167.0   1st Qu.:  55.60  
- Median :180.0   Median :  79.00  
- Mean   :174.6   Mean   :  97.31  
- 3rd Qu.:191.0   3rd Qu.:  84.50  
- Max.   :264.0   Max.   :1358.00  
- NA's   :6       NA's   :28       
+# A tibble: 1 x 4
+  mean_height sd_height mean_mass sd_mass
+        <dbl>     <dbl>     <dbl>   <dbl>
+1        175.      34.8      97.3    169.
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Frequency table for gender}
-\FunctionTok{table}\NormalTok{(starwars\_selected}\SpecialCharTok{$}\NormalTok{gender)}
+\CommentTok{\# Frequency table for gender (tidyverse style)}
+\NormalTok{starwars\_selected }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(gender, }\AttributeTok{name =} \StringTok{"frequency"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-
- feminine masculine 
-       17        66 
+# A tibble: 3 x 2
+  gender    frequency
+  <chr>         <int>
+1 feminine         17
+2 masculine        66
+3 <NA>              4
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Proportion table for gender}
-\FunctionTok{prop.table}\NormalTok{(}\FunctionTok{table}\NormalTok{(starwars\_selected}\SpecialCharTok{$}\NormalTok{gender))}
+\CommentTok{\# Proportion table for gender (tidyverse style)}
+\NormalTok{starwars\_selected }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(gender, }\AttributeTok{name =} \StringTok{"frequency"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{proportion =}\NormalTok{ frequency }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(frequency))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-
- feminine masculine 
-0.2048193 0.7951807 
+# A tibble: 3 x 3
+  gender    frequency proportion
+  <chr>         <int>      <dbl>
+1 feminine         17     0.195 
+2 masculine        66     0.759 
+3 <NA>              4     0.0460
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Comprehensive summary using skimr}
+\CommentTok{\# Comprehensive tidy summary using skimr}
 \FunctionTok{skim}\NormalTok{(starwars\_selected)}
 \end{Highlighting}
 \end{Shaded}
@@ -1111,14 +1240,11 @@ Star Wars.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(dplyr)}
-\FunctionTok{library}\NormalTok{(ggplot2)}
-
 \NormalTok{starwars }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ height)) }\SpecialCharTok{+}
   \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{binwidth =} \DecValTok{8}\NormalTok{, }\AttributeTok{fill =} \StringTok{"navy"}\NormalTok{, }\AttributeTok{color =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{labs}\NormalTok{(}
-    \AttributeTok{title =} \StringTok{"Figure3.Histogram of Height of Characters in Star Wars"}\NormalTok{,}
+    \AttributeTok{title =} \StringTok{"Figure 4. Histogram of Height of Characters in Star Wars"}\NormalTok{,}
     \AttributeTok{x =} \StringTok{"Height (cm)"}\NormalTok{,}
     \AttributeTok{y =} \StringTok{"Count"}
 \NormalTok{  ) }\SpecialCharTok{+}
@@ -1131,7 +1257,7 @@ Warning: Removed 6 rows containing non-finite outside the scale range
 (`stat_bin()`).
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-19-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-20-1.pdf}}
 
 Now, we filter the species to get visual pattern of the height of
 different \emph{human} characters in Star Wars.
@@ -1143,7 +1269,7 @@ different \emph{human} characters in Star Wars.
   \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ height)) }\SpecialCharTok{+}
   \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{binwidth =} \DecValTok{8}\NormalTok{, }\AttributeTok{fill =} \StringTok{"navy"}\NormalTok{, }\AttributeTok{color =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{labs}\NormalTok{(}
-    \AttributeTok{title =} \StringTok{"Figure4.Histogram of Height of Human Characters in Star Wars"}\NormalTok{,}
+    \AttributeTok{title =} \StringTok{"Figure 5. Histogram of Height of Human Characters in Star Wars"}\NormalTok{,}
     \AttributeTok{x =} \StringTok{"Height (cm)"}\NormalTok{,}
     \AttributeTok{y =} \StringTok{"Count"}
 \NormalTok{  ) }\SpecialCharTok{+}
@@ -1156,12 +1282,12 @@ Warning: Removed 5 rows containing non-finite outside the scale range
 (`stat_bin()`).
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-20-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-21-1.pdf}}
 
 Furthermore, this YouTube video
 \href{https://www.youtube.com/watch?v=4vSfbz9YMa0}{Return of the Star
-Wars dataset} might be an interesting watch to understanding the dataset
-better.
+Wars dataset} may be an interesting resource to help you better
+understand the dataset.
 
 \newpage
 
@@ -1169,8 +1295,9 @@ better.
 
 Summary statistics are essential for providing a quick and accessible
 overview of a dataset, but they have several important limitations. In
-the book Naked Statistics, the author Charles Wheelan highlights key
-limitations of statistics, warning that statistical measures can be
+the book \emph{Naked Statistics}
+(\citeproc{ref-wheelan2013naked}{Wheelan, 2013}), the author highlights
+key limitations of statistics, warning that statistical measures can be
 easily misapplied, misinterpreted, or manipulated to mislead people. He
 explains that while statistics help summarize complex data, this
 simplification can lead to information loss and oversights, especially
@@ -1178,7 +1305,6 @@ when descriptive statistics are mistaken for complete truth. He
 emphasizes that statistics are only as reliable as the data and methods
 behind them, and that issues like bias, poor sampling, or careless
 analysis can produce misleading or false conclusions.
-(\citeproc{ref-wheelan2013naked}{Wheelan, 2013})
 
 Let's look at some of the limitations in detail:
 
@@ -1224,83 +1350,64 @@ Other sources: (\citeproc{ref-wienclaw2009misuse}{Wienclaw, 2009})
 
 \section{Future Direction}\label{future-direction}
 
-The future direction of summary statistics is being shaped by advances
-in data complexity, computational power, and the integration of
-artificial intelligence.Several key trends and directions can be
-identified:
+The future of summary statistics is changing as data becomes more
+complex, computers get faster, and artificial intelligence is used more
+often. Some important trends are emerging:
 
 \begin{itemize}
 \item
-  \textbf{Integration with Advanced Computational Methods}: As datasets
-  grow larger and more complex, summary statistics will increasingly be
-  complemented by computationally intensive methods such as
-  bootstrapping, simulation-based inference, and machine learning. These
-  approaches allow for more robust and nuanced summaries, especially in
-  high-dimensional or unstructured data settings.
+  Integration with Advanced Computational Methods: As data gets bigger
+  and more complicated, summary statistics will be used alongside
+  advanced computer methods like bootstrapping, simulations, and machine
+  learning. These tools help create stronger and more detailed
+  summaries, especially when dealing with complex or messy data.
   (\citeproc{ref-oscgarden2023bootstrapping}{Garden, 2023})
 \item
-  \textbf{AI-Driven and Automated Summarization}: Artificial
-  intelligence, including machine learning and natural language
-  processing, is transforming how summary statistics are generated and
-  interpreted. AI-driven summarization tools can quickly distill massive
-  and complex datasets into actionable insights, improving efficiency,
-  accessibility, and consistency. Future developments are expected to
-  include real-time, personalized, and multimodal summarization, making
-  summary statistics more dynamic and tailored to user needs.
+  AI-Driven and Automated Summarization: AI and automation are changing
+  how we create and use summary statistics. Tools that use artificial
+  intelligence can quickly turn large and complex data into useful
+  information, making the process faster and easier. In the future,
+  these tools will likely give real-time and personalized summaries,
+  helping people get the exact information they need.
   (\citeproc{ref-datatas2025future}{Datatas, 2025})
 \item
-  \textbf{Enhanced Visualization and Exploratory Data Analysis}: The
-  role of visualization in summary statistics will continue to grow,
-  leveraging advances in computer graphics and interactive tools. This
-  enables more intuitive and exploratory ways to understand data
-  distributions, trends, and anomalies, moving beyond traditional tables
-  and static plots. (\citeproc{ref-potter2010visualizing}{Potter et al.,
-  2010})
+  Enhanced Visualization and Exploratory Data Analysis: As computer
+  graphics and interactive tools improve, visualizations will become
+  even more important for summary statistics. This will make it easier
+  to explore and understand data, spot patterns, and find unusual
+  values, going beyond just using tables or simple charts.
+  (\citeproc{ref-potter2010visualizing}{Potter et al., 2010})
 \item
-  \textbf{Addressing Big Data and Complex Structures}: Summary
-  statistics will need to adapt to the challenges of big data, including
-  handling massive volumes, varied data types, and complex dependencies
-  (such as networks or time-evolving data). This will require new
-  conceptual frameworks and algorithms capable of summarizing
-  information efficiently at scale.(\citeproc{ref-fan2014challenges}{Fan
-  et al., 2014})
-\item
-  \textbf{Ongoing Methodological Innovation}: The field will continue to
-  see progress in robust inference, regularization, causal inference,
-  and adaptive decision analysis, all of which will influence how
-  summary statistics are computed and applied in practice.
-  (\citeproc{ref-gelman2024stat50}{Gelman \& Vehtari, 2024})
+  Addressing Big Data and Complex Structures: Summary statistics will
+  have to change to handle big data, which includes huge amounts of
+  information, different kinds of data, and complex patterns. New ways
+  of thinking and new tools will be needed to quickly and effectively
+  summarize this information.(\citeproc{ref-fan2014challenges}{Fan et
+  al., 2014})
 \end{itemize}
 
-In summary, the future of summary statistics lies in their evolution
-from simple descriptive tools to components of sophisticated, automated,
-and interactive analytical systems. They will play a foundational role
-in making sense of big, complex, and heterogeneous data, driven by
-advances in computation, AI, and interdisciplinary collaboration.
+In summary, summary statistics are becoming more advanced and will be
+part of smarter, more interactive analysis tools. As data gets bigger
+and more complex, and as technology and teamwork improve, summary
+statistics will remain important for understanding information.
 
 \newpage
 
 \section{Conclusion}\label{conclusion}
 
-Summary statistics are fundamental to any data analysis process, serving
-as the essential first step in understanding and interpreting datasets.
-In R, summary statistics provide a concise overview of data
-distributions, central tendencies, and variability, enabling analysts to
-quickly assess data quality, detect anomalies, and guide subsequent
-analytical decisions. The flexibility and power of R-through core
-functions like summary(), mean(), sd(), and packages such as dplyr, to
-efficiently compute and customize statistical summaries for both
-ungrouped and grouped data.
+Summary statistics are a key starting point for any data analysis,
+helping us quickly understand and interpret data. In R, these
+statistics---like the mean, median, and standard deviation---give a
+clear overview of the data and help spot problems or unusual values. R
+makes it easy to calculate these numbers for all the data or for
+different groups, using built-in functions and packages like dplyr.
 
-According to (\citeproc{ref-lane2013descriptive}{Lane, 2013}), using R's
-tools to automate calculations of summary statistics-such as mean,
-median, standard deviation, range, and percentiles-enables users to
-efficiently produce both overall and group-wise summaries. This not only
-streamlines exploratory data analysis but also establishes a strong
-basis for advanced statistical modeling and hypothesis testing. As Lane
-emphasizes, mastering summary statistics in R allows analysts to extract
-meaningful insights, make better decisions, and clearly communicate
-results across various fields of research and business analytics.
+As (\citeproc{ref-lane2013descriptive}{Lane, 2013}) explains, using R to
+automate summary statistics saves time and helps organize your analysis.
+This basic step is important before moving on to more advanced methods.
+By mastering summary statistics in R, you can find useful patterns, make
+better decisions, and clearly share your results in research or
+business.
 
 \newpage
 
@@ -1323,11 +1430,6 @@ Garden, O. (2023, November 27). \emph{The 8 most important statistical
 ideas: Bootstrapping and simulation-based inference}.
 \url{https://osc.garden/blog/bootstrapping-and-simulation-based-inference/}
 
-\bibitem[\citeproctext]{ref-gelman2024stat50}
-Gelman, A., \& Vehtari, A. (2024). \emph{What are the most important
-statistical ideas of the past 50 years?}
-\url{https://www.stat.columbia.edu/~gelman/research/unpublished/stat50.pdf}
-
 \bibitem[\citeproctext]{ref-lane2013descriptive}
 Lane, D. M. (2013). Descriptive statistics. In \emph{Introduction to
 statistics}. Rice University.
@@ -1342,6 +1444,11 @@ Potter, K., Kniss, J., Riesenfeld, R., \& Johnson, C. R. (2010).
 Visualizing summary statistics and uncertainty. \emph{Computer Graphics
 Forum}, \emph{29}(3), 823--832.
 \url{https://www.sci.utah.edu/~kpotter/publications/potter-2010-VSSU.pdf}
+
+\bibitem[\citeproctext]{ref-Schork2021}
+Schork, J. (2021). \emph{How to calculate summary statistics for the
+columns of a data frame in r (example code)}. YouTube; Statistics Globe.
+\url{https://www.youtube.com/watch?v=FMRkUqy1Sjw}
 
 \bibitem[\citeproctext]{ref-dre2024gentle}
 Videos, D. E. R. (2024). \emph{Gentle r \#4: Basic summary statistics in
@@ -1403,7 +1510,7 @@ Checklist:
   The submission contains the PDF file of the handout.
 \item[$\boxtimes$]
   The submission contains the PDF file of the presentation.
-\item[$\square$]
+\item[$\boxtimes$]
   The title page of the presentation and the handout contain personal
   details (name, email, matriculation number).
 \item[$\boxtimes$]
@@ -1422,10 +1529,10 @@ Checklist:
   All significant resources used in the report and R code development.
 \item[$\boxtimes$]
   The filled out Affidavit.
-\item[$\square$]
+\item[$\boxtimes$]
   A concise description of the successful use of Git and GitHub, as
   detailed here: \url{https://github.com/hubchev/make_a_pull_request}.
-\item[$\square$]
+\item[$\boxtimes$]
   The link to the presentation and the handout published on GitHub.
 \end{itemize}
 
