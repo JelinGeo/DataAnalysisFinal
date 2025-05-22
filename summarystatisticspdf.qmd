@@ -131,6 +131,55 @@ I would like to highlight a book, *Making sense of statistics: A conceptual over
 
 Additonally, watch this [**tutorial video**](https://www.youtube.com/watch?v=yoPGwvUzjgQ) on descriptive statistics in R to get you started.
 
+
+
+```{r}
+#| echo: false
+# Load required libraries
+library(knitr)
+library(kableExtra)
+
+# Create the table data
+table_data <- data.frame(
+  Package = c("Base R", "dplyr", "skimr", "psych", "summarytools", "Hmisc", "pastecs", "mosaic", "gtsummary"),
+  Key_Functions = c("summary(), mean(), sd()",
+                    "summarise(), count()",
+                    "skim()",
+                    "describe(), describe.by()",
+                    "descr(), dfSummary()",
+                    "describe()",
+                    "stat.desc()",
+                    "favstats(), tally()",
+                    "tbl_summary()"),
+  Strengths = c("Built-in, quick, basic, not pipeable",
+                "Tidy, pipeable, flexible, group-wise summaries",
+                "Tidy, detailed, sparkline histograms, missing data",
+                "Skewness, kurtosis, group summaries",
+                "HTML summaries, mini-histograms, missing data info",
+                "Detailed, percentiles, unique values",
+                "Wide range of stats, time series support",
+                "Concise, teaching-focused",
+                "Publication-ready tables, auto-detects variable types"),
+  Use_Case = c("General, quick checks",
+               "Custom summaries in tidyverse workflows",
+               "Quick, detailed EDA",
+               "In-depth descriptive stats",
+               "Publication-ready summaries",
+               "Medical, epidemiological data",
+               "Broad, one-call summaries",
+               "Teaching, quick summaries",
+               "Medical, scientific reporting")
+)
+
+# Build the styled table
+kable(table_data, format = "html", booktabs = TRUE, escape = FALSE,
+      col.names = c("Package", "Key Function(s)", "Unique Features/Strengths", "Typical Use Case")) %>%
+  kable_styling(full_width = FALSE, stripe_color = "#f2f2f2", bootstrap_options = c("striped", "bordered")) %>%
+  column_spec(1:4, border_left = TRUE, border_right = TRUE)
+```
+
+
+
 \newpage
 
 <br>
@@ -446,7 +495,11 @@ starwars_tbl <- starwars %>%
   slice_head(n = 10)
 
 kable(starwars_tbl, format = "latex", booktabs = TRUE, caption = "Table 1. Star Wars Data") %>%
-  kable_styling(latex_options = "striped", full_width = FALSE)
+  kable_styling(latex_options = "striped", full_width = FALSE,
+  position = "center",
+  font_size = 8
+) %>%
+column_spec(1:ncol(starwars_tbl), width = "3cm")
 
 
 ```

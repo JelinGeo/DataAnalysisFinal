@@ -433,6 +433,58 @@ Additonally, watch this
 \href{https://www.youtube.com/watch?v=yoPGwvUzjgQ}{\textbf{tutorial
 video}} on descriptive statistics in R to get you started.
 
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.0977}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1955}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.4060}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3008}}@{}}
+\caption{Comparison of R Summary Packages}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Package
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Key\_Functions
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Strengths
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Use\_Case
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Package
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Key\_Functions
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Strengths
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Use\_Case
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Base R & summary(), mean(), sd() & Built-in, quick, basic, not pipeable
+& General, quick checks \\
+dplyr & summarise(), count() & Tidy, pipeable, flexible, group-wise
+summaries & Custom summaries in tidyverse workflows \\
+skimr & skim() & Tidy, detailed, sparkline histograms, missing data &
+Quick, detailed EDA \\
+psych & describe(), describe.by() & Skewness, kurtosis, group summaries
+& In-depth descriptive stats \\
+summarytools & descr(), dfSummary() & HTML summaries, mini-histograms,
+missing data info & Publication-ready summaries \\
+Hmisc & describe() & Detailed, percentiles, unique values & Medical,
+epidemiological data \\
+pastecs & stat.desc() & Wide range of stats, time series support &
+Broad, one-call summaries \\
+mosaic & favstats(), tally() & Concise, teaching-focused & Teaching,
+quick summaries \\
+gtsummary & tbl\_summary() & Publication-ready tables, auto-detects
+variable types & Medical, scientific reporting \\
+\end{longtable}
+
 \newpage
 
 \section{Key Measures in Summary
@@ -620,7 +672,7 @@ better.}
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-6-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-7-1.pdf}}
 
 As seen above, the distribution is centered around 4.
 
@@ -652,7 +704,7 @@ As seen above, the distribution is centered around 4.
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-7-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-8-1.pdf}}
 
 \subsection{Handling Missing Data}\label{handling-missing-data}
 
@@ -786,8 +838,6 @@ corresponding combination of categories.
 1 Old        2     1
 2 Young      1     2
 \end{verbatim}
-
-\newpage
 
 \subsection{Summarizing Data Frames}\label{summarizing-data-frames}
 
@@ -986,15 +1036,20 @@ key variables before we proceed with summary statistics.
   \FunctionTok{slice\_head}\NormalTok{(}\AttributeTok{n =} \DecValTok{10}\NormalTok{)}
 
 \FunctionTok{kable}\NormalTok{(starwars\_tbl, }\AttributeTok{format =} \StringTok{"latex"}\NormalTok{, }\AttributeTok{booktabs =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{caption =} \StringTok{"Table 1. Star Wars Data"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{latex\_options =} \StringTok{"striped"}\NormalTok{, }\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{)}
+  \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{latex\_options =} \StringTok{"striped"}\NormalTok{, }\AttributeTok{full\_width =} \ConstantTok{FALSE}\NormalTok{,}
+  \AttributeTok{position =} \StringTok{"center"}\NormalTok{,}
+  \AttributeTok{font\_size =} \DecValTok{8}
+\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{column\_spec}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\FunctionTok{ncol}\NormalTok{(starwars\_tbl), }\AttributeTok{width =} \StringTok{"3cm"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{table}
 \centering
-\caption{\label{tab:unnamed-chunk-15}Table 1. Star Wars Data}
+\caption{\label{tab:unnamed-chunk-16}Table 1. Star Wars Data}
 \centering
-\begin{tabular}[t]{lrrlllrlllllll}
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{3cm}>{\raggedleft\arraybackslash}p{3cm}>{\raggedleft\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedleft\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}}
 \toprule
 name & height & mass & hair\_color & skin\_color & eye\_color & birth\_year & sex & gender & homeworld & species & films & vehicles & starships\\
 \midrule
@@ -1257,7 +1312,7 @@ Warning: Removed 6 rows containing non-finite outside the scale range
 (`stat_bin()`).
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-20-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-21-1.pdf}}
 
 Now, we filter the species to get visual pattern of the height of
 different \emph{human} characters in Star Wars.
@@ -1282,7 +1337,7 @@ Warning: Removed 5 rows containing non-finite outside the scale range
 (`stat_bin()`).
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-21-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-22-1.pdf}}
 
 Furthermore, this YouTube video
 \href{https://www.youtube.com/watch?v=4vSfbz9YMa0}{Return of the Star
