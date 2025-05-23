@@ -206,7 +206,7 @@ Them in R}
 
 
 
-\author{Jelin George (Matriculation: 400826617)}
+\author{Jelin George (Matriculation Number: 400826617)}
 
 
 
@@ -216,7 +216,7 @@ Them in R}
 
 
 
-\leftheader{400826617)}
+\leftheader{Number: 400826617)}
 
 
 
@@ -229,8 +229,7 @@ compute and present these statistics, making them essential for
 simplifying data, identifying patterns, and supporting informed analysis
 and decision-making. Practical examples and code are provided to
 demonstrate these concepts in action. The document also discusses the
-limitations of summary statistics and considers future directions in
-their application. }
+limitations of summary statistics and its application. }
 
 \keywords{summary statistics, R programming, data analysis, descriptive
 statistics, data visualization, exploratory data analysis, limitations}
@@ -239,7 +238,7 @@ statistics, data visualization, exploratory data analysis, limitations}
 \par{ }
 \par{   The authors have no conflicts of interest to disclose.    }
 \par{Correspondence concerning this article should be addressed to Jelin
-George (Matriculation:
+George (Matriculation Number:
 400826617), Email: \href{mailto:george.jelin@stud-hs.fresenius.de}{george.jelin@stud-hs.fresenius.de}}
 }
 
@@ -378,8 +377,6 @@ In this document, we will:
   Analyze limitations and consider furture directions
 \end{itemize}
 
-\newpage
-
 \section{What is Summary Statistics?}\label{what-is-summary-statistics}
 
 Summary statistics are concise numerical measures that capture the
@@ -429,63 +426,62 @@ simple explanations, practical examples, and step-by-step guidance. It
 is designed to help in applying statistics to research and interpreting
 data effectively.
 
+\section{R Packages for Summary
+Statistics}\label{r-packages-for-summary-statistics}
+
+R offers a variety of packages for summary statistics, each with unique
+strengths:
+
+\begin{itemize}
+\item
+  \textbf{Base R}: Functions like summary(), mean(), sd(), and fivenum()
+  provide basic summaries for numeric and categorical data.
+\item
+  \textbf{dplyr}: With summarise() and group\_by(), dplyr allows
+  flexible, tidy summaries for both ungrouped and grouped data,
+  supporting custom summary functions.
+\item
+  \textbf{skimr}: Produces compact, readable summaries with visual
+  elements (sparklines) and handles different variable types well;
+  integrates smoothly with tidyverse workflows.
+\item
+  \textbf{summarytools}: Offers functions like dfSummary() for
+  comprehensive data frame overviews (including mini-graphs and missing
+  data), freq() for frequency tables, ctable() for cross-tabulations,
+  and descr() for numeric summaries. Outputs are HTML-friendly for easy
+  reporting.
+\item
+  \textbf{psych}: The describe() function provides detailed statistics
+  (mean, SD, skewness, kurtosis) and supports grouped summaries with
+  describe.by().
+\item
+  \textbf{Hmisc}: The describe() function gives extensive summaries,
+  including percentiles and extreme values.
+\item
+  \textbf{pastecs}: The stat.desc() function provides a wide range of
+  statistics, including confidence intervals and coefficients of
+  variation.
+\item
+  \textbf{table1}: Creates customizable, publication-ready tables with
+  group comparisons and the option to include test statistics; outputs
+  can be exported to HTML or PDF.
+\item
+  \textbf{gtsummary}: Automatically detects variable types, summarizes
+  data, and produces publication-ready tables ideal for medical or
+  demographic reports; highly customizable.
+\item
+  \textbf{janitor, rstatix, doBy}: These packages offer additional tools
+  for quick tabulation, group summaries, and flexible summary table
+  creation.
+\end{itemize}
+
+For a deeper exploration of R packages used for summarizing data, I
+encourage you to visit the source by
+(\citeproc{ref-medcalf2018favourite}{Medcalf, 2018})
+
 Additonally, watch this
 \href{https://www.youtube.com/watch?v=yoPGwvUzjgQ}{\textbf{tutorial
 video}} on descriptive statistics in R to get you started.
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.0977}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1955}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.4060}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3008}}@{}}
-\caption{Comparison of R Summary Packages}\tabularnewline
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Package
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Key\_Functions
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Strengths
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Use\_Case
-\end{minipage} \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-Package
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Key\_Functions
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Strengths
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Use\_Case
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Base R & summary(), mean(), sd() & Built-in, quick, basic, not pipeable
-& General, quick checks \\
-dplyr & summarise(), count() & Tidy, pipeable, flexible, group-wise
-summaries & Custom summaries in tidyverse workflows \\
-skimr & skim() & Tidy, detailed, sparkline histograms, missing data &
-Quick, detailed EDA \\
-psych & describe(), describe.by() & Skewness, kurtosis, group summaries
-& In-depth descriptive stats \\
-summarytools & descr(), dfSummary() & HTML summaries, mini-histograms,
-missing data info & Publication-ready summaries \\
-Hmisc & describe() & Detailed, percentiles, unique values & Medical,
-epidemiological data \\
-pastecs & stat.desc() & Wide range of stats, time series support &
-Broad, one-call summaries \\
-mosaic & favstats(), tally() & Concise, teaching-focused & Teaching,
-quick summaries \\
-gtsummary & tbl\_summary() & Publication-ready tables, auto-detects
-variable types & Medical, scientific reporting \\
-\end{longtable}
-
-\newpage
 
 \section{Key Measures in Summary
 Statistics}\label{key-measures-in-summary-statistics}
@@ -495,7 +491,7 @@ numbers, making it easier to understand and communicate data
 characteristics. The key measures in summary statistics fall into
 several categories:
 
-\subsection{Measures of Central
+\subsection{1. Measures of Central
 Tendency}\label{measures-of-central-tendency}
 
 Central tendency measures indicate where most values in a dataset fall.
@@ -540,7 +536,7 @@ Central tendency measures indicate where most values in a dataset fall.
 1     5      4     4
 \end{verbatim}
 
-\subsection{Measures of Dispersion}\label{measures-of-dispersion}
+\subsection{2. Measures of Dispersion}\label{measures-of-dispersion}
 
 Dispersion measures describe the spread of data.
 
@@ -598,7 +594,7 @@ dispersed than the red population.}
 1     2     9     7     5.33  2.31     2                    0.462
 \end{verbatim}
 
-\subsection{Measures of Shape and
+\subsection{3. Measures of Shape and
 Distribution}\label{measures-of-shape-and-distribution}
 
 Describe the overall pattern and characteristics of how data values are
@@ -672,7 +668,7 @@ better.}
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-7-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-6-1.pdf}}
 
 As seen above, the distribution is centered around 4.
 
@@ -704,9 +700,9 @@ As seen above, the distribution is centered around 4.
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-8-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-7-1.pdf}}
 
-\subsection{Handling Missing Data}\label{handling-missing-data}
+\subsection{4. Handling Missing Data}\label{handling-missing-data}
 
 Missing data can bias summary statistics if not handled properly.
 
@@ -732,7 +728,7 @@ advanced imputation.
 1   4.8
 \end{verbatim}
 
-\subsection{Frequency and Cross-Tabulation
+\subsection{5. Frequency and Cross-Tabulation
 Techniques}\label{frequency-and-cross-tabulation-techniques}
 
 \textbf{Frequency table}: A tool used to organize and display how often
@@ -839,7 +835,7 @@ corresponding combination of categories.
 2 Young      1     2
 \end{verbatim}
 
-\subsection{Summarizing Data Frames}\label{summarizing-data-frames}
+\subsection{6. Summarizing Data Frames}\label{summarizing-data-frames}
 
 We can create comprehensive summaries for entire datasets by summarizing
 data frames. This involves generating clear overviews of each variable
@@ -998,13 +994,10 @@ the code chunks presented above
 (\citeproc{ref-dre2024gentle}{Videos, 2024})
 (\citeproc{ref-Schork2021}{Schork, 2021})
 
-\newpage
-
 \section{Practical Application}\label{practical-application}
 
 Let us begin with a few fun exercises to understand how to read data and
 apply summary statistics functions using the \textbf{Star Wars} dataset.
-
 Before we get started, we must install essential packages that might be
 needed later.
 
@@ -1015,9 +1008,8 @@ needed later.
 \end{Highlighting}
 \end{Shaded}
 
-Next, load the Star Wars dataset available in the dylyr package. Read
-more on dylyr package here (\citeproc{ref-dplyr2023}{Wickham et al.,
-2023})
+Load the Star Wars dataset available in the dylyr package. Read more on
+dylyr package here (\citeproc{ref-dplyr2023}{Wickham et al., 2023})
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1046,7 +1038,7 @@ key variables before we proceed with summary statistics.
 
 \begin{table}
 \centering
-\caption{\label{tab:unnamed-chunk-16}Table 1. Star Wars Data}
+\caption{\label{tab:unnamed-chunk-15}Table 1. Star Wars Data}
 \centering
 \fontsize{8}{10}\selectfont
 \begin{tabular}[t]{>{\raggedright\arraybackslash}p{3cm}>{\raggedleft\arraybackslash}p{3cm}>{\raggedleft\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedleft\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3cm}}
@@ -1117,7 +1109,7 @@ Obi-Wan Kenobi & 182 & 77 & auburn, white & fair & blue-gray & 57.0 & male & mas
 1         183
 \end{verbatim}
 
-Now, let's apply various summary functions.
+Now, apply the various summary functions.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1312,7 +1304,7 @@ Warning: Removed 6 rows containing non-finite outside the scale range
 (`stat_bin()`).
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-21-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-20-1.pdf}}
 
 Now, we filter the species to get visual pattern of the height of
 different \emph{human} characters in Star Wars.
@@ -1337,29 +1329,23 @@ Warning: Removed 5 rows containing non-finite outside the scale range
 (`stat_bin()`).
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-22-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{summarystatisticspdf_files/figure-pdf/unnamed-chunk-21-1.pdf}}
 
 Furthermore, this YouTube video
 \href{https://www.youtube.com/watch?v=4vSfbz9YMa0}{Return of the Star
 Wars dataset} may be an interesting resource to help you better
 understand the dataset.
 
-\newpage
-
 \section{Limitations}\label{limitations}
 
-Summary statistics are essential for providing a quick and accessible
-overview of a dataset, but they have several important limitations. In
-the book \emph{Naked Statistics}
-(\citeproc{ref-wheelan2013naked}{Wheelan, 2013}), the author highlights
-key limitations of statistics, warning that statistical measures can be
-easily misapplied, misinterpreted, or manipulated to mislead people. He
-explains that while statistics help summarize complex data, this
-simplification can lead to information loss and oversights, especially
-when descriptive statistics are mistaken for complete truth. He
-emphasizes that statistics are only as reliable as the data and methods
-behind them, and that issues like bias, poor sampling, or careless
-analysis can produce misleading or false conclusions.
+Summary statistics offer a quick and accessible overview of data, but
+they have important limitations. As highlighted in Naked Statistics
+(\citeproc{ref-wheelan2013naked}{Wheelan, 2013}), these measures can be
+misapplied, misinterpreted, or manipulated, leading to misleading
+conclusions. Simplifying complex data may result in information loss,
+and the reliability of statistics depends on the quality of the data and
+methods used. Issues like bias, poor sampling, or careless analysis can
+further distort results.
 
 Let's look at some of the limitations in detail:
 
@@ -1401,68 +1387,35 @@ data.
 
 Other sources: (\citeproc{ref-wienclaw2009misuse}{Wienclaw, 2009})
 
-\newpage
-
-\section{Future Direction}\label{future-direction}
-
-The future of summary statistics is changing as data becomes more
-complex, computers get faster, and artificial intelligence is used more
-often. Some important trends are emerging:
-
-\begin{itemize}
-\item
-  Integration with Advanced Computational Methods: As data gets bigger
-  and more complicated, summary statistics will be used alongside
-  advanced computer methods like bootstrapping, simulations, and machine
-  learning. These tools help create stronger and more detailed
-  summaries, especially when dealing with complex or messy data.
-  (\citeproc{ref-oscgarden2023bootstrapping}{Garden, 2023})
-\item
-  AI-Driven and Automated Summarization: AI and automation are changing
-  how we create and use summary statistics. Tools that use artificial
-  intelligence can quickly turn large and complex data into useful
-  information, making the process faster and easier. In the future,
-  these tools will likely give real-time and personalized summaries,
-  helping people get the exact information they need.
-  (\citeproc{ref-datatas2025future}{Datatas, 2025})
-\item
-  Enhanced Visualization and Exploratory Data Analysis: As computer
-  graphics and interactive tools improve, visualizations will become
-  even more important for summary statistics. This will make it easier
-  to explore and understand data, spot patterns, and find unusual
-  values, going beyond just using tables or simple charts.
-  (\citeproc{ref-potter2010visualizing}{Potter et al., 2010})
-\item
-  Addressing Big Data and Complex Structures: Summary statistics will
-  have to change to handle big data, which includes huge amounts of
-  information, different kinds of data, and complex patterns. New ways
-  of thinking and new tools will be needed to quickly and effectively
-  summarize this information.(\citeproc{ref-fan2014challenges}{Fan et
-  al., 2014})
-\end{itemize}
-
-In summary, summary statistics are becoming more advanced and will be
-part of smarter, more interactive analysis tools. As data gets bigger
-and more complex, and as technology and teamwork improve, summary
-statistics will remain important for understanding information.
-
-\newpage
-
 \section{Conclusion}\label{conclusion}
 
-Summary statistics are a key starting point for any data analysis,
-helping us quickly understand and interpret data. In R, these
-statistics---like the mean, median, and standard deviation---give a
-clear overview of the data and help spot problems or unusual values. R
-makes it easy to calculate these numbers for all the data or for
-different groups, using built-in functions and packages like dplyr.
+Summary statistics are a vital first step in data analysis, offering a
+fast and accessible way to understand and interpret datasets. In R,
+calculating measures like the mean, median, and standard deviation is
+straightforward, whether for an entire dataset or for specific groups,
+thanks to built-in functions and powerful packages such as dplyr.
+Automating these summaries in R, as noted by
+(\citeproc{ref-lane2013descriptive}{Lane, 2013}), streamlines your
+workflow and helps organize your analysis.
 
-As (\citeproc{ref-lane2013descriptive}{Lane, 2013}) explains, using R to
-automate summary statistics saves time and helps organize your analysis.
-This basic step is important before moving on to more advanced methods.
-By mastering summary statistics in R, you can find useful patterns, make
-better decisions, and clearly share your results in research or
-business.
+However, it is important to recognize the limitations of summary
+statistics. While they provide useful snapshots, they do not explain
+underlying causes, predict future outcomes, or reveal relationships
+between variables. Summary statistics can also obscure important
+patterns or differences within subgroups and may mask issues like bias
+or sampling problems, as highlighted in Naked Statistics
+(\citeproc{ref-wheelan2013naked}{Wheelan, 2013}). Relying solely on
+these measures can therefore lead to oversimplification or
+misinterpretation of your data
+(\citeproc{ref-wienclaw2009misuse}{Wienclaw, 2009}).
+
+For these reasons, summary statistics should be viewed as an essential
+starting point, but always complemented with more detailed analyses and
+visualizations to gain a deeper, more accurate understanding of your
+data. By mastering summary statistics in R---and remaining aware of
+their limitations---you can uncover valuable insights, make more
+informed decisions, and communicate your findings clearly in research or
+business contexts.
 
 \newpage
 
@@ -1470,35 +1423,18 @@ business.
 
 \phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
-\bibitem[\citeproctext]{ref-datatas2025future}
-Datatas. (2025, April 14). \emph{The future of AI-generated data
-summarization for large reports}.
-\url{https://datatas.com/the-future-of-ai-generated-data-summarization-for-large-reports/}
-
-\bibitem[\citeproctext]{ref-fan2014challenges}
-Fan, J., Han, F., \& Liu, H. (2014). Challenges of big data analysis.
-\emph{National Science Review}, \emph{1}(2), 293--314.
-\url{https://doi.org/10.1093/nsr/nwt032}
-
-\bibitem[\citeproctext]{ref-oscgarden2023bootstrapping}
-Garden, O. (2023, November 27). \emph{The 8 most important statistical
-ideas: Bootstrapping and simulation-based inference}.
-\url{https://osc.garden/blog/bootstrapping-and-simulation-based-inference/}
-
 \bibitem[\citeproctext]{ref-lane2013descriptive}
 Lane, D. M. (2013). Descriptive statistics. In \emph{Introduction to
 statistics}. Rice University.
 \url{https://onlinestatbook.com/2/introduction/descriptive.html}
 
+\bibitem[\citeproctext]{ref-medcalf2018favourite}
+Medcalf, A. (2018). \emph{My favourite r package for: Summarising data}.
+\url{https://dabblingwithdata.amedcalf.com/2018/01/02/my-favourite-r-package-for-summarising-data/}
+
 \bibitem[\citeproctext]{ref-oh2023making}
 Oh, D. M., \& Pyrczak, F. (2023). \emph{Making sense of statistics: A
 conceptual overview}. Routledge.
-
-\bibitem[\citeproctext]{ref-potter2010visualizing}
-Potter, K., Kniss, J., Riesenfeld, R., \& Johnson, C. R. (2010).
-Visualizing summary statistics and uncertainty. \emph{Computer Graphics
-Forum}, \emph{29}(3), 823--832.
-\url{https://www.sci.utah.edu/~kpotter/publications/potter-2010-VSSU.pdf}
 
 \bibitem[\citeproctext]{ref-Schork2021}
 Schork, J. (2021). \emph{How to calculate summary statistics for the

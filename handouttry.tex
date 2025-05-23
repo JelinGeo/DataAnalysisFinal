@@ -206,7 +206,7 @@ Them in R}
 
 
 
-\author{Jelin George (Matriculation: 400826617)}
+\author{Jelin George (Matriculation Number: 400826617)}
 
 
 
@@ -216,7 +216,7 @@ Them in R}
 
 
 
-\leftheader{400826617)}
+\leftheader{Number: 400826617)}
 
 
 
@@ -229,8 +229,7 @@ compute and present these statistics, making them essential for
 simplifying data, identifying patterns, and supporting informed analysis
 and decision-making. Practical examples and code are provided to
 demonstrate these concepts in action. The document also discusses the
-limitations of summary statistics and considers future directions in
-their application. }
+limitations of summary statistics and its application. }
 
 \keywords{summary statistics, R programming, data analysis, descriptive
 statistics, data visualization, exploratory data analysis, limitations}
@@ -239,7 +238,7 @@ statistics, data visualization, exploratory data analysis, limitations}
 \par{ }
 \par{   The authors have no conflicts of interest to disclose.    }
 \par{Correspondence concerning this article should be addressed to Jelin
-George (Matriculation:
+George (Matriculation Number:
 400826617), Email: \href{mailto:george.jelin@stud-hs.fresenius.de}{george.jelin@stud-hs.fresenius.de}}
 }
 
@@ -345,11 +344,6 @@ George (Matriculation:
 
 \maketitle
 
-\hypertarget{toc}{}
-\tableofcontents
-\newpage
-\section[Introduction]{The Importance of Summary Statistics and
-Techniques for Creating Them in R}
 
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 
@@ -368,13 +362,14 @@ draw meaningful conclusions or communicate findings effectively.
 In R, summary statistics are foundational for data analysis, enabling
 users to efficiently condense complex data into interpretable values
 like the mean, median, mode, standard deviation, and quantiles. R offers
-a rich ecosystem of functions and packages - such as summary(),
-dplyr::summarise(), and visualization tools like histograms and boxplots
-- that streamline the computation and presentation of summary statistics
-for both numeric and categorical data. Their importance lies in
-simplifying large datasets, revealing patterns and outliers, and laying
-the groundwork for deeper statistical analyses and informed
-decision-making.
+a rich ecosystem of functions and packages, each with unique features.
+Base R provides basic summaries, while dplyr allows flexible, tidy group
+summaries. skimr and summarytools create detailed, readable overviews,
+often with visual elements. Packages like psych, Hmisc, and pastecs
+offer more advanced descriptive statistics. For publication-ready
+tables, gtsummary and table1 are ideal. Additional tools such as
+janitor, rstatix, and doBy support quick tabulation and custom
+summaries, giving users a range of options for data analysis.
 
 As the first and often most critical step in any analytical workflow,
 summary statistics in R empower analysts and researchers to understand,
@@ -407,35 +402,15 @@ Additonally, watch this
 \href{https://www.youtube.com/watch?v=yoPGwvUzjgQ}{\textbf{tutorial
 video}} on descriptive statistics in R to get you started.
 
-\vspace{1cm}
-
 \section{Key Measures in Summary
 Statistics}\label{key-measures-in-summary-statistics}
 
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Measures of Central Tendency}: Central tendency measures
-  indicate where most values in a dataset fall.
-\item
-  \textbf{Measures of Dispersion}: Dispersion measures describe the
-  spread of data.
-\item
-  \textbf{Measures of Shape and Distribution}: Describe the overall
-  pattern and characteristics of how data values are distributed within
-  a dataset.
-\item
-  \textbf{Visualization tools}: Histogram and boxplot are tools to help
-  understand distribution of data better.
-\item
-  \textbf{Frequency table}: It shows how often each value or category
-  appears in a dataset, making it easy to spot common or rare values and
-  summarize the data.
-\item
-  \textbf{Cross-tabulations} (contingency tables): It shows how two or
-  more categorical variables are related by displaying the count of
-  observations for each combination of categories.
-\end{itemize}
+Summary statistics condense complex data into key numbers, making
+interpretation easier. Central tendency shows where most values lie,
+dispersion measures the spread, and shape describes distribution
+patterns. Visual tools like histograms and boxplots help illustrate
+data, while frequency tables and cross-tabulations summarize counts and
+relationships between categories.
 
 Furthermore, read
 \href{https://modernstatisticswithr.com/index.html}{Modern Statistics
@@ -450,8 +425,6 @@ the code chunks presented above
 (\citeproc{ref-walker2023gtsummary}{Walker, 2023})
 (\citeproc{ref-dre2024gentle}{Videos, 2024})
 (\citeproc{ref-Schork2021}{Schork, 2021})
-
-\vspace{1cm}
 
 \section{Practical Application}\label{practical-application}
 
@@ -792,49 +765,35 @@ Furthermore, this YouTube video
 Wars dataset} may be an interesting resource to help you better
 understand the dataset.
 
-\vspace{1cm}
-
-\section{Limitations}\label{limitations}
-
-Summary statistics are essential for providing a quick and accessible
-overview of a dataset, but they have several important limitations. In
-the book \emph{Naked Statistics}
-(\citeproc{ref-wheelan2013naked}{Wheelan, 2013}), the author highlights
-key limitations of statistics, warning that statistical measures can be
-easily misapplied, misinterpreted, or manipulated to mislead people. He
-explains that while statistics help summarize complex data, this
-simplification can lead to information loss and oversights, especially
-when descriptive statistics are mistaken for complete truth. He
-emphasizes that statistics are only as reliable as the data and methods
-behind them, and that issues like bias, poor sampling, or careless
-analysis can produce misleading or false conclusions.
-
-Looking ahead, summary statistics are evolving to address larger and
-more complex datasets. Advances in computational methods, artificial
-intelligence, and visualization are making summaries more interactive
-and adaptive to big data challenges
-(\citeproc{ref-datatas2025future}{Datatas, 2025};
-\citeproc{ref-fan2014challenges}{Fan et al., 2014};
-\citeproc{ref-oscgarden2023bootstrapping}{Garden, 2023}). As data
-science progresses, summary statistics will remain foundational but must
-be used alongside advanced analytics to ensure accurate and meaningful
-insights.
-
 \section{Conclusion}\label{conclusion}
 
-Summary statistics are a key starting point for any data analysis,
-helping us quickly understand and interpret data. In R, these
-statistics---like the mean, median, and standard deviation---give a
-clear overview of the data and help spot problems or unusual values. R
-makes it easy to calculate these numbers for all the data or for
-different groups, using built-in functions and packages like dplyr.
+Summary statistics are a vital first step in data analysis, offering a
+fast and accessible way to understand and interpret datasets. In R,
+calculating measures like the mean, median, and standard deviation is
+straightforward, whether for an entire dataset or for specific groups,
+thanks to built-in functions and powerful packages such as dplyr.
+Automating these summaries in R, as noted by
+(\citeproc{ref-lane2013descriptive}{Lane, 2013}), streamlines your
+workflow and helps organize your analysis.
 
-As (\citeproc{ref-lane2013descriptive}{Lane, 2013}) explains, using R to
-automate summary statistics saves time and helps organize your analysis.
-This basic step is important before moving on to more advanced methods.
-By mastering summary statistics in R, you can find useful patterns, make
-better decisions, and clearly share your results in research or
-business.
+However, it is important to recognize the limitations of summary
+statistics. While they provide useful snapshots, they do not explain
+underlying causes, predict future outcomes, or reveal relationships
+between variables. Summary statistics can also obscure important
+patterns or differences within subgroups and may mask issues like bias
+or sampling problems, as highlighted in Naked Statistics
+(\citeproc{ref-wheelan2013naked}{Wheelan, 2013}). Relying solely on
+these measures can therefore lead to oversimplification or
+misinterpretation of your data
+(\citeproc{ref-wienclaw2009misuse}{Wienclaw, 2009}).
+
+For these reasons, summary statistics should be viewed as an essential
+starting point, but always complemented with more detailed analyses and
+visualizations to gain a deeper, more accurate understanding of your
+data. By mastering summary statistics in R---and remaining aware of
+their limitations---you can uncover valuable insights, make more
+informed decisions, and communicate your findings clearly in research or
+business contexts.
 
 \newpage
 
@@ -842,21 +801,6 @@ business.
 
 \phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
-\bibitem[\citeproctext]{ref-datatas2025future}
-Datatas. (2025, April 14). \emph{The future of AI-generated data
-summarization for large reports}.
-\url{https://datatas.com/the-future-of-ai-generated-data-summarization-for-large-reports/}
-
-\bibitem[\citeproctext]{ref-fan2014challenges}
-Fan, J., Han, F., \& Liu, H. (2014). Challenges of big data analysis.
-\emph{National Science Review}, \emph{1}(2), 293--314.
-\url{https://doi.org/10.1093/nsr/nwt032}
-
-\bibitem[\citeproctext]{ref-oscgarden2023bootstrapping}
-Garden, O. (2023, November 27). \emph{The 8 most important statistical
-ideas: Bootstrapping and simulation-based inference}.
-\url{https://osc.garden/blog/bootstrapping-and-simulation-based-inference/}
-
 \bibitem[\citeproctext]{ref-lane2013descriptive}
 Lane, D. M. (2013). Descriptive statistics. In \emph{Introduction to
 statistics}. Rice University.
@@ -888,6 +832,10 @@ data}. W. W. Norton \& Company.
 Wickham, H., François, R., Henry, L., Müller, K., \& Vaughan, D. (2023).
 \emph{Dplyr: A grammar of data manipulation}.
 \url{https://dplyr.tidyverse.org/articles/dplyr.html}
+
+\bibitem[\citeproctext]{ref-wienclaw2009misuse}
+Wienclaw, R. A. (2009). The misuse of statistics. \emph{The Research
+Starters Sociology}, 1--5.
 
 \end{CSLReferences}
 

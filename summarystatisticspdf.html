@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jelin George (Matriculation: 400826617)">
+<meta name="author" content="Jelin George (Matriculation Number: 400826617)">
 <meta name="keywords" content="summary statistics, R programming, data analysis, descriptive statistics, data visualization, exploratory data analysis, limitations">
 <meta name="description" content="SUMMARY STATISTICS AND TECHNIQUES IN R">
 
@@ -91,8 +91,6 @@ div.csl-indent {
 <script src="summarystatisticspdf_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="summarystatisticspdf_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="summarystatisticspdf_files/libs/bootstrap/bootstrap-0b4f8f062259680727f571f44257d5af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="summarystatisticspdf_files/libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="summarystatisticspdf_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="_extensions/wjschne/apaquarto/apa.css">
@@ -108,18 +106,18 @@ div.csl-indent {
    
   <ul>
   <li><a href="#what-is-summary-statistics" id="toc-what-is-summary-statistics" class="nav-link active" data-scroll-target="#what-is-summary-statistics">What is Summary Statistics?</a></li>
+  <li><a href="#r-packages-for-summary-statistics" id="toc-r-packages-for-summary-statistics" class="nav-link" data-scroll-target="#r-packages-for-summary-statistics">R Packages for Summary Statistics</a></li>
   <li><a href="#key-measures-in-summary-statistics" id="toc-key-measures-in-summary-statistics" class="nav-link" data-scroll-target="#key-measures-in-summary-statistics">Key Measures in Summary Statistics</a>
   <ul class="collapse">
-  <li><a href="#measures-of-central-tendency" id="toc-measures-of-central-tendency" class="nav-link" data-scroll-target="#measures-of-central-tendency">Measures of Central Tendency</a></li>
-  <li><a href="#measures-of-dispersion" id="toc-measures-of-dispersion" class="nav-link" data-scroll-target="#measures-of-dispersion">Measures of Dispersion</a></li>
-  <li><a href="#measures-of-shape-and-distribution" id="toc-measures-of-shape-and-distribution" class="nav-link" data-scroll-target="#measures-of-shape-and-distribution">Measures of Shape and Distribution</a></li>
-  <li><a href="#handling-missing-data" id="toc-handling-missing-data" class="nav-link" data-scroll-target="#handling-missing-data">Handling Missing Data</a></li>
-  <li><a href="#frequency-and-cross-tabulation-techniques" id="toc-frequency-and-cross-tabulation-techniques" class="nav-link" data-scroll-target="#frequency-and-cross-tabulation-techniques">Frequency and Cross-Tabulation Techniques</a></li>
-  <li><a href="#summarizing-data-frames" id="toc-summarizing-data-frames" class="nav-link" data-scroll-target="#summarizing-data-frames">Summarizing Data Frames</a></li>
+  <li><a href="#measures-of-central-tendency" id="toc-measures-of-central-tendency" class="nav-link" data-scroll-target="#measures-of-central-tendency">1. Measures of Central Tendency</a></li>
+  <li><a href="#measures-of-dispersion" id="toc-measures-of-dispersion" class="nav-link" data-scroll-target="#measures-of-dispersion">2. Measures of Dispersion</a></li>
+  <li><a href="#measures-of-shape-and-distribution" id="toc-measures-of-shape-and-distribution" class="nav-link" data-scroll-target="#measures-of-shape-and-distribution">3. Measures of Shape and Distribution</a></li>
+  <li><a href="#handling-missing-data" id="toc-handling-missing-data" class="nav-link" data-scroll-target="#handling-missing-data">4. Handling Missing Data</a></li>
+  <li><a href="#frequency-and-cross-tabulation-techniques" id="toc-frequency-and-cross-tabulation-techniques" class="nav-link" data-scroll-target="#frequency-and-cross-tabulation-techniques">5. Frequency and Cross-Tabulation Techniques</a></li>
+  <li><a href="#summarizing-data-frames" id="toc-summarizing-data-frames" class="nav-link" data-scroll-target="#summarizing-data-frames">6. Summarizing Data Frames</a></li>
   </ul></li>
   <li><a href="#practical-application" id="toc-practical-application" class="nav-link" data-scroll-target="#practical-application">Practical Application</a></li>
   <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
-  <li><a href="#future-direction" id="toc-future-direction" class="nav-link" data-scroll-target="#future-direction">Future Direction</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   <li><a href="#affadative" id="toc-affadative" class="nav-link" data-scroll-target="#affadative">Affadative</a></li>
@@ -142,7 +140,7 @@ div.csl-indent {
 <div class="Author">
 <br>
 
-<p>Jelin George (Matriculation: 400826617)</p>
+<p>Jelin George (Matriculation Number: 400826617)</p>
 <p>International Management, M.A., Hochschule Fresenius - University of Applied Science</p>
 </div>
 <br>
@@ -153,13 +151,13 @@ div.csl-indent {
 <section id="author-note" class="level1 unnumbered unlisted AuthorNote">
 <h1 class="unnumbered unlisted AuthorNote">Author Note</h1>
 <p>The authors have no conflicts of interest to disclose.</p>
-<p>Correspondence concerning this article should be addressed to Jelin George (Matriculation: 400826617), International Management, M.A., Hochschule Fresenius - University of Applied Science, Email: <a href="mailto:george.jelin@stud-hs.fresenius.de">george.jelin@stud-hs.fresenius.de</a></p>
+<p>Correspondence concerning this article should be addressed to Jelin George (Matriculation Number: 400826617), International Management, M.A., Hochschule Fresenius - University of Applied Science, Email: <a href="mailto:george.jelin@stud-hs.fresenius.de">george.jelin@stud-hs.fresenius.de</a></p>
 <br>
 </section>
 <section id="abstract" class="level1 unnumbered unlisted AuthorNote">
 <h1 class="unnumbered unlisted AuthorNote">Abstract</h1>
 <div class="AbstractFirstParagraph">
-<p>This document presents a concise overview of summary statistics and their importance in R. Summary statistics - such as mean, median, standard deviation, and frequency counts - capture the key features of a dataset, enabling quick exploration and interpretation. R provides powerful functions and visualization tools to efficiently compute and present these statistics, making them essential for simplifying data, identifying patterns, and supporting informed analysis and decision-making. Practical examples and code are provided to demonstrate these concepts in action. The document also discusses the limitations of summary statistics and considers future directions in their application.</p>
+<p>This document presents a concise overview of summary statistics and their importance in R. Summary statistics - such as mean, median, standard deviation, and frequency counts - capture the key features of a dataset, enabling quick exploration and interpretation. R provides powerful functions and visualization tools to efficiently compute and present these statistics, making them essential for simplifying data, identifying patterns, and supporting informed analysis and decision-making. Practical examples and code are provided to demonstrate these concepts in action. The document also discusses the limitations of summary statistics and its application.</p>
 </div>
 <p><em>Keywords</em>: summary statistics, R programming, data analysis, descriptive statistics, data visualization, exploratory data analysis, limitations</p>
 <br>
@@ -174,7 +172,6 @@ div.csl-indent {
 <li><p>Demonstrate practical application with code</p></li>
 <li><p>Analyze limitations and consider furture directions</p></li>
 </ul>
-<div style="page-break-after: always;"></div>
 <p><br></p>
 </section>
 <section id="what-is-summary-statistics" class="level1">
@@ -188,85 +185,32 @@ div.csl-indent {
 <li><p><strong>Inferential statistics</strong>: Make predictions or inferences about a population based on a sample.</p></li>
 </ol>
 <p>I would like to highlight a book, <em>Making sense of statistics: A conceptual overview</em>, <span class="citation" data-cites="oh2023making">(<a href="#ref-oh2023making" role="doc-biblioref">Oh &amp; Pyrczak, 2023</a>)</span> which offers a clear and accessible introduction to key statistical concepts for beginners. The book focuses on building conceptual understanding of both descriptive and inferential statistics, using simple explanations, practical examples, and step-by-step guidance. It is designed to help in applying statistics to research and interpreting data effectively.</p>
+<p><br><br></p>
+</section>
+<section id="r-packages-for-summary-statistics" class="level1">
+<h1>R Packages for Summary Statistics</h1>
+<p>R offers a variety of packages for summary statistics, each with unique strengths:</p>
+<ul>
+<li><p><strong>Base R</strong>: Functions like summary(), mean(), sd(), and fivenum() provide basic summaries for numeric and categorical data.</p></li>
+<li><p><strong>dplyr</strong>: With summarise() and group_by(), dplyr allows flexible, tidy summaries for both ungrouped and grouped data, supporting custom summary functions.</p></li>
+<li><p><strong>skimr</strong>: Produces compact, readable summaries with visual elements (sparklines) and handles different variable types well; integrates smoothly with tidyverse workflows.</p></li>
+<li><p><strong>summarytools</strong>: Offers functions like dfSummary() for comprehensive data frame overviews (including mini-graphs and missing data), freq() for frequency tables, ctable() for cross-tabulations, and descr() for numeric summaries. Outputs are HTML-friendly for easy reporting.</p></li>
+<li><p><strong>psych</strong>: The describe() function provides detailed statistics (mean, SD, skewness, kurtosis) and supports grouped summaries with describe.by().</p></li>
+<li><p><strong>Hmisc</strong>: The describe() function gives extensive summaries, including percentiles and extreme values.</p></li>
+<li><p><strong>pastecs</strong>: The stat.desc() function provides a wide range of statistics, including confidence intervals and coefficients of variation.</p></li>
+<li><p><strong>table1</strong>: Creates customizable, publication-ready tables with group comparisons and the option to include test statistics; outputs can be exported to HTML or PDF.</p></li>
+<li><p><strong>gtsummary</strong>: Automatically detects variable types, summarizes data, and produces publication-ready tables ideal for medical or demographic reports; highly customizable.</p></li>
+<li><p><strong>janitor, rstatix, doBy</strong>: These packages offer additional tools for quick tabulation, group summaries, and flexible summary table creation.</p></li>
+</ul>
+<p>For a deeper exploration of R packages used for summarizing data, I encourage you to visit the source by <span class="citation" data-cites="medcalf2018favourite">(<a href="#ref-medcalf2018favourite" role="doc-biblioref">Medcalf, 2018</a>)</span></p>
 <p>Additonally, watch this <a href="https://www.youtube.com/watch?v=yoPGwvUzjgQ"><strong>tutorial video</strong></a> on descriptive statistics in R to get you started.</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table table-striped table-bordered caption-top table-sm small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Package</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Key Function(s)</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Unique Features/Strengths</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Typical Use Case</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">Base R</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">summary(), mean(), sd()</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">Built-in, quick, basic, not pipeable</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">General, quick checks</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">dplyr</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">summarise(), count()</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">Tidy, pipeable, flexible, group-wise summaries</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">Custom summaries in tidyverse workflows</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">skimr</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">skim()</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">Tidy, detailed, sparkline histograms, missing data</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">Quick, detailed EDA</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">psych</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">describe(), describe.by()</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">Skewness, kurtosis, group summaries</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">In-depth descriptive stats</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">summarytools</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">descr(), dfSummary()</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">HTML summaries, mini-histograms, missing data info</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">Publication-ready summaries</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">Hmisc</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">describe()</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">Detailed, percentiles, unique values</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">Medical, epidemiological data</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">pastecs</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">stat.desc()</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">Wide range of stats, time series support</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">Broad, one-call summaries</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">mosaic</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">favstats(), tally()</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">Concise, teaching-focused</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">Teaching, quick summaries</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">gtsummary</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">tbl_summary()</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">Publication-ready tables, auto-detects variable types</td>
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">Medical, scientific reporting</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div style="page-break-after: always;"></div>
 <p><br></p>
 </section>
 <section id="key-measures-in-summary-statistics" class="level1">
 <h1>Key Measures in Summary Statistics</h1>
 <p>Summary statistics condense complex datasets into a few meaningful numbers, making it easier to understand and communicate data characteristics. The key measures in summary statistics fall into several categories:</p>
 <section id="measures-of-central-tendency" class="level2">
-<h2 data-anchor-id="measures-of-central-tendency">Measures of Central Tendency</h2>
+<h2 data-anchor-id="measures-of-central-tendency">1. Measures of Central Tendency</h2>
 <p>Central tendency measures indicate where most values in a dataset fall.</p>
 <ul>
 <li><p><strong>Mean</strong>: The arithmetic average of all data points. Add up all the values, then divide by how many there are to get the average of all the numbers.</p></li>
@@ -299,7 +243,7 @@ div.csl-indent {
 </div>
 </section>
 <section id="measures-of-dispersion" class="level2">
-<h2 data-anchor-id="measures-of-dispersion">Measures of Dispersion</h2>
+<h2 data-anchor-id="measures-of-dispersion">2. Measures of Dispersion</h2>
 <p>Dispersion measures describe the spread of data.</p>
 <div id="fig-dispersion" class="quarto-float quarto-figure quarto-figure-center FigureWithNote" prefix="" data-fignum="1" data-apa-note="Example of samples from two populations with the same mean but different dispersion. The blue population is much more dispersed than the red population." data-custom-style="FigureWithNote">
 <figure class="quarto-float quarto-float-fig figure">
@@ -350,7 +294,7 @@ div.csl-indent {
 </div>
 </section>
 <section id="measures-of-shape-and-distribution" class="level2">
-<h2 data-anchor-id="measures-of-shape-and-distribution">Measures of Shape and Distribution</h2>
+<h2 data-anchor-id="measures-of-shape-and-distribution">3. Measures of Shape and Distribution</h2>
 <p>Describe the overall pattern and characteristics of how data values are distributed within a dataset.</p>
 <ul>
 <li><strong>Skewness</strong>: Measures asymmetry of the distribution.</li>
@@ -402,7 +346,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="summarystatisticspdf_files/figure-html/unnamed-chunk-7-1.svg" class="img-fluid figure-img" width="624"></p>
+<p><img src="summarystatisticspdf_files/figure-html/unnamed-chunk-6-1.svg" class="img-fluid figure-img" width="624"></p>
 </figure>
 </div>
 </div>
@@ -430,15 +374,14 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="summarystatisticspdf_files/figure-html/unnamed-chunk-8-1.svg" class="img-fluid figure-img" width="624"></p>
+<p><img src="summarystatisticspdf_files/figure-html/unnamed-chunk-7-1.svg" class="img-fluid figure-img" width="624"></p>
 </figure>
 </div>
 </div>
 </div>
-<p><br></p>
 </section>
 <section id="handling-missing-data" class="level2">
-<h2 data-anchor-id="handling-missing-data">Handling Missing Data</h2>
+<h2 data-anchor-id="handling-missing-data">4. Handling Missing Data</h2>
 <p>Missing data can bias summary statistics if not handled properly.</p>
 <p>Types of missing data: MCAR (Missing Completely at Random), MAR (Missing at Random), MNAR (Missing Not at Random).</p>
 <p>Techniques: Omit missing values, impute with mean/median/mode, or use advanced imputation.</p>
@@ -454,10 +397,9 @@ div.csl-indent {
 1   4.8</code></pre>
 </div>
 </div>
-<p><br></p>
 </section>
 <section id="frequency-and-cross-tabulation-techniques" class="level2">
-<h2 data-anchor-id="frequency-and-cross-tabulation-techniques">Frequency and Cross-Tabulation Techniques</h2>
+<h2 data-anchor-id="frequency-and-cross-tabulation-techniques">5. Frequency and Cross-Tabulation Techniques</h2>
 <p><strong>Frequency table</strong>: A tool used to organize and display how often each value or category occurs in a dataset. It typically consists of two or more columns: one listing all possible values or categories, and another showing the frequency (count) of each making it easier to see which values are common or rare, summarize large sets of data, and identify patterns.</p>
 <ul>
 <li><strong>Relative frequency</strong>: Proportion of each category.</li>
@@ -528,10 +470,9 @@ div.csl-indent {
 2 Young      1     2</code></pre>
 </div>
 </div>
-<p><br></p>
 </section>
 <section id="summarizing-data-frames" class="level2">
-<h2 data-anchor-id="summarizing-data-frames">Summarizing Data Frames</h2>
+<h2 data-anchor-id="summarizing-data-frames">6. Summarizing Data Frames</h2>
 <p>We can create comprehensive summaries for entire datasets by summarizing data frames. This involves generating clear overviews of each variable and its values, typically by calculating summary statistics such as the mean, median, minimum, maximum, standard deviation, and counts. These summaries help reveal the structure, trends, and important features of the data.</p>
 <p>Let’s explore a basic example using the summary() function.</p>
 <div class="cell">
@@ -699,19 +640,17 @@ $ Score  &lt;dbl&gt; 85, 90, 88, 95, 85, 88, 80</code></pre>
 <p>You can further explore <a href="https://docs.ropensci.org/skimr/">skimr</a> here.</p>
 <p>Furthermore, read <a href="https://modernstatisticswithr.com/index.html">Modern Statistics with R</a> to understand essential tools and techniques in contemporary statistical data analysis, using the R programming language. The book features numerous examples and over 200 exercises with worked solutions. The online version is freely available and regularly updated, with downloadable datasets for hands-on learning</p>
 <p>The YouTube videos referenced here may assist in further understanding the code chunks presented above <span class="citation" data-cites="walker2023gtsummary">(<a href="#ref-walker2023gtsummary" role="doc-biblioref">Walker, 2023</a>)</span> <span class="citation" data-cites="dre2024gentle">(<a href="#ref-dre2024gentle" role="doc-biblioref">Videos, 2024</a>)</span> <span class="citation" data-cites="Schork2021">(<a href="#ref-Schork2021" role="doc-biblioref">Schork, 2021</a>)</span></p>
-<div style="page-break-after: always;"></div>
 <p><br></p>
 </section>
 </section>
 <section id="practical-application" class="level1">
 <h1>Practical Application</h1>
-<p>Let us begin with a few fun exercises to understand how to read data and apply summary statistics functions using the <strong>Star Wars</strong> dataset.</p>
-<p>Before we get started, we must install essential packages that might be needed later.</p>
+<p>Let us begin with a few fun exercises to understand how to read data and apply summary statistics functions using the <strong>Star Wars</strong> dataset. Before we get started, we must install essential packages that might be needed later.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Next, load the Star Wars dataset available in the dylyr package. Read more on dylyr package here <span class="citation" data-cites="dplyr2023">(<a href="#ref-dplyr2023" role="doc-biblioref">Wickham et al., 2023</a>)</span></p>
+<p>Load the Star Wars dataset available in the dylyr package. Read more on dylyr package here <span class="citation" data-cites="dplyr2023">(<a href="#ref-dplyr2023" role="doc-biblioref">Wickham et al., 2023</a>)</span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -768,7 +707,7 @@ $ Score  &lt;dbl&gt; 85, 90, 88, 95, 85, 88, 80</code></pre>
 1         183</code></pre>
 </div>
 </div>
-<p>Now, let’s apply various summary functions.</p>
+<p>Now, apply the various summary functions.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select relevant variables</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>starwars_selected <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span></span>
@@ -995,7 +934,7 @@ $ Score  &lt;dbl&gt; 85, 90, 88, 95, 85, 88, 80</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="summarystatisticspdf_files/figure-html/unnamed-chunk-21-1.svg" class="img-fluid figure-img" width="624"></p>
+<p><img src="summarystatisticspdf_files/figure-html/unnamed-chunk-20-1.svg" class="img-fluid figure-img" width="624"></p>
 </figure>
 </div>
 </div>
@@ -1019,18 +958,17 @@ $ Score  &lt;dbl&gt; 85, 90, 88, 95, 85, 88, 80</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="summarystatisticspdf_files/figure-html/unnamed-chunk-22-1.svg" class="img-fluid figure-img" width="624"></p>
+<p><img src="summarystatisticspdf_files/figure-html/unnamed-chunk-21-1.svg" class="img-fluid figure-img" width="624"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Furthermore, this YouTube video <a href="https://www.youtube.com/watch?v=4vSfbz9YMa0">Return of the Star Wars dataset</a> may be an interesting resource to help you better understand the dataset.</p>
-<div style="page-break-after: always;"></div>
 <p><br></p>
 </section>
 <section id="limitations" class="level1">
 <h1>Limitations</h1>
-<p>Summary statistics are essential for providing a quick and accessible overview of a dataset, but they have several important limitations. In the book <em>Naked Statistics</em> <span class="citation" data-cites="wheelan2013naked">(<a href="#ref-wheelan2013naked" role="doc-biblioref">Wheelan, 2013</a>)</span>, the author highlights key limitations of statistics, warning that statistical measures can be easily misapplied, misinterpreted, or manipulated to mislead people. He explains that while statistics help summarize complex data, this simplification can lead to information loss and oversights, especially when descriptive statistics are mistaken for complete truth. He emphasizes that statistics are only as reliable as the data and methods behind them, and that issues like bias, poor sampling, or careless analysis can produce misleading or false conclusions.</p>
+<p>Summary statistics offer a quick and accessible overview of data, but they have important limitations. As highlighted in Naked Statistics <span class="citation" data-cites="wheelan2013naked">(<a href="#ref-wheelan2013naked" role="doc-biblioref">Wheelan, 2013</a>)</span>, these measures can be misapplied, misinterpreted, or manipulated, leading to misleading conclusions. Simplifying complex data may result in information loss, and the reliability of statistics depends on the quality of the data and methods used. Issues like bias, poor sampling, or careless analysis can further distort results.</p>
 <p>Let’s look at some of the limitations in detail:</p>
 <ul>
 <li><p>No Causality or Explanation: Summary statistics describe what is present in the data but cannot explain why patterns exist or establish causal relationships. For example, knowing the average test score does not reveal the factors that influenced those scores.</p></li>
@@ -1042,26 +980,13 @@ $ Score  &lt;dbl&gt; 85, 90, 88, 95, 85, 88, 80</code></pre>
 </ul>
 <p>In summary, while summary statistics are valuable for initial data exploration, they should be complemented with more detailed analyses and visualizations to avoid oversimplification and misinterpretation of the data.</p>
 <p>Other sources: <span class="citation" data-cites="wienclaw2009misuse">(<a href="#ref-wienclaw2009misuse" role="doc-biblioref">Wienclaw, 2009</a>)</span></p>
-<div style="page-break-after: always;"></div>
-<p><br></p>
-</section>
-<section id="future-direction" class="level1">
-<h1>Future Direction</h1>
-<p>The future of summary statistics is changing as data becomes more complex, computers get faster, and artificial intelligence is used more often. Some important trends are emerging:</p>
-<ul>
-<li><p>Integration with Advanced Computational Methods: As data gets bigger and more complicated, summary statistics will be used alongside advanced computer methods like bootstrapping, simulations, and machine learning. These tools help create stronger and more detailed summaries, especially when dealing with complex or messy data. <span class="citation" data-cites="oscgarden2023bootstrapping">(<a href="#ref-oscgarden2023bootstrapping" role="doc-biblioref">Garden, 2023</a>)</span></p></li>
-<li><p>AI-Driven and Automated Summarization: AI and automation are changing how we create and use summary statistics. Tools that use artificial intelligence can quickly turn large and complex data into useful information, making the process faster and easier. In the future, these tools will likely give real-time and personalized summaries, helping people get the exact information they need. <span class="citation" data-cites="datatas2025future">(<a href="#ref-datatas2025future" role="doc-biblioref">Datatas, 2025</a>)</span></p></li>
-<li><p>Enhanced Visualization and Exploratory Data Analysis: As computer graphics and interactive tools improve, visualizations will become even more important for summary statistics. This will make it easier to explore and understand data, spot patterns, and find unusual values, going beyond just using tables or simple charts. <span class="citation" data-cites="potter2010visualizing">(<a href="#ref-potter2010visualizing" role="doc-biblioref">Potter et al., 2010</a>)</span></p></li>
-<li><p>Addressing Big Data and Complex Structures: Summary statistics will have to change to handle big data, which includes huge amounts of information, different kinds of data, and complex patterns. New ways of thinking and new tools will be needed to quickly and effectively summarize this information.<span class="citation" data-cites="fan2014challenges">(<a href="#ref-fan2014challenges" role="doc-biblioref">Fan et al., 2014</a>)</span></p></li>
-</ul>
-<p>In summary, summary statistics are becoming more advanced and will be part of smarter, more interactive analysis tools. As data gets bigger and more complex, and as technology and teamwork improve, summary statistics will remain important for understanding information.</p>
-<div style="page-break-after: always;"></div>
 <p><br></p>
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
-<p>Summary statistics are a key starting point for any data analysis, helping us quickly understand and interpret data. In R, these statistics—like the mean, median, and standard deviation—give a clear overview of the data and help spot problems or unusual values. R makes it easy to calculate these numbers for all the data or for different groups, using built-in functions and packages like dplyr.</p>
-<p>As <span class="citation" data-cites="lane2013descriptive">(<a href="#ref-lane2013descriptive" role="doc-biblioref">Lane, 2013</a>)</span> explains, using R to automate summary statistics saves time and helps organize your analysis. This basic step is important before moving on to more advanced methods. By mastering summary statistics in R, you can find useful patterns, make better decisions, and clearly share your results in research or business.</p>
+<p>Summary statistics are a vital first step in data analysis, offering a fast and accessible way to understand and interpret datasets. In R, calculating measures like the mean, median, and standard deviation is straightforward, whether for an entire dataset or for specific groups, thanks to built-in functions and powerful packages such as dplyr. Automating these summaries in R, as noted by <span class="citation" data-cites="lane2013descriptive">(<a href="#ref-lane2013descriptive" role="doc-biblioref">Lane, 2013</a>)</span>, streamlines your workflow and helps organize your analysis.</p>
+<p>However, it is important to recognize the limitations of summary statistics. While they provide useful snapshots, they do not explain underlying causes, predict future outcomes, or reveal relationships between variables. Summary statistics can also obscure important patterns or differences within subgroups and may mask issues like bias or sampling problems, as highlighted in Naked Statistics <span class="citation" data-cites="wheelan2013naked">(<a href="#ref-wheelan2013naked" role="doc-biblioref">Wheelan, 2013</a>)</span>. Relying solely on these measures can therefore lead to oversimplification or misinterpretation of your data <span class="citation" data-cites="wienclaw2009misuse">(<a href="#ref-wienclaw2009misuse" role="doc-biblioref">Wienclaw, 2009</a>)</span>.</p>
+<p>For these reasons, summary statistics should be viewed as an essential starting point, but always complemented with more detailed analyses and visualizations to gain a deeper, more accurate understanding of your data. By mastering summary statistics in R—and remaining aware of their limitations—you can uncover valuable insights, make more informed decisions, and communicate your findings clearly in research or business contexts.</p>
 <div style="page-break-after: always;"></div>
 <p><br></p>
 </section>
@@ -1069,23 +994,14 @@ $ Score  &lt;dbl&gt; 85, 90, 88, 95, 85, 88, 80</code></pre>
 <h1>References</h1>
 <!-- References will auto-populate in the refs div below -->
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
-<div id="ref-datatas2025future" class="csl-entry" role="listitem">
-Datatas. (2025, April 14). <em>The future of AI-generated data summarization for large reports</em>. <a href="https://datatas.com/the-future-of-ai-generated-data-summarization-for-large-reports/">https://datatas.com/the-future-of-ai-generated-data-summarization-for-large-reports/</a>
-</div>
-<div id="ref-fan2014challenges" class="csl-entry" role="listitem">
-Fan, J., Han, F., &amp; Liu, H. (2014). Challenges of big data analysis. <em>National Science Review</em>, <em>1</em>(2), 293–314. <a href="https://doi.org/10.1093/nsr/nwt032">https://doi.org/10.1093/nsr/nwt032</a>
-</div>
-<div id="ref-oscgarden2023bootstrapping" class="csl-entry" role="listitem">
-Garden, O. (2023, November 27). <em>The 8 most important statistical ideas: Bootstrapping and simulation-based inference</em>. <a href="https://osc.garden/blog/bootstrapping-and-simulation-based-inference/">https://osc.garden/blog/bootstrapping-and-simulation-based-inference/</a>
-</div>
 <div id="ref-lane2013descriptive" class="csl-entry" role="listitem">
 Lane, D. M. (2013). Descriptive statistics. In <em>Introduction to statistics</em>. Rice University. <a href="https://onlinestatbook.com/2/introduction/descriptive.html">https://onlinestatbook.com/2/introduction/descriptive.html</a>
 </div>
+<div id="ref-medcalf2018favourite" class="csl-entry" role="listitem">
+Medcalf, A. (2018). <em>My favourite r package for: Summarising data</em>. <a href="https://dabblingwithdata.amedcalf.com/2018/01/02/my-favourite-r-package-for-summarising-data/">https://dabblingwithdata.amedcalf.com/2018/01/02/my-favourite-r-package-for-summarising-data/</a>
+</div>
 <div id="ref-oh2023making" class="csl-entry" role="listitem">
 Oh, D. M., &amp; Pyrczak, F. (2023). <em>Making sense of statistics: A conceptual overview</em>. Routledge.
-</div>
-<div id="ref-potter2010visualizing" class="csl-entry" role="listitem">
-Potter, K., Kniss, J., Riesenfeld, R., &amp; Johnson, C. R. (2010). Visualizing summary statistics and uncertainty. <em>Computer Graphics Forum</em>, <em>29</em>(3), 823–832. <a href="https://www.sci.utah.edu/~kpotter/publications/potter-2010-VSSU.pdf">https://www.sci.utah.edu/~kpotter/publications/potter-2010-VSSU.pdf</a>
 </div>
 <div id="ref-Schork2021" class="csl-entry" role="listitem">
 Schork, J. (2021). <em>How to calculate summary statistics for the columns of a data frame in r (example code)</em>. YouTube; Statistics Globe. <a href="https://www.youtube.com/watch?v=FMRkUqy1Sjw">https://www.youtube.com/watch?v=FMRkUqy1Sjw</a>
