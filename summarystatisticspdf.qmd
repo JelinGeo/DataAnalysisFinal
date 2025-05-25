@@ -151,7 +151,7 @@ Summary statistics can be typically divided into:
 I would like to highlight a book, *Making sense of statistics: A conceptual overview*, [@oh2023making] which offers a clear and accessible introduction to key statistical concepts for beginners. The book focuses on building conceptual understanding of both descriptive and inferential statistics, using simple explanations, practical examples, and step-by-step guidance. It is designed to help in applying statistics to research and interpreting data effectively.
 
 
-<br><br>
+<br>
 
 # R Packages for Summary Statistics
 
@@ -611,7 +611,7 @@ For these reasons, summary statistics should be viewed as an essential starting 
 
 <br>
 
-# Affadative
+# Affidative
 
 I hereby affirm that this submitted paper was authored unaided and solely by me. Additionally, no other sources than those in the reference list were used. Parts of this paper, including tables and figures, that have been taken either verbatim or analogously from other works have in each case been properly cited with regard to their origin and authorship. This paper either in parts or in its entirety, be it in the same or similar form, has not been submitted to any other examination board and has not been published.
 
@@ -636,4 +636,4 @@ Checklist:
 -   [x] A concise description of the successful use of Git and GitHub, as detailed here: <https://github.com/hubchev/make_a_pull_request>.
 -   [x] The link to the presentation and the handout published on GitHub.
 
-Jelin George, 28May2025, Cologne
+Jelin George, 2025,May 28, Cologne

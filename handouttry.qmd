@@ -121,7 +121,7 @@ library(skimr)
 
 Summary statistics are concise numerical measures that capture the essential characteristics of a dataset. They serve as foundational tools in data analysis, providing concise descriptions of large datasets. They help analysts and researchers understand the central tendencies, variability, and overall distribution of data, making complex datasets interpretable and actionable. Without summary statistics, raw data would be overwhelming and difficult to interpret, making it challenging to draw meaningful conclusions or communicate findings effectively.
 
-In R, summary statistics are foundational for data analysis, enabling users to efficiently condense complex data into interpretable values like the mean, median, mode, standard deviation, and quantiles. R offers a rich ecosystem of functions and packages, each with unique features. Base R provides basic summaries, while dplyr allows flexible, tidy group summaries. skimr and summarytools create detailed, readable overviews, often with visual elements. Packages like psych, Hmisc, and pastecs offer more advanced descriptive statistics. For publication-ready tables, gtsummary and table1 are ideal. Additional tools such as janitor, rstatix, and doBy support quick tabulation and custom summaries, giving users a range of options for data analysis.
+In R, summary statistics are foundational for data analysis, enabling users to efficiently condense complex data into interpretable values like the mean, median, mode, standard deviation, and quantiles. R offers a rich ecosystem of functions and packages, each with unique features. Base R provides basic summaries, while dplyr allows flexible, tidy group summaries, skimr and summarytools create detailed, readable overviews, often with visual elements. Packages like psych, Hmisc, and pastecs offer more advanced descriptive statistics. For publication-ready tables, gtsummary and table1 are ideal. Additional tools such as janitor, rstatix, and doBy support quick tabulation and custom summaries, giving users a range of options for data analysis.
 
 As the first and often most critical step in any analytical workflow, summary statistics in R empower analysts and researchers to understand, compare, and communicate data-driven insights with clarity and precision.
 
@@ -133,13 +133,21 @@ Summary statistics can be typically divided into:
 
 I would like to highlight a book, *Making sense of statistics: A conceptual overview*, [@oh2023making] which offers a clear and accessible introduction to key statistical concepts for beginners. The book focuses on building conceptual understanding of both descriptive and inferential statistics, using simple explanations, practical examples, and step-by-step guidance. It is designed to help in applying statistics to research and interpreting data effectively.
 
+For a deeper exploration of R packages used for summarizing data, I encourage you to visit the source by [@medcalf2018favourite]
+
 Additonally, watch this [**tutorial video**](https://www.youtube.com/watch?v=yoPGwvUzjgQ) on descriptive statistics in R to get you started.
 
 <br>
 
 # Key Measures in Summary Statistics
 
-Summary statistics condense complex data into key numbers, making interpretation easier. Central tendency shows where most values lie, dispersion measures the spread, and shape describes distribution patterns. Visual tools like histograms and boxplots help illustrate data, while frequency tables and cross-tabulations summarize counts and relationships between categories.
+Summary statistics simplify complex datasets into a few key numbers, making it easier to understand and communicate the main characteristics of the data.
+
+The primary measures include central tendency (mean, median, and mode), which describe where most values fall, and measures of dispersion, which capture the spread of the data. Measures of shape and distribution, such as skewness and kurtosis, provide insight into the overall pattern and extremities of the data.
+
+Visualization tools like histograms and boxplots help illustrate these patterns and highlight outliers or skewness. Handling missing data is also important, as different types of missingness (MCAR, MAR, MNAR) can bias results if not addressed through omission or imputation.
+
+Frequency tables and cross-tabulations organize and display how often values or categories occur, making it easier to spot patterns and summarize large datasets. Finally, summarizing entire data frames with these statistics offers a comprehensive overview of each variable, revealing trends and important features within the dataset.
 
 Furthermore, read [Modern Statistics with R](https://modernstatisticswithr.com/index.html) to understand essential tools and techniques in contemporary statistical data analysis, using the R programming language. The book features numerous examples and over 200 exercises with worked solutions. The online version is freely available and regularly updated, with downloadable datasets for hands-on learning
 
@@ -177,7 +185,7 @@ conflicts_prefer(flextable::separate_header, .quiet = TRUE)
 
 ```
 
-Next, load the Star Wars dataset available in the dylyr package. Read more on dylyr package here [@dplyr2023]
+Load the Star Wars dataset available in the dylyr package. Read more on dylyr package here [@dplyr2023]
 
 ```{r}
 library(dplyr)
@@ -284,6 +292,16 @@ Furthermore, this YouTube video [Return of the Star Wars dataset](https://www.yo
 
 <br>
 
+# Limitation
+
+Summary statistics provide a quick and accessible overview of a dataset, but they come with important limitations.
+
+As highlighted in Naked Statistics [@wheelan2013naked], these measures can be misapplied, misinterpreted, or even manipulated, leading to misleading conclusions. Summary statistics only describe what is present in the data—they do not explain underlying causes, cannot be generalized beyond the sample without further analysis, and offer no predictive power. By condensing complex data into single values, they may obscure important patterns or differences within the data. Additionally, summary statistics do not reveal relationships between variables and can mask issues like bias or subgroup variation.
+
+Therefore, while useful for initial exploration, summary statistics should always be complemented by more detailed analyses and visualizations to avoid oversimplification and misinterpretation [@wienclaw2009misuse].
+
+<br>
+
 # Conclusion
 
 Summary statistics are a vital first step in data analysis, offering a fast and accessible way to understand and interpret datasets. In R, calculating measures like the mean, median, and standard deviation is straightforward, whether for an entire dataset or for specific groups, thanks to built-in functions and powerful packages such as dplyr. Automating these summaries in R, as noted by [@lane2013descriptive], streamlines your workflow and helps organize your analysis.
@@ -308,7 +326,7 @@ For these reasons, summary statistics should be viewed as an essential starting 
 
 <br>
 
-# Affadative
+# Affidative
 
 I hereby affirm that this submitted paper was authored unaided and solely by me. Additionally, no other sources than those in the reference list were used. Parts of this paper, including tables and figures, that have been taken either verbatim or analogously from other works have in each case been properly cited with regard to their origin and authorship. This paper either in parts or in its entirety, be it in the same or similar form, has not been submitted to any other examination board and has not been published.
 
@@ -333,4 +351,4 @@ Checklist:
 -   [x] A concise description of the successful use of Git and GitHub, as detailed here: <https://github.com/hubchev/make_a_pull_request>.
 -   [x] The link to the presentation and the handout published on GitHub.
 
-Jelin George, 28May2025, Cologne
+Jelin George, 2025,May 28, Cologne

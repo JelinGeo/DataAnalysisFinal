@@ -364,7 +364,7 @@ users to efficiently condense complex data into interpretable values
 like the mean, median, mode, standard deviation, and quantiles. R offers
 a rich ecosystem of functions and packages, each with unique features.
 Base R provides basic summaries, while dplyr allows flexible, tidy group
-summaries. skimr and summarytools create detailed, readable overviews,
+summaries, skimr and summarytools create detailed, readable overviews,
 often with visual elements. Packages like psych, Hmisc, and pastecs
 offer more advanced descriptive statistics. For publication-ready
 tables, gtsummary and table1 are ideal. Additional tools such as
@@ -398,6 +398,10 @@ simple explanations, practical examples, and step-by-step guidance. It
 is designed to help in applying statistics to research and interpreting
 data effectively.
 
+For a deeper exploration of R packages used for summarizing data, I
+encourage you to visit the source by
+(\citeproc{ref-medcalf2018favourite}{Medcalf, 2018})
+
 Additonally, watch this
 \href{https://www.youtube.com/watch?v=yoPGwvUzjgQ}{\textbf{tutorial
 video}} on descriptive statistics in R to get you started.
@@ -405,12 +409,26 @@ video}} on descriptive statistics in R to get you started.
 \section{Key Measures in Summary
 Statistics}\label{key-measures-in-summary-statistics}
 
-Summary statistics condense complex data into key numbers, making
-interpretation easier. Central tendency shows where most values lie,
-dispersion measures the spread, and shape describes distribution
-patterns. Visual tools like histograms and boxplots help illustrate
-data, while frequency tables and cross-tabulations summarize counts and
-relationships between categories.
+Summary statistics simplify complex datasets into a few key numbers,
+making it easier to understand and communicate the main characteristics
+of the data.
+
+The primary measures include central tendency (mean, median, and mode),
+which describe where most values fall, and measures of dispersion, which
+capture the spread of the data. Measures of shape and distribution, such
+as skewness and kurtosis, provide insight into the overall pattern and
+extremities of the data.
+
+Visualization tools like histograms and boxplots help illustrate these
+patterns and highlight outliers or skewness. Handling missing data is
+also important, as different types of missingness (MCAR, MAR, MNAR) can
+bias results if not addressed through omission or imputation.
+
+Frequency tables and cross-tabulations organize and display how often
+values or categories occur, making it easier to spot patterns and
+summarize large datasets. Finally, summarizing entire data frames with
+these statistics offers a comprehensive overview of each variable,
+revealing trends and important features within the dataset.
 
 Furthermore, read
 \href{https://modernstatisticswithr.com/index.html}{Modern Statistics
@@ -441,9 +459,8 @@ needed later.
 \end{Highlighting}
 \end{Shaded}
 
-Next, load the Star Wars dataset available in the dylyr package. Read
-more on dylyr package here (\citeproc{ref-dplyr2023}{Wickham et al.,
-2023})
+Load the Star Wars dataset available in the dylyr package. Read more on
+dylyr package here (\citeproc{ref-dplyr2023}{Wickham et al., 2023})
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -765,6 +782,27 @@ Furthermore, this YouTube video
 Wars dataset} may be an interesting resource to help you better
 understand the dataset.
 
+\section{Limitation}\label{limitation}
+
+Summary statistics provide a quick and accessible overview of a dataset,
+but they come with important limitations.
+
+As highlighted in Naked Statistics
+(\citeproc{ref-wheelan2013naked}{Wheelan, 2013}), these measures can be
+misapplied, misinterpreted, or even manipulated, leading to misleading
+conclusions. Summary statistics only describe what is present in the
+data---they do not explain underlying causes, cannot be generalized
+beyond the sample without further analysis, and offer no predictive
+power. By condensing complex data into single values, they may obscure
+important patterns or differences within the data. Additionally, summary
+statistics do not reveal relationships between variables and can mask
+issues like bias or subgroup variation.
+
+Therefore, while useful for initial exploration, summary statistics
+should always be complemented by more detailed analyses and
+visualizations to avoid oversimplification and misinterpretation
+(\citeproc{ref-wienclaw2009misuse}{Wienclaw, 2009}).
+
 \section{Conclusion}\label{conclusion}
 
 Summary statistics are a vital first step in data analysis, offering a
@@ -806,6 +844,10 @@ Lane, D. M. (2013). Descriptive statistics. In \emph{Introduction to
 statistics}. Rice University.
 \url{https://onlinestatbook.com/2/introduction/descriptive.html}
 
+\bibitem[\citeproctext]{ref-medcalf2018favourite}
+Medcalf, A. (2018). \emph{My favourite r package for: Summarising data}.
+\url{https://dabblingwithdata.amedcalf.com/2018/01/02/my-favourite-r-package-for-summarising-data/}
+
 \bibitem[\citeproctext]{ref-oh2023making}
 Oh, D. M., \& Pyrczak, F. (2023). \emph{Making sense of statistics: A
 conceptual overview}. Routledge.
@@ -841,7 +883,7 @@ Starters Sociology}, 1--5.
 
 \newpage
 
-\section{Affadative}\label{affadative}
+\section{Affidative}\label{affidative}
 
 I hereby affirm that this submitted paper was authored unaided and
 solely by me. Additionally, no other sources than those in the reference
@@ -901,7 +943,7 @@ Checklist:
   The link to the presentation and the handout published on GitHub.
 \end{itemize}
 
-Jelin George, 28May2025, Cologne
+Jelin George, 2025,May 28, Cologne
 
 
 
