@@ -107,9 +107,10 @@ div.csl-indent {
   <ul>
   <li><a href="#key-measures-in-summary-statistics" id="toc-key-measures-in-summary-statistics" class="nav-link active" data-scroll-target="#key-measures-in-summary-statistics">Key Measures in Summary Statistics</a></li>
   <li><a href="#practical-application" id="toc-practical-application" class="nav-link" data-scroll-target="#practical-application">Practical Application</a></li>
+  <li><a href="#limitation" id="toc-limitation" class="nav-link" data-scroll-target="#limitation">Limitation</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  <li><a href="#affadative" id="toc-affadative" class="nav-link" data-scroll-target="#affadative">Affadative</a></li>
+  <li><a href="#affidative" id="toc-affidative" class="nav-link" data-scroll-target="#affidative">Affidative</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="handouttry.pdf"><i class="bi bi-file-pdf"></i>Typst (apaquarto)</a></li><li><a href="handouttry.pdf"><i class="bi bi-file-pdf"></i>PDF (apaquarto)</a></li></ul></div></nav>
 </div>
@@ -154,7 +155,7 @@ div.csl-indent {
 <section id="firstheader" class="level1 title unnumbered unlisted">
 <h1 class="title unnumbered unlisted">The Importance of Summary Statistics and Techniques for Creating Them in R</h1>
 <p>Summary statistics are concise numerical measures that capture the essential characteristics of a dataset. They serve as foundational tools in data analysis, providing concise descriptions of large datasets. They help analysts and researchers understand the central tendencies, variability, and overall distribution of data, making complex datasets interpretable and actionable. Without summary statistics, raw data would be overwhelming and difficult to interpret, making it challenging to draw meaningful conclusions or communicate findings effectively.</p>
-<p>In R, summary statistics are foundational for data analysis, enabling users to efficiently condense complex data into interpretable values like the mean, median, mode, standard deviation, and quantiles. R offers a rich ecosystem of functions and packages, each with unique features. Base R provides basic summaries, while dplyr allows flexible, tidy group summaries. skimr and summarytools create detailed, readable overviews, often with visual elements. Packages like psych, Hmisc, and pastecs offer more advanced descriptive statistics. For publication-ready tables, gtsummary and table1 are ideal. Additional tools such as janitor, rstatix, and doBy support quick tabulation and custom summaries, giving users a range of options for data analysis.</p>
+<p>In R, summary statistics are foundational for data analysis, enabling users to efficiently condense complex data into interpretable values like the mean, median, mode, standard deviation, and quantiles. R offers a rich ecosystem of functions and packages, each with unique features. Base R provides basic summaries, while dplyr allows flexible, tidy group summaries, skimr and summarytools create detailed, readable overviews, often with visual elements. Packages like psych, Hmisc, and pastecs offer more advanced descriptive statistics. For publication-ready tables, gtsummary and table1 are ideal. Additional tools such as janitor, rstatix, and doBy support quick tabulation and custom summaries, giving users a range of options for data analysis.</p>
 <p>As the first and often most critical step in any analytical workflow, summary statistics in R empower analysts and researchers to understand, compare, and communicate data-driven insights with clarity and precision.</p>
 <p>Summary statistics can be typically divided into:</p>
 <ol type="1">
@@ -162,12 +163,16 @@ div.csl-indent {
 <li><p><strong>Inferential statistics</strong>: Make predictions or inferences about a population based on a sample (not the focus here).</p></li>
 </ol>
 <p>I would like to highlight a book, <em>Making sense of statistics: A conceptual overview</em>, <span class="citation" data-cites="oh2023making">(<a href="#ref-oh2023making" role="doc-biblioref">Oh &amp; Pyrczak, 2023</a>)</span> which offers a clear and accessible introduction to key statistical concepts for beginners. The book focuses on building conceptual understanding of both descriptive and inferential statistics, using simple explanations, practical examples, and step-by-step guidance. It is designed to help in applying statistics to research and interpreting data effectively.</p>
+<p>For a deeper exploration of R packages used for summarizing data, I encourage you to visit the source by <span class="citation" data-cites="medcalf2018favourite">(<a href="#ref-medcalf2018favourite" role="doc-biblioref">Medcalf, 2018</a>)</span></p>
 <p>Additonally, watch this <a href="https://www.youtube.com/watch?v=yoPGwvUzjgQ"><strong>tutorial video</strong></a> on descriptive statistics in R to get you started.</p>
 <p><br></p>
 </section>
 <section id="key-measures-in-summary-statistics" class="level1">
 <h1>Key Measures in Summary Statistics</h1>
-<p>Summary statistics condense complex data into key numbers, making interpretation easier. Central tendency shows where most values lie, dispersion measures the spread, and shape describes distribution patterns. Visual tools like histograms and boxplots help illustrate data, while frequency tables and cross-tabulations summarize counts and relationships between categories.</p>
+<p>Summary statistics simplify complex datasets into a few key numbers, making it easier to understand and communicate the main characteristics of the data.</p>
+<p>The primary measures include central tendency (mean, median, and mode), which describe where most values fall, and measures of dispersion, which capture the spread of the data. Measures of shape and distribution, such as skewness and kurtosis, provide insight into the overall pattern and extremities of the data.</p>
+<p>Visualization tools like histograms and boxplots help illustrate these patterns and highlight outliers or skewness. Handling missing data is also important, as different types of missingness (MCAR, MAR, MNAR) can bias results if not addressed through omission or imputation.</p>
+<p>Frequency tables and cross-tabulations organize and display how often values or categories occur, making it easier to spot patterns and summarize large datasets. Finally, summarizing entire data frames with these statistics offers a comprehensive overview of each variable, revealing trends and important features within the dataset.</p>
 <p>Furthermore, read <a href="https://modernstatisticswithr.com/index.html">Modern Statistics with R</a> to understand essential tools and techniques in contemporary statistical data analysis, using the R programming language. The book features numerous examples and over 200 exercises with worked solutions. The online version is freely available and regularly updated, with downloadable datasets for hands-on learning</p>
 <p>The YouTube videos referenced here may assist in further understanding the code chunks presented above <span class="citation" data-cites="walker2023gtsummary">(<a href="#ref-walker2023gtsummary" role="doc-biblioref">Walker, 2023</a>)</span> <span class="citation" data-cites="dre2024gentle">(<a href="#ref-dre2024gentle" role="doc-biblioref">Videos, 2024</a>)</span> <span class="citation" data-cites="Schork2021">(<a href="#ref-Schork2021" role="doc-biblioref">Schork, 2021</a>)</span></p>
 <p><br></p>
@@ -180,7 +185,7 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Next, load the Star Wars dataset available in the dylyr package. Read more on dylyr package here <span class="citation" data-cites="dplyr2023">(<a href="#ref-dplyr2023" role="doc-biblioref">Wickham et al., 2023</a>)</span></p>
+<p>Load the Star Wars dataset available in the dylyr package. Read more on dylyr package here <span class="citation" data-cites="dplyr2023">(<a href="#ref-dplyr2023" role="doc-biblioref">Wickham et al., 2023</a>)</span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -492,6 +497,13 @@ div.csl-indent {
 <p>Furthermore, this YouTube video <a href="https://www.youtube.com/watch?v=4vSfbz9YMa0">Return of the Star Wars dataset</a> may be an interesting resource to help you better understand the dataset.</p>
 <p><br></p>
 </section>
+<section id="limitation" class="level1">
+<h1>Limitation</h1>
+<p>Summary statistics provide a quick and accessible overview of a dataset, but they come with important limitations.</p>
+<p>As highlighted in Naked Statistics <span class="citation" data-cites="wheelan2013naked">(<a href="#ref-wheelan2013naked" role="doc-biblioref">Wheelan, 2013</a>)</span>, these measures can be misapplied, misinterpreted, or even manipulated, leading to misleading conclusions. Summary statistics only describe what is present in the data—they do not explain underlying causes, cannot be generalized beyond the sample without further analysis, and offer no predictive power. By condensing complex data into single values, they may obscure important patterns or differences within the data. Additionally, summary statistics do not reveal relationships between variables and can mask issues like bias or subgroup variation.</p>
+<p>Therefore, while useful for initial exploration, summary statistics should always be complemented by more detailed analyses and visualizations to avoid oversimplification and misinterpretation <span class="citation" data-cites="wienclaw2009misuse">(<a href="#ref-wienclaw2009misuse" role="doc-biblioref">Wienclaw, 2009</a>)</span>.</p>
+<p><br></p>
+</section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
 <p>Summary statistics are a vital first step in data analysis, offering a fast and accessible way to understand and interpret datasets. In R, calculating measures like the mean, median, and standard deviation is straightforward, whether for an entire dataset or for specific groups, thanks to built-in functions and powerful packages such as dplyr. Automating these summaries in R, as noted by <span class="citation" data-cites="lane2013descriptive">(<a href="#ref-lane2013descriptive" role="doc-biblioref">Lane, 2013</a>)</span>, streamlines your workflow and helps organize your analysis.</p>
@@ -506,6 +518,9 @@ div.csl-indent {
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
 <div id="ref-lane2013descriptive" class="csl-entry" role="listitem">
 Lane, D. M. (2013). Descriptive statistics. In <em>Introduction to statistics</em>. Rice University. <a href="https://onlinestatbook.com/2/introduction/descriptive.html">https://onlinestatbook.com/2/introduction/descriptive.html</a>
+</div>
+<div id="ref-medcalf2018favourite" class="csl-entry" role="listitem">
+Medcalf, A. (2018). <em>My favourite r package for: Summarising data</em>. <a href="https://dabblingwithdata.amedcalf.com/2018/01/02/my-favourite-r-package-for-summarising-data/">https://dabblingwithdata.amedcalf.com/2018/01/02/my-favourite-r-package-for-summarising-data/</a>
 </div>
 <div id="ref-oh2023making" class="csl-entry" role="listitem">
 Oh, D. M., &amp; Pyrczak, F. (2023). <em>Making sense of statistics: A conceptual overview</em>. Routledge.
@@ -532,8 +547,8 @@ Wienclaw, R. A. (2009). The misuse of statistics. <em>The Research Starters Soci
 <div style="page-break-after: always;"></div>
 <p><br></p>
 </section>
-<section id="affadative" class="level1">
-<h1>Affadative</h1>
+<section id="affidative" class="level1">
+<h1>Affidative</h1>
 <p>I hereby affirm that this submitted paper was authored unaided and solely by me. Additionally, no other sources than those in the reference list were used. Parts of this paper, including tables and figures, that have been taken either verbatim or analogously from other works have in each case been properly cited with regard to their origin and authorship. This paper either in parts or in its entirety, be it in the same or similar form, has not been submitted to any other examination board and has not been published.</p>
 <p>I acknowledge that the university may use plagiarism detection software to check my thesis. I agree to cooperate with any investigation of suspected plagiarism and to provide any additional information or evidence requested by the university.</p>
 <p>Checklist:</p>
@@ -555,7 +570,7 @@ Wienclaw, R. A. (2009). The misuse of statistics. <em>The Research Starters Soci
 <li><label><input type="checkbox" checked="">A concise description of the successful use of Git and GitHub, as detailed here: <a href="https://github.com/hubchev/make_a_pull_request" class="uri">https://github.com/hubchev/make_a_pull_request</a>.</label></li>
 <li><label><input type="checkbox" checked="">The link to the presentation and the handout published on GitHub.</label></li>
 </ul>
-<p>Jelin George, 28May2025, Cologne</p>
+<p>Jelin George, 2025,May 28, Cologne</p>
 </section>
 
 </main>
